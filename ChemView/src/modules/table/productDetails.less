@@ -1,0 +1,115 @@
+.newTime{
+    font-size:14px;
+     font-family:Lato-Light;
+     color:rgba(117,117,117,1);
+     line-height:22px;
+     margin:33px 0 29px 24px;
+     display: inline-block;
+ }
+ .dropdownBox{
+     border-radius: 6px;
+     background: #fff;
+     box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+     position:absolute;
+     left:-40px;  max-height: 160px;
+     overflow: hidden;
+     overflow-y: auto;
+     a{color:#333;width:100%; display: inline-block;}
+     a:link,a:visited,a:hover,a:active{text-decoration:none;}
+     .active a{color:#fff; background:#4A88FF;}
+     &::-webkit-scrollbar {
+       width: 6px;background:#eee;
+     }
+     &::-webkit-scrollbar-thumb {
+       background-color:rgba(187,192,212,0.40);    border-radius: 10px;
+     }
+     ul{
+       width:80px;text-align:center;margin-bottom:0;
+       li{
+         height:32px; line-height:32px;font-size:14px;font-family: PingFangSC-Light;
+         &:hover a{
+           color:#fff; background:#4A88FF;
+         }
+         &:not(:last-child){margin:1px 0;}
+       }
+     }
+   }
+   .red{color:rgb(247, 30, 30);}
+   .tabItem{
+     p{display: inline-block; width:180px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;margin:0;}
+ }
+ .topLabel{
+     font-family: PingFangSC-Light;
+     font-size: 12px; height: 22px;
+     width:24px; padding:2px 4px;
+     margin-right:8px;
+     color: #FFFFFF;background: #4A88FF;
+     border-radius: 3px;
+     line-height: 22px;
+ }
+ ._up{
+     font-size:14px;
+     font-family:Lato-Light;
+     color:rgba(255,82,93,1);
+     line-height:22px;
+ }
+ ._down{
+     font-size:14px;
+     font-family:Lato-Light;
+     color:rgba(49,204,150,1);
+     line-height:22px;
+ 
+ }
+ .banner{
+   height:98px;
+   background:rgba(255,255,255,1);
+   box-shadow:0px 8px 16px 0px rgba(5,31,86,0.04);
+   border-radius:12px;
+   margin-bottom: 20px;
+ }
+ .nav{
+   display: inline-block;
+   width:280px;
+   height:28px;
+   font-size:20px;
+   font-family:PingFangSC-Light;
+   color:rgba(66,66,66,1);
+   line-height:28px;
+   margin-left: 24px;
+   margin-top:20px;
+ }
+ .CardBox{
+   background:rgba(255,255,255,1);
+   box-shadow:0px 8px 16px 0px rgba(5,31,86,0.04);
+   border-radius:12px;
+   min-height: 500px;
+   }
+.extraTime{
+    display: inline-flex;
+    margin-right: 16px;
+     li{
+       width:44px;
+       height:22px;
+       float: left;
+       margin-right:2px;
+       text-align: center;
+       font-size:14px;
+       font-family:PingFangSC-Light;
+       margin-right: 9px;
+       :global(.ant-btn){
+         border:0 !important;
+         width:44px;
+         height:22px;
+         padding: 0 !important;
+         border-radius:11px;
+       }
+     }
+   }
+   .active{
+    background: #4A88FF !important;
+    color: #fff !important;
+  }
+  .alert{
+    margin-top:158px;
+    margin-left: 34%;
+  }
