@@ -1,0 +1,39 @@
+.logo {
+  width: 120px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+.fixedBox{
+  position: absolute;
+  :global(.ant-affix){padding-left:60px;max-width: 200px;}
+}
+.fixedBtn{
+  button{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    width:56px; height: 56px; border-radius: 28px;margin-bottom:20px;font-size: 24px;
+    span{display: none;}
+    &:focus{color:inherit;border-color:#d9d9d9;}
+  }
+  &:hover{
+    button{
+      width:136px;background:#007BFF;
+      color:#fff;
+      span{display: inline;font-size:18px;font-family:PingFangSC-Light;}
+    }
+  }
+}
+@keyframes move{
+  0%{width:56px;}
+  50%{width:86px;}
+  100%{width:136px;}
+}
+:global(button){outline: none !important;}

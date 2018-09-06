@@ -1,0 +1,53 @@
+.talentCard {
+    height: 298px; padding-top:20px;
+    max-width: 368px;box-shadow: 0 0 4px 0 rgba(0,0,0,0.08);
+    background: #fff; overflow: hidden;
+    text-align: center;border-radius:5px;
+    cursor: pointer;
+    &:hover{box-shadow: 40px 40px 80px 0 rgba(0, 0, 0, 0.12);z-index: 2;}
+    :global(.ant-card-cover){
+        width:84px; margin:0 auto;height: 82px;
+        line-height: 82px;
+        img{max-width: 100%;}
+    }
+}
+
+:global(.ant-spin-container){
+    .talentItem{
+        margin-bottom: 40px;
+    }
+}
+.btn{
+    border-radius: 100px;background:transparent;border:none; color:#637280;
+    margin-right:10px;height: 40px; line-height: 40px;font-size:16px;
+    width: 115px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+    &:hover,&:focus{background:  #328DFF;color:#fff;}
+}
+.btnQ{
+    border-radius: 100px;background:transparent;border:none; color:#637280;
+    width: 170px;
+    margin-right:10px;height: 40px; line-height: 40px;font-size:16px;
+    &:hover,&:focus{background:  #328DFF;color:#fff;}
+}
+
+.talenCla{
+    margin-top: 40px;
+}
+.maxHeight{
+    max-height: 150px;
+    overflow-y:auto;
+}
+
+.activeBtn{background:  #328DFF;color:#fff;}
+.openAll {
+    color: #328DFF;
+    cursor: pointer;
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 10px;
+}

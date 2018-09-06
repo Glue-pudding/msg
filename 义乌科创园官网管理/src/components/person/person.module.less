@@ -1,0 +1,55 @@
+.topPanel{
+ background:#fff; margin-top:20px;
+ padding-left:10px;padding-bottom:25px;
+ h3{
+     text-indent: 1em;
+     font-family: Lato-Light;
+     font-size: 24px;
+     color: #323C47;
+     line-height: 34px;
+ }
+}
+.topLabel{
+    font-family: PingFangSC-Light;
+    font-size: 12px; height: 22px;
+    width:24px; padding:2px 4px;
+    margin-right:8px;
+    color: #FFFFFF;background: #18B9D5;
+    border-radius: 3px;
+    line-height: 22px;
+}
+.personBtn{
+    border-radius: 100px;font-size:14px;
+}
+.personCard{
+    :global(.ant-card-head){
+        border:none;
+    }
+}
+.tabItem{
+    p{display: inline-block; width:400px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;margin:0;}
+}
+.red{color:rgb(247, 30, 30);}
+.actText{
+    a{margin-right:8px;}
+}
+.dropbox {
+    :global(.ant-upload){
+        width:20%;background:#fff;
+        border-radius: 5px; padding:15px 0;
+        :global(img){width:160px;}
+    }
+    :global(.ant-upload-drag){border: 1px solid #DCE0E6;}   
+    :global(.ant-upload-list-picture-card){display:block;overflow: hidden;} 
+    :global(.ant-upload){
+        :global(.anticon){color: #D8DFE5 !important;font-size: 40px;}
+    }
+}
+.editPanel{
+    background:#fff;
+    padding:20px 0;
+    :global(input[type='text']){text-indent: 0.8em;}
+    :global(.ant-form-item-label){
+        label{font-size:14px;}
+    }
+}

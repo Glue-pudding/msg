@@ -1,0 +1,91 @@
+<div class="container_cao" ng-controller="companyEditCon">
+              <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <a class="navbar-brand  pl" href="../index.html">
+                    <img class="img-responsive" src="../images/hand_logo.png" alt="">
+                </a>
+                <a class="navbar-toggle"  data-toggle="collapse" href="#menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+            </div>
+            <div id="menu" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#company">数据银行中心</a></li>
+                    <li><a href="" ng-click="loginOut()">退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+		<h2>数据银行
+        <button class="btn btn-primary active append">+添加数据</button>
+        </h2>
+		<div class="_left">
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation" class="commodity text-center"><a href="#data-manage">数据商品管理</a></li>
+                <li role="presentation" class="active text-center info"><a href="#">企业信息管理</a></li>
+			</ul>
+		</div>
+		<div class="right_C">
+			<h3>基本信息</h3>
+            <div class="formData">
+            	<table class="table">
+            		<tr>
+            			<td class="text-right">公司名：</td>
+            			<td>
+            				{{DataBankName}}
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="text-right">营业执照号：</td>
+            			<td>
+            				{{data.BusinessLicenseID}}
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="text-right">注册地址：</td>
+            			<td>
+            				{{data.BankAddress}}
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="text-right">电话：</td>
+            			{{data.TelNumber}}
+            		</tr>
+            	</table>
+            </div>
+            <h3>企业联系人</h3>
+            <div class="formData">
+            	<table class="table sb">
+            		<tr>
+            			<td class="text-right">姓名：</td>
+            			<td>
+            				{{data.ContactName}}
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="text-right">电话：</td>
+            			<td>
+                  			{{data.ContactTelNumber}}
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="text-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱：</td>
+            			<td>
+            				{{data.ContactEmail}}
+            			</td>
+            		</tr>
+            		<tr>
+            			<td></td>
+            			<td>
+            				<button type="submit" class="btn btn-primary" ng-click="entd();">编辑</button>
+            			</td>
+            		</tr>
+            	</table>
+            </div>
+		</div>
+	</div>

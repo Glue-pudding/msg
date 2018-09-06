@@ -1,0 +1,224 @@
+
+	<div class="container_cao" ng-controller="dataBankCon">
+       <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#company">{{DataBankName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+		<h2>数据银行
+        <button class="btn active append"><a href="#first-steps" class="dataM">+添加数据</a></button>
+        </h2>
+		<div class="_left">
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation" class="commodity text-center active"><a href="#data-manage">数据商品管理</a></li>
+                <li role="presentation" class=" text-center info"><a href="#company">企业信息管理</a></li>
+			</ul>
+		</div>
+		<div class="right_B" ng-show="basicInformation">
+			<ul>
+				<li>数据银行</li>
+				<li>></li>
+				<li>数据商品管理</li>
+				<li>></li>
+				<li>数据信息编辑</li>
+				<li>></li>
+				<li>{{data.data.DataSetName}}</li>
+			</ul>
+			<div class="text-center">
+				<nav aria-label="Page navigation">
+				  <ul class="pagination">
+                      <li class="active"><a ng-click="basicIn()">基本信息</a></li>
+                      <li><a ng-click="dataDes()">数据描述</a></li>
+                      <li><a ng-click="priceIn()">价格设置</a></li>
+                    </ul>
+				</nav>
+				<div class="databankM text-left">
+					<table class="table dataManageB">
+						<tr>
+							<td class="text-left">名称：</td>
+							<td class="text-left">{{data.data.DataSetName}}</td>
+						</tr>
+            <tr>
+              <td class="flod"><span class="dataG">数据分类：</span></td>
+              <td colspan="2">
+                <select class="form-control formWidth ToForm" ng-model="ihg" ng-options="ihg.text for ihg in g" required>
+                  <option value="">{{data.data.TopApplicationType}}</option>
+                </select>
+                <select class="form-control formWidth" ng-model="nat" ng-options="nat.text for nat in ihg.nat" required>
+                  <option value="">{{data.data.ApplicationType}}</option>
+                </select>
+              </td>
+            </tr>
+						<tr>
+							<td class="flod"><span class="dataG">数据规模：</span></td>
+							<td class="GM">
+								<input type="text" id="inputHelpBlock" class="form-control" aria-describedby="helpBlock" ng-model="datasize">
+								<select class="form-control companyNum" required>
+                           <option value="" selected="selected">B</option>
+                           <option value="">KB</option>
+                           <option value="">MB</option>
+                           <option value="">GB</option>
+                           <option value="">TB</option>
+                        </select>
+							</td>
+						</tr>
+						<tr>
+						<td style="vertical-align: top">商品题图：</td>
+              <td class="text-left suggest">
+                <input id="file_upload" type="file" name="file" class="fileDataBank" nv-file-select uploader="uploader"/>
+                    <div class="image_container">
+                    <img id="preview" width="100" height="100" class="dataImg" ng-src="{{imgSrc}}">
+                    </div>
+                <span>
+                点击上传图片<br />
+                建议图片大小：500kb,<br />
+                仅支持png,jpg格式,<br />
+                请使用企业相关icon,而非公司logo
+                  </span>
+              </td>
+            </tr>
+						<tr>
+							<td class="text-left">简述：</td>
+							<td>
+								<textarea class="form-control" rows="3" ng-model="data.data.AbstractInfo" required value=""></textarea>
+							</td>
+						</tr>
+					</table>
+					
+				</div>
+			<div class="text-center dataBankF" style="margin-bottom: 20px">
+               <a href="#data-manage" class="return"><button type="submit" class="btn btn-default" ng-click="return()">返回</button></a>
+               <a><button type="submit" class="btn btn-primary" ng-click="nextStepB()">保存</button></a>
+            </div>
+		</div>
+	</div>
+	<div class="bbbbbb right_F" ng-show="priceInstall">
+              <ul>
+                <li>数据银行</li>
+                <li>></li>
+                <li>数据商品管理</li>
+                <li>></li>
+                <li>数据信息编辑</li>
+                <li>></li>
+                <li>{{data.data.DataSetName}}</li>
+              </ul>
+              <!--第四步开始-->
+              <div class="div4" id="div4">
+                  <nav aria-label="Page navigation" class="text-center">
+                    <ul class="pagination">
+                      <li><a ng-click="basicIn()">基本信息</a></li>
+                      <li><a ng-click="dataDes()">数据描述</a></li>
+                      <li class="active"><a ng-click="priceIn()">价格设置</a></li>
+                    </ul>
+                  </nav>
+                  <form name="myForm" class="form-inline" novalidate>
+                    <div class="price">
+                      <form class="form-inline inline">
+                        
+                            <div class="form-group">
+                              <label for="exampleInputName2">价格:</label>
+                              <input type="text" class="form-control" id="exampleInputName2" ng-model="Price" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" required min="1" />
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div class="form-group">
+                              <label for="exampleInputEmail2">单位：</label>
+                              <select class="form-control" ng-model="Unit" required>
+                                    <option value="week">周</option>
+                                    <option value="month">月</option>
+                                    <option value="year">年</option>
+                              </select>
+                            </div>
+                          
+                        </form><br>
+                        <form class="form-inline inline" ng-repeat="item in mydata">
+                            <div class="form-group">
+                              <label for="exampleInputName2">价格：</label>
+                              <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入价格" ng-model="$parent.Pricedata[$index]" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" min="1" onBlur="this.value=parseInt(this.value)"/>
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div class="form-group">
+                              <label for="exampleInputEmail2">单位：</label>
+                              <select class="form-control" ng-model="$parent.Unitdata[$index]">
+                                    <option value="week">周</option>
+                                    <option value="month">月</option>
+                                    <option value="year">年</option>
+                              </select>
+                            </div>
+                            <button type="submit" class="btn btn-default" ng-click="delData($parent.Pricedata[$index],$parent.Unitdata[$index])">删除</button>
+                        </form><br>
+                        <button class="btn btn-default" ng-click="addData()">+添加价格</button>
+                    </div>
+                    <div class="text-center" style="margin-bottom: 20px">
+                      <a href="#data-manage"><button class="btn btn-default">返回</button></a>
+                      <button class="btn btn-primary" ng-click="nextStepP()" ng-disabled="myForm.$invalid">保存</button>
+                    </div>
+                  </form>
+              </div>
+              <!--第四步结束-->
+              
+  </div>
+  <div class="bbbbbb right_F" ng-show="dataDescribe">
+    <ul>
+        <li>数据银行</li>
+        <li>></li>
+        <li>数据商品管理</li>
+        <li>></li>
+        <li>数据信息编辑</li>
+        <li>></li>
+        <li>{{data.data.DataSetName}}</li>
+      </ul>
+              <!--第三步开始-->
+              <div class="div3 text-center" id="div3">
+                  <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                      <li><a ng-click="basicIn()">基本信息</a></li>
+                      <li class="active"><a ng-click="dataDes()">数据描述</a></li>
+                      <li><a ng-click="priceIn()">价格设置</a></li>
+                    </ul>
+                  </nav>
+                  <div class="text1">
+                      <textarea class="editor1" ng-model="Description">{{Descri.Description}}</textarea>
+                      <script>
+                        var editor1 = new Simditor({
+                          textarea: $('.editor1')
+                        });
+                      </script>
+                  </div> 
+                  <div class="text-center" style="margin-bottom: 20px">
+                  	<a href="#data-manage"><button type="submit" class="btn btn-default">返回</button></a>
+                    <a><button type="submit" class="btn btn-primary" ng-click="nextStepD();">保存</button></a>       
+                   </div>
+              </div>
+              <!--第三步结束-->   
+  </div>
+</div>
+<script type="text/javascript">
+  $(function() {
+      $("#file_upload").change(function() {
+      var $file = $(this);
+      var fileObj = $file[0];
+      var windowURL = window.URL || window.webkitURL;
+      var dataURL;
+      var $img = $("#preview");
+       
+      if(fileObj && fileObj.files && fileObj.files[0]){
+      dataURL = windowURL.createObjectURL(fileObj.files[0]);
+      $img.attr('src',dataURL);
+      }else{
+      dataURL = $file.val();
+      var imgObj = document.getElementById("preview");
+      imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+      imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+        
+         }
+        });
+      });
+</script>

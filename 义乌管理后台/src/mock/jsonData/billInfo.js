@@ -1,0 +1,58 @@
+export default {
+    "code": 10000, 
+    "data": {
+        baseInfo:{
+            'billId|+3':8097,
+            'startTime':'2018-02-03',
+            'endTime':'2018-04-03',
+            'statusTitle':'状态标题',
+            'totalCharge':20
+        },
+        water:{
+            title:'水费',
+            charge:'2元/度',
+            'degree|+2':90,
+            'totalCharge|+92':300,
+            'list|2-9':[
+                {
+                    'meterCode|+2':854,
+                    'lastReadTime':'2018-02-08',
+                    'lastReading|+4':3234,
+                    'thisReadTime':'2018-03-02',
+                    'thisRead|+3':3244,
+                    'degree|+2':23,
+                    'payFee|+10':234,
+                    'location|1':['树前','松下','井上'],
+                    'metertype|1':[0,1]
+                }
+            ]
+        },
+        electric:{
+            title:'电费',
+            charge:'2元/度',
+            'degree|+2':90,
+            'totalCharge|+102':300,
+            'list|2-9':[
+                {
+                    'meterCode|+3':568,
+                    'lastReadTime':'2018-02-08',
+                    'lastReading|+4':3234,
+                    'thisReadTime':'2018-03-02',
+                    'thisRead|+3':3244,
+                    'degree|+2':23,
+                    'payFee|+10':234,
+                    'location|1':['树前','松下','井上'],
+                    'metertype|1':[0,1]
+                }
+            ]
+        },
+        otherFee:{
+            name:'@name',
+            'totalCharge|+20':98,
+            'startTime':'2018-02-09',
+            'endTime':'2018-03-04',
+            'remark':'desc'
+        }
+    }, 
+    "message": "成功"
+}

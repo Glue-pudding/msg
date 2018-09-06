@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">  
+    <title>首页-确权平台</title>
+    <meta charset="UTF-8">
+    <link rel="Shortcut Icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style/simditor.css">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/personCenter.css">
+    <link rel="stylesheet" href="style/dataBank.css">
+</head>
+<!-- style="border:1px solid red;"-->
+<body>
+    <div class="containerBox" ng-controller="indexCtr">
+        <div class="header" ng-show='index'>
+            <div class="container">
+                <div class="row">
+                    <a class="pull-left" href="#main">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <!--<p style="border:1px solid red;">-->
+                            <!--<a href="views/login.html">已有账号，前往登录</a>-->
+                            <!--<a href="views/register.html">欢迎注册</a>-->
+                        <!--</p>-->
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#user-message">{{UserName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="containerBox-outer" ng-view></div>
+    </div>
+
+</body>
+<script src="scripts/lib/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/lib/jquery-form.js"></script>
+<script src="scripts/lib/angular.min.js"></script>
+<script src="scripts/lib/angular-route.min.js"></script>
+<script src="scripts/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/lib/module.min.js"></script>
+<script type="text/javascript" src="scripts/lib/hotkeys.min.js"></script>
+<script type="text/javascript" src="scripts/lib/uploader.min.js"></script>
+<script type="text/javascript" src="scripts/lib/simditor.min.js"></script>        
+<script src="scripts/http-config.js"></script>
+<script src="scripts/route-config.js"></script>
+<script src="scripts/common.js"></script>
+<script src="scripts/controller.js"></script>
+<script src="scripts/directive.js"></script>
+<script type="text/javascript" src="scripts/lib/angular-file-upload.js"></script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+</html>

@@ -1,0 +1,63 @@
+<div class="container_cao" ng-controller="third3Con">
+   <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#company">{{DataBankName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+  <h2>数据银行
+      <button class="btn btn-default append">+添加数据</button>
+  </h2>
+  
+  <div class="_left">
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" class="commodity text-center"><a href="#data-manage">数据商品管理</a></li>
+              <li role="presentation" class=" text-center info"><a href="#">企业信息管理</a></li>
+    </ul>
+  </div>
+  <div class="bbbbbb right_F">
+    <ul>
+        <li>数据银行</li>
+        <li>></li>
+        <li>数据商品管理</li>
+        <li>></li>
+        <li>数据信息编辑</li>
+        <li>></li>
+        <li>{{data.data.DataSetName}}</li>
+      </ul>
+              <!--第三步开始-->
+              <div class="div3 text-center" id="div3">
+                  <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                      <li><a href="#data-bank">基本信息</a></li>
+                      <li class="active"><a href="
+                        #third-steps">数据描述</a></li>
+                      <li><a href="#fourth4-steps">价格设置</a></li>
+                    </ul>
+                  </nav>
+                  <div class="text1">
+                      <textarea class="editor" ng-model="Description"></textarea>
+                      <script>
+                        var editor = new Simditor({
+                          textarea: $('.editor')
+                          //optional options
+                        });
+                      </script>
+                  </div> 
+                  <div class="text-center">
+                         <a><button type="submit" class="btn btn-primary" ng-click="nextStep();">下一步</button></a>
+                         <a href="#data-bank"><button type="submit" class="btn btn-default">返回</button></a>
+                      </div>
+              </div>
+              <!--第三步结束-->   
+  </div>
+</div>

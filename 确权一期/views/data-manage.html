@@ -1,0 +1,105 @@
+<div class="container_cao" ng-controller="dataManageCon">
+<div class="navbar navbar-inverse navbar-fixed-top xs-type">
+    <div class="container">
+            <div class="row">
+                <a class="pull-left">
+                    <img src="images/hand_logo.png" alt="">
+                </a>
+                <div class="logoBar-right pull-right">
+                    <p>
+                        <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#company">{{DataBankName}}</a>
+                        <a href="" ng-click="loginOut()">退出</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+</div>
+<h2>数据银行
+<button class="btn btn-primary active append"><a href="#first-steps" class="dataM">+添加数据</a></button>
+</h2>
+<div class="_left">
+	<ul class="nav nav-pills nav-stacked">
+		<li role="presentation" class="commodity text-center active"><a href="#data-manage">数据商品管理</a></li>
+        <li role="presentation" class=" text-center info"><a href="#company">企业信息管理</a></li>
+	</ul>
+</div>
+<div class="right_M">
+	<div class="dataState">
+		<form class="form-inline DMinline">
+		  <div class="form-group">
+		    <label>数据名称:</label>
+		   <input type="text" class="form-control input-sm" id="exampleInputName2" placeholder="请输入数据名称" ng-model="dataName">
+		  </div>&nbsp;&nbsp;&nbsp;
+		  <div class="form-group">
+            <label>数据分类:</label>
+            <select class="form-control input-sm" ng-model="fLevelBefore">
+            <option value="">--请选择--</option>
+            <option value="金融数据">金融数据</option>
+            <option value="政务数据">政务数据</option>
+            <option value="交通数据">交通数据</option>
+            <option value="医疗卫生">医疗卫生</option>
+            <option value="人工智能">人工智能</option>
+            <option value="电商营销">电商营销</option>
+            <option value="服务数据">服务数据</option>
+          </select>
+		  </div>&nbsp;&nbsp;&nbsp;
+		  <div class="form-group">
+		    <label>商品状态:</label>
+	            <select class="form-control input-sm" ng-click="handle(fLevelB)">
+	            <option value="">--请选择--</option>
+	            <option value="Pending">待确认</option>
+	            <option value="Normal">正常</option>
+	            <option value="Abnormal">异常</option>
+	            <option value="Expired">已过期</option>
+	            <option value="Stopped">被终止</option>
+	            <option value="Unpaid">未支付</option>
+	          </select>
+		  </div>
+		  <button class="btn btn-primary btn-sm search" ng-click="search()">搜索</button>
+		</form>
+		<table class="table">
+			<tr class="active">
+				<td class="col-md-3">数据名称</td>
+				<td class="col-md-2">分类</td>
+				<td class="col-md-2">售价</td>
+				<td class="col-md-3">规模(单位:字节)</td>
+				<td class="col-md-2">操作</td>
+			</tr>
+		    <tr ng-repeat="i in items | filter:dataName | filter:fLevelBefore">
+				<td class="col-md-3"><input type="checkbox" ng-model="i.checked" ng-change="selectOne()">{{i.DataSetName
+}}</td>
+				<td class="col-md-2">{{i.TopApplicationType}}</td>
+				<td class="col-md-2"><span ng-if="dunit(i.Price[0].Unit)">{{i.Price[0].Price}}元/{{unit}}</span></td>
+				<td class="col-md-3" ng-if="Dsize(i.Size)">{{orderSize}}</td>
+				<td class="col-md-2"><button class="btn btn-xs btn-default" ng-click="del($index,i.DataSetName)">编辑</button></td>
+			</tr>
+			<tr class="active" ng-show="pageshow">
+				<td><input id="flag" type="checkbox" ng-model="select_all" ng-change="selectAll()">全选</td>
+				<td colspan="5" style="text-align: right"><button class="btn btn-default btn-xs">数据上架</button>
+                    <button class="btn btn-default btn-xs">数据下架</button>
+				</td>
+			</tr>
+		</table>
+		<div id="noMessage" style="text-align: center;margin:20px 0;font-size: 15px"></div>
+		<div id="page" ng-show="pageShow">
+	        <nav>
+				<ul class="pagination">
+				<li>
+				<a ng-click="Previous()">
+				<span>上一页</span>
+				</a>
+				</li>
+				<li ng-repeat="page in pageList" ng-class="{active: isActivePage(page)}" >
+				<a ng-click="selectPage(page)" >{{ page }}</a>
+				</li>
+				<li>
+				<a ng-click="Next()">
+				<span>下一页</span>
+				</a>
+				</li>
+				</ul>
+			</nav>
+    </div>
+	</div>
+</div>
+</div>

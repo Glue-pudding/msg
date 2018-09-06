@@ -1,0 +1,16 @@
+.connect-infor .infor-title{font-size:16px;
+    font-family:PingFangSC-Light;
+    color:rgba(38,50,56,1);
+    line-height:24px;}
+.connect-infor .subtitle{font-size:16px;
+    font-family:PingFangSC-Regular;
+    color:rgba(141,151,173,1);
+    line-height:24px;}
+.connect-infor .container h3{font-size:30px;
+    font-family:PingFangSC-Light; display: inline-block;
+    color:rgba(38,50,56,1);
+    line-height:38px;}
+.infor-box{ overflow: hidden;}
+.inforIconBox{
+    width:60px; height:60px;margin-top:0.5rem;
+}

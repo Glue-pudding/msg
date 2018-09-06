@@ -1,0 +1,37 @@
+<div class="person_container" ng-controller="resolveConfusion">
+  <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left" href="#main">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#company">{{UserName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+      <p class="person_p">个人中心</p>
+
+      <!-- 左边栏 -->
+      <div class="person_left">
+        <div class="list-group">
+          <a href="#user-center" class="list-group-item "><img src="images/ico01_nor.png"><span>数据资产总览</span></a>
+          <a href="#data-power" class="list-group-item " ng-click="powerData()"><img src="images/ico02_nor.png"><span>数据资产管理</span></a>
+          <a href="#data-order" class="list-group-item " ng-click="messageData()"><img src="images/ico03_nor.png"><span>数据订单管理</span></a>
+          <a href="#resolve-confusion" class="list-group-item active"><img src="images/ico04_over.png"><span>数据混淆管理</span></a>
+          <a href="#user-message" class="list-group-item " ng-click="personData()"><img src="images/ico05_nor.png"><span>个人信息设置</span></a>
+        </div>
+      </div>
+
+      <!-- 右边栏 -->
+    	<div class="person_right">
+        <div class="person_confusion">
+        <div>解析混淆有效期：{{startDate}}　至　<input type="date" value="2017-09-24"/></div>
+        <a href="javascript:;" class="btn btn-primary bt1" role="button" ng-click="ApplyResolve()">申请解混淆</a>
+      </div>
+    </div>
+  </div>

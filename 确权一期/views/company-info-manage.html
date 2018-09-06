@@ -1,0 +1,111 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+      <link rel="stylesheet" type="text/css" href="css/data-bank.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	
+</head>
+<body> -->
+	<div class="container_cao" ng-controller="companyCon">
+              <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#company">{{DataBankName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+		<h2>数据银行
+        <button class="btn btn-primary active append"><a href="#first-steps" class="dataM">+添加数据</a></button>
+        </h2>
+		<div class="_left">
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation" class="commodity text-center"><a href="#data-manage">数据商品管理</a></li>
+                <li role="presentation" class="active text-center info"><a href="#">企业信息管理</a></li>
+			</ul>
+		</div>
+		<div class="right_C">
+			<h3>基本信息</h3>
+            <div class="formData">
+            	<table class="table">
+            		<tr>
+            			<td class="text-right">公司名：</td>
+            			<td>
+            				{{DataBankName}}
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="text-right">营业执照号：</td>
+            			<td>
+            				{{data.BusinessLicenseID}}
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="text-right">注册地址：</td>
+            			<td>
+            				{{data.BankAddress}}
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="text-right">电话：</td>
+            			<td>{{data.TelNumber}}</td>
+            		</tr>
+            	</table>
+            </div>
+            <h3>企业联系人</h3>
+            <div class="formData">
+            	<table class="table sb">
+            		<tr>
+            			<td class="text-right">姓名：</td>
+            			<td>
+            				{{data.ContactName}}
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="text-right">电话：</td>
+            			<td>
+            				{{data.ContactTelNumber}}
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="text-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱：</td>
+            			<td>
+            				{{data.ContactEmail}}
+            			</td>
+            		</tr>
+            	</table>
+            </div>
+		</div>
+	</div>
+<!-- </body>
+<script type="text/javascript">
+      angular.module('App',[]).controller('registerCon',['$scope','$http',function loginAjax($scope,$http){
+        $scope.register = function () {
+            alert("haha");
+            $http({
+                method:"GET",
+                url:"http://localhost:8080/api/databank/getDataBankInfo?DataBankName=xiaohuang&SessionId=98c44e07fa56419b86d9d91448756c57",
+                data:{"DataBankName":$scope.DataBankName,"BusinessLicenseID":$scope.BusinessLicenseID,"BankAddress":$scope.BankAddress,'TelNumber':$scope.TelNumber,'ContactName':$scope.ContactName,"ContactTelNumber":$scope.ContactTelNumber,'ContactEmail':$scope.ContactEmail}
+            }).
+            success(function(data,status){
+                console.log(data);
+            }).
+            error(function(data,status){
+                alert("输入错误");
+            })
+        }
+    }])
+</script>
+</html> -->

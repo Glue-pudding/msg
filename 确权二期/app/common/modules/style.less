@@ -1,0 +1,67 @@
+div.loginBG{
+    height: 100%;
+    min-height: 860px;
+    background-size: 100%;
+    background-image: url('../../../static/images/bg1920.png')
+}
+div.loginBox{
+    color:#fff;
+    padding-top:220px;
+}
+div.loginLeft{
+    padding-left: 136px;padding-top:80px;
+    h2{
+        font-family: PingFangSC-Semibold;
+        font-size: 36px;margin-bottom: 50px;
+        color: #FFFFFF;
+        letter-spacing: 0;
+        line-height: 36px;
+    }
+    p{
+        font-family: PingFangSC-Light;
+        font-size: 20px;
+        color: rgba(255,255,255,0.8);
+        letter-spacing: 0;
+        line-height: 28px;
+    }
+}
+@media screen and (max-width:1440px){
+  div.loginBG{background-image: url('../../../static/images/bg1440.png')}
+  div.loginLeft{padding-left: 86px;}
+  :global(.ant-layout-header){
+    .matchStyle{padding:0 86px;}
+  }
+}
+div.loginRight{
+    max-width: 448px;text-align: center;
+    height: 456px;background: #fff;
+    border: 1px solid rgba(0,0,0,0.01);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
+    border-radius: 5px;padding:44px;text-align: left;
+    h3{font-family:PingFangSC-Light,Arial,'微软雅黑';font-size: 26px;color:#535353;letter-spacing: 0.1em;}
+    input{text-indent: 2em;height: 48px; line-height: 48px;border-radius: 5px;font-size:16px;}
+    :global(.ant-input-prefix){i{font-size: 22px;color:rgba(0,0,0,.25);}}
+}
+button.loginBtn{
+    width:360px;height: 48px; line-height: 48px;font-size: 20px;
+}
+:global(div.ant-tooltip-inner){
+    font-family: PingFangSC-Light;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
+    max-width: 320px;
+}
+.forgetLink{
+    float:right;font-size: 14px;
+    margin-top: 10px;
+    color:#1ccef1;
+    text-decoration: none;
+}
+.collapStyle{
+    :global(.ant-menu-submenu-title){
+        border-radius: 15px;
+    }
+}

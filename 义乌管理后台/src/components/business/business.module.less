@@ -1,0 +1,107 @@
+div.cardBox{
+    height: 90px;font-size: 14px;padding:0;
+    input[type='textarea']{width:80%;display: block; text-indent: 1em;}
+    color: #323C47;margin-bottom:20px;
+    label{color: #939EAB;}
+    .boxDiv{background:#F5F6FA !important;padding: 15px;height: 100%;overflow: hidden;
+        :global(.ant-form-item-label){line-height: normal}
+        :global(.ant-form-item-control){line-height: normal}
+    }
+ }
+ div.teleBox{
+     :global(.ant-col-12){padding-right:0px;}
+ }
+div.areaBox{
+    height: 180px;
+    :global(textarea.ant-input){height: 100%;}
+}
+.header{
+    height: 126px;
+    background: #ffffff;
+}    
+.headerB{
+    font-family: Lato-Light;
+    font-size: 24px;
+    color: #323C47;
+    line-height: 34px;
+    padding-left: 28px;
+}
+.content{
+    margin:28px 28px 20px 28px;
+    height: 388px;
+    background: #FFFFFF;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.05);
+    border-radius: 5px;
+    :global(.ant-card){
+        // overflow: auto;max-height: 450px;
+        padding-bottom:20px;
+        :global(.ant-card-head){border:none;position: relative; &::before{.titleStyle;left:0px;top:30px;}}
+        :global(.ant-card-head-title){padding:10px 0;line-height:60px;
+            h2{margin:0;color:#323C47; font-size:20px;}}
+    }
+        
+    .btn{.buttonStyle;}
+}
+.titleStyle(){
+    display: inline-block; height:20px; border:2px solid #328DFF; content:''; position: absolute;
+}
+.buttonStyle(){
+    float: right;
+    background: #FFFFFF;
+    border: 1px solid #DCE0E6;
+    border-radius: 100px;
+}
+.PersonInfor{
+    margin:28px 28px 20px 28px;
+    :global(.ant-card-head){border:none;position: relative; &::before{.titleStyle;left:0px;top:25px;}}
+    :global(.ant-card-body){margin-top:10px;}
+    .btn{.buttonStyle;}
+}
+.session{
+    height: 498px;
+    width: 568px;
+    background: #FFFFFF;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.05);
+    border-radius: 5px;
+}
+.h2{
+    float: left;
+}
+
+.allBtnc{
+    background:#328DFF;
+    border: 1px solid #DCE0E6;
+    border-radius: 100px;
+}
+.allBtnq{
+    margin-left:220px;
+    background: #FFFFFF;
+    border: 1px solid #DCE0E6;
+    border-radius: 100px;
+}
+
+div.roomCard{
+    :global(.ant-table-expanded-row){
+        background:#fff;
+        :global(.ant-table-thead){display: none;}
+    }
+    margin-bottom:20px;padding-bottom:20px;
+    :global(.ant-card-head){
+        position: relative;
+        &::before{display: inline-block; height:20px; border:2px solid #328DFF; content:''; position: absolute;left:0px;top:22px;}
+    }
+    :global(.ant-card-head-title){
+        font-size:20px; color:#323C47;
+    }
+}
+.footerBox{
+    text-align: center;
+    button{border-radius: 100px;}
+}
+.topTitle{
+    position: relative; z-index: 99;
+    line-height: 40px;
+    &::before{.titleStyle;left: -32px;top:12px;}
+    h2{margin: 0;}
+}
+input{text-indent: 1em;}

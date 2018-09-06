@@ -1,0 +1,51 @@
+<div class="container" ng-controller="order-count">
+    <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left" href="#main">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#user-message">{{UserName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+        <div class="orderBox">
+            <div class="line-1">
+                <div class="line1-left pull-left">
+                    <img ng-src="{{imgSrc}}" alt="" class="showpic">
+                </div>
+                <div class="line1-right pull-left">
+                    <h3>{{data.DataSetName}}</h3>
+                    <p class="order-desc">
+                        {{data.AbstractInfo}}
+                    </p>
+                </div>
+                <div class="pull-right order-price">
+                    ￥<span>{{data.PriceTotal}}</span>
+                </div>
+            </div>
+            <div class="line-2">
+                <div class="pay-type">
+                    <div class="al-pay active">
+                        <img src="images/alpay.png" alt="">
+                    </div>
+
+                    <div class="webChat-pay">
+                        <img src="images/wechatpay.png" alt="">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="submit-btn">
+            <a href="#pay" class="btn btn-info btn-lg pull-right">下一步</a>
+        </div>
+    </div>
+</div>
+

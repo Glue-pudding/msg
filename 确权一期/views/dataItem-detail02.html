@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title>Title</title>
+    <link rel="Shortcut Icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../style/bootstrap.css">
+    <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
+    <!-- style="border:1px solid red;" -->
+    <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <a class="navbar-brand  pl" href="../index.html">
+                        <img class="img-responsive" src="images/hand_logo.png" alt="">
+                    </a>
+                    <a class="navbar-toggle"  data-toggle="collapse" href="#menu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                </div>
+                <div id="menu" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="login.html">已有账号，前往登录</a></li>
+                        <li><a href="register.html">欢迎注册</a></li>
+                        <!--<li class="hidden-xs hidden-sm"><i class="glyphicon glyphicon-user navbar-left user-icon"></i></li>-->
+                        <!--<li class="dropdown">-->
+                        <!--<a data-toggle="dropdown" href="">浙江大数据交易中心<span class="caret"></span></a>-->
+                        <!--<ul class="dropdown-menu">-->
+                        <!--<li><a href=""><i class="glyphicon glyphicon-user" style="margin-right: 10px;"></i>个人中心</a></li>-->
+                        <!--<li><a href=""><i class="glyphicon glyphicon-shopping-cart" style="margin-right: 10px;"></i>购物车</a></li>-->
+                        <!--<li role="separator" class="divider"></li>-->
+                        <!--<li><a href="">退出登录</a></li>-->
+                        <!--</ul>-->
+                        <!--</li>-->
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="containerBox">
+        <div class="container containerBox-inner">
+            <div class="row">
+                <div class="form-group index-search">
+                    <label class="sr-only" for="index-search">搜索数据商品</label>
+                    <div class="input-group">
+                        <input id="index-search" placeholder="请输入您要搜索的数据商品名称">
+                        <a class="index-search-btn text-center">搜索</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="">金融</a></li>
+                    <li><a href="">二级分类</a></li>
+                    <li class="active">数据商品名称</li>
+                </ol>
+            </div>
+            <div class="row">
+                <div class="dataItem-contentLeft pull-left">
+                    <div class="dataItem-img pull-left">
+                        <img src="" alt="">
+                    </div>
+                    <div class="dataItem-info pull-right">
+                        <div class="h3">全国天气记录查询</div>
+                        <div class="data-supplier">
+                            数据提供商：<span>数据提供商</span>
+                        </div>
+                        <p class="dataItem-describe">
+                            不超过200字的商品描述，不超过200字的商品描述，不超过200字的商品描述，不超过200字的商品描述，
+                            不超过200字的商品描述，不超过200字的商品描述，不超过200字的商品描述，不超过200字的商品描述，
+                            不超过200字的商品描述，不超过200字的商品描述，不超过200字的商品描述，不超......
+                        </p>
+                        <div class="dataItem-specification">
+                            <p>
+                                价格：<i>￥</i><span>200</span>
+                            </p>
+                            <p>
+                                数量：<a class="active">周</a><a>月</a><a>年</a>
+                            </p>
+                        </div>
+                        <div class="dataItem-count">
+                            <p>
+                                数量：
+                                <label class="sr-only" for="dataItemCounts">数据商品数量</label>
+                                <span class="btn btn-default">-</span><input type="text" class="text-center"  value="1" id="dataItemCounts"><span class="btn btn-default">+</span>
+                                <a href="" class="btn btn-warning">立即购买</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dataItem-contentRight pull-right"></div>
+                <div class="dataItem-intro pull-left">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#dataDetail" aria-controls="dataDetail" role="tab" data-toggle="tab">数据详情</a></li>
+                        <li role="presentation"><a href="#detailIntro" aria-controls="detailIntro" role="tab" data-toggle="tab">详细介绍</a></li>
+                        <li role="presentation"><a href="#dataHelp" aria-controls="dataHelp" role="tab" data-toggle="tab">使用帮助</a></li>
+                    </ul>
+                    <div class="tab-content dataItem-content-box">
+                        <div role="tabpanel" class="tab-pane part-01 active" id="dataDetail">
+                            <h4>数据商品标题显示</h4><a href="" class="btn btn-default semple-download">样本下载</a>
+                            <div class="part-01-title">元数据说明</div>
+                            <p>
+                            <span>数据规模：</span><span>包含100000条用户数据信息</span>
+                            </p>
+                            <p>
+                            <span>数据属性：</span><span>属性描述</span>
+                            </p>
+                            <p>
+                            <span>pct：</span><span>用户购买的客单价</span>
+                            </p>
+                            <p>
+                            <span>frequency：</span><span>用户使用的频次，单位：/天</span>
+                            </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane  part-02" id="detailIntro">
+                            <h4>数据商品标题显示</h4><a href="" class="btn btn-default semple-download">样本下载</a>
+                            <div class="part-01-title">元数据说明</div>
+                            <p>
+                            <span>数据规模：</span><span>包含100000条用户数据信息</span>
+                            </p>
+                            <p>
+                            <span>数据属性：</span><span>属性描述</span>
+                            </p>
+                            <p>
+                            <span>pct：</span><span>用户购买的客单价</span>
+                            </p>
+                            <p>
+                            <span>frequency：</span><span>用户使用的频次，单位：/天</span>
+                            </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane  part-03" id="dataHelp">
+                            <div class="part-03-title">数据使用介绍</div>
+                            <div class="use-step">
+                                <a class="text-center">
+                                    <i>step1</i><br>
+                                    <span>购买数据</span>
+                                </a>
+                                <a class="step-line"></a>
+                                <a class="text-center">
+                                    <i>step2</i><br>
+                                    <span>下载证书</span>
+                                </a>
+                                <a class="step-line"></a>
+                                <a class="text-center">
+                                    <i>step3</i><br>
+                                    <span>调用接口</span>
+                                </a>
+                                <a class="step-line"></a>
+                                <a class="text-center">
+                                    <i>step4</i><br>
+                                    <span>数据处理</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/lib/angular.min.js"></script>
+    <script src="../scripts/lib/ui-bootstrap-tpls.min.js"></script>
+    <script src="../scripts/lib/angular-route.min.js"></script>
+    <script src="../scripts/lib/jquery.min.js"></script>
+    <script src="../scripts/common.js"></script>
+    <script src="../scripts/lib/bootstrap.min.js"></script>
+    <script src="../scripts/route-config.js"></script>
+    <script src="../scripts/controller.js"></script>
+    <script src="../scripts/directive.js"></script>
+</body>
+</html>

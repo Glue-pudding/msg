@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+  <script type="text/javascript" src="../scripts/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="../scripts/lib/angular.min.js"></script>
+	<script type="text/javascript" src="../scripts/lib/angular-file-upload.js"></script>
+</head>
+<body>
+	<div ng-app="app" ng-controller="UploaderController" >
+    <input type="file" file-model="myFile" >
+    <button ng-click="save()">保存</button>
+</div>
+</body>
+<script type="text/javascript">
+	 var app = angular.module('app', []);
+  app.controller('UploaderController',['$scope','$http', function ($scope,$http) {
+	 $scope.save = function() {    
+        var fd = new FormData();
+        console.log(fd);
+        var file = document.querySelector('input[type=file]').files[0];
+        console.log(file);
+        
+        fd.append('file',file); 
+        console.log(fd);
+         $http({
+              method:'POST',
+              url:"http://10.8.45.11:8086/ownership_webtransfer/api/file/fileUpload",
+              data:fd,
+              headers: {'Content-Type':undefined},
+              transformRequest: angular.identity 
+               })   
+              .success( function ( response )
+                       {
+                       //上传成功的操作
+                       alert("uplaod success");
+                       }).error(function(msg){
+                        console.log(msg);
+                       }); 
+
+     };
+ }]);
+</script>
+</html>

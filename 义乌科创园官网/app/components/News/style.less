@@ -1,0 +1,47 @@
+.newsCont {
+    .btn{
+        border-radius: 100px;
+        color:#7B8793;font-size: 16px;
+        width:112px; height: 40px;
+        line-height: 40px; text-align: center;
+        background:transparent; border-color:transparent;
+        margin-right:10px;
+        &:hover{border:1px solid #328DFF;}
+    }
+    button.active{
+        color:#fff;border:1px solid #328DFF;
+        background: #328DFF;
+    }
+}
+.newsBox{
+    margin-top:30px;
+    // :global(.ant-spin-container){min-height:850px;}
+    :global(.ant-col-12){
+        max-width: 568px;
+    }
+    :global(.ant-list-item){
+        height: 184px;padding:30px; overflow: hidden;
+        border:1px solid #e8e8e8;margin:15px auto;
+        border-radius: 5px;
+        :global(.ant-list-item-main){
+            :global(.ant-list-item-content){
+                white-space: nowrap;overflow: hidden;text-overflow: ellipsis;
+            }
+        }
+        :global(.ant-list-item-extra){
+            width:192px;margin-left:20px;height: 110px;text-align: center;
+            img{width:100%;height: 100%;}
+        }
+        &:hover{
+            :global(.ant-list-item-meta-title){ label{color:#1890ff}}
+            box-shadow: 40px 40px 80px 0 rgba(0,0,0,0.05);
+            cursor: pointer;
+        }
+    }
+}
+:global(.ant-list-item-main){max-width: 900px;}
+.newsBoxCard{
+    :global(.ant-list-item-main){
+        max-width: 300px;
+    }
+}

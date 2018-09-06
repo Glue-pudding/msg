@@ -1,0 +1,70 @@
+.topbar {
+    padding: 0px;
+    -webkit-transition: 0.2s ease-in;
+    -o-transition: 0.2s ease-in;
+    transition: 0.2s ease-in;
+    width: 100%;
+    position: fixed;
+    z-index: 20; }
+    .topbar.fixed-header {
+      -webkit-box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.3);
+      box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.3);
+      -webkit-transition: 0.2s ease-in;
+      -o-transition: 0.2s ease-in;
+      transition: 0.2s ease-in;
+      background: #27b1e4; }
+.navbar-brand{
+  height:64px; width: 184px; line-height: 54px !important;
+}
+.navbar-brand img {width:100%; height:100%;}
+.h1-nav {
+    border-bottom: 12px solid #FED700;}
+    .h1-nav .navbar-nav .nav-item { 
+      margin: 0 20px; }
+      .h1-nav .navbar-nav .nav-item .nav-link {
+        max-width: 220px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+        padding: 12px 0px;ont-family: PingFangSC-Light;
+        font-size: 16px;position: relative;
+        color: #263238;
+        letter-spacing: 0;
+        line-height: 24px;}
+        .h1-nav .navbar-nav .nav-item .nav-link:hover::after,.h1-nav .navbar-nav .nav-item.active .nav-link::after{
+          content:''; display:block;position: absolute;bottom: 0;
+          width:100%; height: 4px; background:#FED700;
+        }
+      .h1-nav .navbar-nav .nav-item:last-child {
+        margin-right: 0px; }
+.topbg{
+  width:100%; height: 248px;
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.topbg .container h2{
+  height: auto;font-size:40px;
+  display: inline-block;
+  font-family:PingFangSC-Light;
+  color:rgba(255,255,255,1);}
+
+.editPanel{
+  height:64px; line-height: 64px;
+  font-size:14px;background:#343A40;
+  color:rgba(255,255,255,1);
+}
+.textAlignRight{text-align:right;}
+.menuName{max-width: 90%;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}

@@ -1,0 +1,125 @@
+/**
+ * Created by author on 2017/4/26.
+ */
+import React, { Component } from 'react';
+import { Row, Col, Card ,Icon,Upload,message,List} from 'antd';
+import BreadcrumbCustom from '../BreadcrumbCustom';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import draftToHtml from 'draftjs-to-html';
+import draftToMarkdown from 'draftjs-to-markdown';
+import styles from './report.module.less';
+
+const Dragger = Upload.Dragger;
+const rawContentState = {"entityMap":{"0":{"type":"IMAGE","mutability":"MUTABLE","data":{"src":"http://i.imgur.com/aMtBIep.png","height":"auto","width":"100%"}}},"blocks":[{"key":"9unl6","text":"","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"95kn","text":" ","type":"atomic","depth":0,"inlineStyleRanges":[],"entityRanges":[{"offset":0,"length":1,"key":0}],"data":{}},{"key":"7rjes","text":"","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}]};
+
+class DataReport extends Component {
+    state = {
+        editorContent: undefined,
+        contentState: rawContentState,
+        editorState: '',
+    };
+
+    onEditorChange = (editorContent) => {
+        this.setState({
+            editorContent,
+        });
+    };
+
+    clearContent = () => {
+        this.setState({
+            contentState: '',
+        });
+    };
+
+    onContentStateChange = (contentState) => {
+        console.log('contentState', contentState);
+    };
+
+    onEditorStateChange = (editorState) => {
+        this.setState({
+            editorState,
+        });
+    };
+
+    imageUploadCallBack = file => new Promise(
+        (resolve, reject) => {
+            const xhr = new XMLHttpRequest(); // eslint-disable-line no-undef
+            xhr.open('POST', 'https://api.imgur.com/3/image');
+            xhr.setRequestHeader('Authorization', 'Client-ID 8d26ccd12712fca');
+            const data = new FormData(); // eslint-disable-line no-undef
+            data.append('image', file);
+            xhr.send(data);
+            xhr.addEventListener('load', () => {
+                const response = JSON.parse(xhr.responseText);
+                resolve(response);
+            });
+            xhr.addEventListener('error', () => {
+                const error = JSON.parse(xhr.responseText);
+                reject(error);
+            });
+        }
+    );
+
+    render() {
+        const { editorContent, editorState } = this.state;
+        const props ={
+            name: 'file',
+            multiple: true,
+            action: '//jsonplaceholder.typicode.com/posts/',
+            onChange(info) {
+                const status = info.file.status;
+                if (status !== 'uploading') {
+                console.log(info.file, info.fileList);
+                }
+                if (status === 'done') {
+                message.success(`${info.file.name} file uploaded successfully.`);
+                } else if (status === 'error') {
+                message.error(`${info.file.name} file upload failed.`);
+                }
+            },
+        }
+        const settings = {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 4
+        };
+        return (
+            <div className=" button-demo">
+                <BreadcrumbCustom first="数据直报" />
+                <Row gutter={24} type="flex">
+                    <Col className={styles.reportPanel}  span={15} style={{marginLeft:"20px"}} >
+                        <Card title="2018 年度企业评估报表上传" bordered={false} className={styles.cardTitle}>
+                            <Dragger {...props} className={styles.dragBox}>
+                                <p className="ant-upload-drag-icon">
+                                    <Icon type="plus-square" />
+                                </p>
+                                <p className="ant-upload-text">将评估报表文件拖拽至此</p>
+                                <p className="ant-upload-hint">或<a href="javascript:;">点击上传</a></p>
+                            </Dragger>
+                        </Card>
+                    </Col>
+                    <Col className={styles.reportPanel} span={8}>
+                        <Card title="评估报表模板下载" bordered={false} className={styles.cardTitle}>
+                            <List className={styles.listBox}>
+                                <List.Item><Icon type="file-word" /><a>2018 年度 - 企业评估报表模板.doc</a></List.Item>
+                                <List.Item><Icon type="file-word" /><a>2018 年度 - 绩效考核 KPI 模板.doc</a></List.Item>
+                            </List>
+                        </Card>
+                    </Col>
+                </Row>
+                <div className={styles.stateBox}>
+                    <Icon type="check-circle" className={styles.stateIcon} />
+                    <p>
+                        <h3 className={styles.stateTitle}>审核通过</h3>
+                        <p className={styles.subTitle}>2018 年度数据报表审核已通过</p>
+                    </p>
+                </div>
+            </div>
+        );
+    }
+}
+
+export default DataReport;

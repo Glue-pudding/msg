@@ -1,0 +1,108 @@
+<!-- content -->
+    <div class="person_container" ng-controller='dataOrder'>
+      <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left" href="#main">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#company">{{UserName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+      <p class="person_p">个人中心</p>
+
+      <!-- 左边栏 -->
+      <div class="person_left">
+        <div class="list-group">
+          <a href="#user-center" class="list-group-item "><img src="images/ico01_nor.png"><span>数据资产总览</span></a>
+          <a href="#data-power" class="list-group-item "><img src="images/ico02_nor.png"><span>数据资产管理</span></a>
+          <a href="#data-order" class="list-group-item active" ><img src="images/ico03_over.png"><span>数据订单管理</span></a>
+          <a href="#resolve" class="list-group-item "  ng-click="personResolve()"><img src="images/ico04_nor.png"><span>数据混淆管理</span></a>
+          <a href="#user-message" class="list-group-item " ><img src="images/ico05_nor.png"><span>个人信息设置</span></a>
+        </div>
+      </div>
+
+
+      <!-- 右边栏 -->
+    	<div class="person_right">
+         <div class="DataState">
+           <form class="form-inline">
+          <div class="form-group">
+            <label>数据名称 :</label>
+            <input type="text" class="form-control input-sm" id="exampleInputName2" placeholder="请输入数据名称" ng-model="dataName">
+          </div>
+          <div class="form-group">
+            <label>数据分类 :</label>
+            <select class="form-control input-sm" ng-model="fLevelBefore">
+            <option value="">--请选择--</option>
+            <option value="金融数据">金融数据</option>
+            <option value="政务数据">政务数据</option>
+            <option value="交通数据">交通数据</option>
+            <option value="医疗卫生">医疗卫生</option>
+            <option value="人工智能">人工智能</option>
+            <option value="电商营销">电商营销</option>
+            <option value="服务数据">服务数据</option>
+          </select>
+          </div>
+          <div class="form-group">
+            <label>订单状态 :</label>
+            <select class="form-control input-sm" ng-model="fLevelB" ng-click="handle(fLevelB)">
+            <option value="">--请选择--</option>
+            <option value="Pending">待确认</option>
+            <option value="Normal">正常</option>
+            <option value="Abnormal">异常</option>
+            <option value="Expired">已过期</option>
+            <option value="Stopped">被终止</option>
+            <option value="Unpaid">未支付</option>
+          </select>
+          </div>
+          <button class="btn btn-primary btn-sm search">搜索</button>
+        </form>
+        <table class="table">
+          <tr class="active">
+            <td class="col-md-2">数据名称</td>
+            <td class="col-md-2">分类</td>
+            <td class="col-md-2">状态</td>
+            <td class="col-md-1">价格</td>
+            <td class="col-md-3">有效期</td>
+            <td class="col-md-2">操作</td>
+          </tr>
+          <tr ng-repeat="value in items | filter:dataName | filter:fLevelB | filter:fLevelBefore">
+            <td>{{value.DataSetName}}</td>
+            <td>{{value.TopApplicationType}}</td>
+            <td ng-if="Dstatu(value.Status)">{{statu}}</td>
+            <td>￥{{value.Price}}</td>
+            <td>{{value.BeginDate}} 至 {{value.EndDate}}</td>
+            <td><a href="javascript:;" ng-click="viewDetails(value.Status,value.DataSetName,value.DataBankName)">查看详情</a></td>
+          </tr>
+        </table>
+        <div id="dataM" style="text-align: center;margin:20px 0;font-size: 15px"></div>
+        <div id="page" ng-show="pageShow">
+            <nav>
+                  <ul class="pagination">
+                  <li>
+                  <a ng-click="Previous()">
+                  <span>上一页</span>
+                  </a>
+                  </li>
+                  <li ng-repeat="page in pageList" ng-class="{active: isActivePage(page)}" >
+                  <a ng-click="selectPage(page)" >{{ page }}</a>
+                  </li>
+                  <li>
+                  <a ng-click="Next()">
+                  <span>下一页</span>
+                  </a>
+                  </li>
+                  </ul>
+                </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

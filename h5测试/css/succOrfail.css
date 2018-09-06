@@ -1,0 +1,141 @@
+
+article{
+	font-size: .22186648rem/* 13px */;
+	color: #666666;
+	/*margin: 15px .51199956rem 0px .51199956rem;*/
+	margin: .54613287rem/* 32px */ 0 .20479983rem/* 12px */ 0;
+}
+aside{
+	text-align: center;
+}
+aside img{
+	width: 1.19466565rem/* 70px */;
+	height: 1.19466565rem/* 70px */;
+}
+aside .succfont{
+	font-size: .40959965rem/* 24px */;
+	color: #0096ff;
+	font-weight: bold;
+	margin-bottom: .66559943rem/* 39px */;
+}
+aside p{
+	font-size: .23893313rem/* 14px */;
+	margin-top: .68266608rem/* 40px */;
+	margin-bottom: .25599978rem/* 15px */;
+	text-align: center;
+}
+.Advertisement{
+	width:100%;
+	height: 5.64906185rem/* 331px */;
+	background: url(../images/Pic2.png);
+	background-size: 6.39999454rem/* 375px */ 5.64906185rem/* 331px */;
+	text-align: center;
+}
+.Advertisement h2{
+	padding-top: .40959965rem/* 24px */;
+	color: #333333;
+	font-size: 18pt;
+	padding-bottom: 10px;
+}
+.Advertisement p{
+	margin: 0px;
+	padding: 0px;
+	color: #999999;
+	font-size: .23893313rem/* 14px */;
+	margin-bottom: .34133304rem/* 20px */;
+}
+.bankAdvert{
+	overflow: hidden;
+	margin: 0 .25599978rem/* 15px */;
+}
+.bankLeft{
+	float: left;
+	width: 2.8159976rem/* 165px */;
+	height: 2.62826442rem/* 154px */;
+	margin-right: .25599978rem/* 15px */;
+	background: #F8F9FF;
+	text-align: center;
+}
+.bankRight{
+	float: left;
+	width: 2.8159976rem/* 165px */;
+	height: 2.62826442rem/* 154px */;
+	background: #F8F9FF;
+	text-align: center;
+}
+.bankLeft img,.bankRight img{
+	width: .75093269rem/* 44px */;
+	height: .75093269rem/* 44px */;
+	margin: .23893313rem/* 14px */ 0/* 0px */ .17066652rem/* 10px */ 0/* 0px */;
+}
+.bankLeft p,.bankRight p{
+    margin: 0;
+    padding: 0;
+    font-size: .23893313rem/* 14px */;
+    color: #333333;
+}
+p.Discount{
+	text-align: center;
+	font-size: .15359987rem/* 9px */;
+	color: #FF5A5A;
+	margin: .11946656rem/* 7px */ 0px .15359987rem/* 9px */ 0px;
+
+}
+p.Discount span{
+	text-align: center;
+	display: inline-block;
+	font-size: .20479983rem/* 12px */;
+	color: #FF5A5A;
+	margin: 0 auto;
+    -webkit-transform: scale(0.75);
+}
+button.Apply{
+	height: .34133304rem/* 20px */;
+	color: #0096FF;
+	border: 1px solid #0096FF;
+	border-radius: 2px;
+	font-size: 12px;
+	background: none;
+}
+p.Prompt{
+	padding: 0;
+	margin: .32426639rem/* 19px */ .25599978rem/* 15px */ .40959965rem/* 24px*/ .25599978rem/* 15px */ ;
+	font-size: .20479983rem/* 12px */;
+	line-height: .27306643rem/* 16px */;
+	color: #999999;
+	text-align: left;
+}
+.error{
+	font-size: .40959965rem/* 24px */;
+	color: #fa4100;
+}
+.btn {
+	
+    background-color: #0096ff; 
+    border: none;
+    margin-top: .29013309rem/* 17px */;
+    color: white;
+    padding: .25599978rem/* 15px */ .25599978rem/* 15px */;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: .30719974rem/* 18px */;
+    border-radius: .4266663rem/* 25px */;
+    width: 5.71732845rem/* 335px */;
+    height: .85333261rem/* 50px */;
+}
+.repeat {
+	
+    background-color: #ffffff; 
+    border: 1px solid #333333;
+    color: #333333;
+    padding: .25599978rem/* 15px */ .25599978rem/* 15px */;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: .30719974rem/* 18px */;
+    border-radius: .4266663rem/* 25px */;
+    width: 5.71732845rem/* 335px */;
+    height: .85333261rem/* 50px */;
+    margin-bottom: .17066652rem/* 10px */;
+}

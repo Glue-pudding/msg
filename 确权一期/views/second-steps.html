@@ -1,0 +1,157 @@
+<div class="container_cao" ng-controller="secondCon">
+    <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#company">{{DataBankName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+  <h2>数据银行
+      <button class="btn btn-default append"><a href="#first-steps">+添加数据</a></button>
+  </h2>
+  
+  <div class="_left">
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" class="commodity text-center"><a href="#data-manage">数据商品管理</a></li>
+      <li role="presentation" class=" text-center info"><a href="#company">企业信息管理</a></li>
+    </ul>
+  </div>
+  <div class="bbbbbb right_F">
+              <h2>请按以下步骤完成数据添加</h2>
+              <!--第二步开始-->
+              <div class="div2" id="div2">
+                    <div class="schedule1">
+                        <a href="#first-steps" class="display-block"><div class="first1">第一步</div></a>
+                        <div class="strip1 s11"></div>
+                        <a href="#div2" class="display-block"><div class="second1">第二步</div></a>
+                        <div class="strip1 s11"></div>
+                        <div class="third1">第三步</div>
+                        <div class="strip1"></div>
+                        <div class="fourth1">第四步</div>
+                        <ul>
+                              <li class="l11">基本信息</li>
+                              <li class="l21">元数据定义</li>
+                              <li class="l31">数据描述</li>
+                              <li class="l41">价格设置</li>
+                        </ul>          
+                    </div>
+                    <form name="myForm" novalidate>
+                    <div class="form-group define">
+                        <label for="inputEmail3" class="col-sm-2 control-label">类型：</label>
+                        <div class="col-sm-7">
+                              <select class="form-control" ng-model="PathHeader" required>
+                                  <option value="">--请选择--</option>
+                                  <option value="file">File</option>
+                                  <option value="hdfs">HDFS</option>
+                                  <option value="jdbc">JDBC</option>
+                              </select>
+                        </div>
+                    </div><br>
+                    <div class="form-group define">
+                        <label for="inputPassword3" class="col-sm-2 control-label">地址：</label>
+                        <div class="col-sm-7">
+                            <input type="text" ng-model="PathInBank" class="form-control" id="inputPassword3" placeholder="请输入地址 如:file:///或hdfs:///或jdbc:开始" ng-blur="Path()" ng-focus="Hpath()" required>
+                        </div><span style="color: red" ng-show="PathS" class="col-sm-3 PathP">请以{{PHeader}}开始</span>
+                    </div><br>
+                    <p><a href="">数据属性</a>&nbsp;&nbsp;&nbsp;请按照数据库顺序填写，否则无法解析<button class="btn btn-xs btn-default databtn" ng-click="addSh()">添加属性</button></p>
+                    <table class="table">
+                          <tr class="active">
+                                <td>属性名称</td>
+                                <td>类型</td>
+                                <td>描述</td>
+                                <td>身份验证数据</td>
+                                <td>操作</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input type="text" class="form-control" id="inputPassword3" placeholder="请输入属性名称" ng-model="FieldName" required ng-blur="Savedata()"> 
+                            </td>
+                            <td>
+                              <select class="form-control" ng-model="FieldType" required ng-blur="Savedat()">
+                                <option value="">--请选择--</option>
+                                <option value="string">string</option>
+                                <option value="int">int</option>
+                                <option value="long">long</option>
+                                <option value="double">double</option>
+                               </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputPassword3" placeholder="请输入属性描述" ng-model="FieldDescription" required ng-blur="Saveda()">
+                            </td>
+                            <td>
+                                <select class="form-control" ng-model="IsIdentifyFieldID" required ng-blur="Saved()">
+                                  <option value="">--请选择--</option>
+                                  <option value = "false">非身份数据</option>
+                                  <option value = "true">身份数据</option>
+                                 </select>
+                            </td>
+                            <td><a href="javascript:;">删除</a></td>
+                          </tr>
+                          <tr ng-repeat="value in mydata">
+                                <td>
+                                  <input type="text" class="form-control" id="inputPassword3" placeholder="请输入属性名称" ng-model="$parent.Sname[$index]" required>
+                                </td>
+                                <td>
+                                  <select class="form-control" ng-model="$parent.sld[$index]" required>
+                                    <option value="">--请选择--</option>
+                                    <option value="string">string</option>
+                                    <option value="int">int</option>
+                                    <option value="long">long</option>
+                                    <option value="double">double</option>
+                                   </select>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" id="inputPassword3" placeholder="请输入属性描述" ng-model="$parent.Sms[$index]" required>
+                                </td>
+                                <td>
+                                  <select class="form-control" ng-model="$parent.IDcare[$index]" required>
+                                    <option value="">--请选择--</option>
+                                    <option value = "false">非身份数据</option>
+                                    <option value = "true">身份数据</option>
+                                   </select>
+                                </td>
+                                <td><a ng-click="delSh($parent.Sname[$index],$parent.sld[$index],$parent.Sms[$index],$parent.IDcare[$index])">删除</a></td>
+                          </tr>
+                    </table>
+                    <div class="footer">
+                            <span class="id1">用户身份验证数据上传</span>
+                            <span class="id2">
+                                  请更新全体用户的手机号数据,作为平台数据确权的验证标识
+                            </span><br/>
+                            <div class="upload2 text-left">
+                              <form id="formId2" >
+                                  <input type="file" name="file" class="file2" nv-file-select uploader="uploader" required>
+                                  </form>
+                            <span id="secondfs">可支持文件格式:CSV,TXT</span>
+                      </div>
+                      
+                      <div class="text-center">
+                         <a><button class="btn btn-primary" ng-click="nextStep()" ng-disabled="myForm.$invalid">下一步</button></a>
+                      </div>
+                    </div>
+                  </form>
+              </div>
+    <!--第二步结束--> 
+    <script type="text/javascript" src="scripts/lib/jquery-form.js"></script>
+  <script type="text/javascript">
+     function sub() {  
+        // jquery 表单提交   
+        $("#formId").ajaxSubmit(function(message) {   
+        // 对于表单提交成功后处理，message为返回内容 
+           alert("上传成功");
+
+        });   
+  
+        return false; // 必须返回false，否则表单会自己再做一次提交操作，并且页面跳转   
+    }
+  </script>    
+  </div>
+</div>

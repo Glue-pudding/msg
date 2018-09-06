@@ -1,0 +1,22 @@
+.newsList li{
+    height: 162px; padding: 1.5rem 0;
+    font-family:PingFangSC-Light;
+    color:rgba(38,50,56,1);
+}
+.newsList .title{
+    font-size:30px;
+    line-height:38px;
+}
+.newsList li h3{
+    font-size:18px;
+    line-height:26px;
+}
+.newsList li .time {
+    font-size:14px;line-height:22px;
+}
+.newsList li .text{
+    font-size:14px;color:rgba(141,151,173,1);
+    line-height:22px; white-space: nowrap;
+    text-overflow: ellipsis;overflow: hidden;
+}
+.newsList li .time i{margin-right: 8px;};

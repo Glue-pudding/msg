@@ -1,0 +1,19 @@
+export default {
+  'code':10000,
+  'message':'success',
+  'data':{
+    'count|1-20':0,
+    'list|4-10':[
+      {
+        'title':'@cname',
+        'subject':'新闻描述新闻描述新闻描述新闻描述新闻描述新闻描述新闻描述新闻描述新闻描述新闻描述新闻描述新闻描述新闻描述新闻描述新闻描述新闻描述',
+        'content':'新闻内容',
+        'id|+2':4543,
+        'isTopset|1':[0,1],
+        'modifyTime':1523612028793,
+        'modifier':'@cname',
+        'url|1':['../static/images/school.png','https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg']
+      }
+    ]
+  }
+};

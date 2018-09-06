@@ -1,0 +1,38 @@
+.imgDesc{
+    font-size:12px;font-family:PingFangSC-Regular;
+    color:rgba(141,151,173,1); margin-top:8px;
+    line-height:12px;text-indent: 2px;
+}
+.imgBox{
+    height:385px; padding-right:8px;overflow: hidden;
+    overflow-y: auto; margin-top:24px;
+}
+.imgItem{
+    margin-bottom: 20px;text-align:center;
+    div{
+        width:128px; height: 112px;
+        border:1px solid rgba(220,224,230,1);
+        border-radius:4px;
+        &:hover{
+            .hover-action;
+        }
+        img{
+            width: 100%;padding: 4px;height: 100%;
+        }
+    }
+    .active{.hover-action;}
+    .iconBox{
+        width:90px; height: 80px;
+    }
+}
+.hover-action(){
+    cursor: pointer;
+    border:1px solid rgba(0,123,255,1);
+    position: relative;overflow: hidden;
+    &::after{
+        position: absolute; right: -20px; bottom: -20px;
+        width:40px; height: 40px; background: #007BFF;
+        border-radius: 50%; content:'✔'; color:#fff;
+        text-indent: -10px;
+    }
+}

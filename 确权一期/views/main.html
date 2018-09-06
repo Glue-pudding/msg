@@ -1,0 +1,76 @@
+<div class="container containerBox-inner" ng-controller="main">
+    <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left" href="#main">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#user-message">{{UserName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+        <div class="form-group index-search">
+            <label class="sr-only" for="index-search">搜索数据商品</label>
+            <div class="input-group">
+                <input id="index-search" placeholder="请输入您要搜索的数据商品名称" ng-focus="search()">
+                <a class="index-search-btn text-center">搜索</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="dataItem-type pull-left">
+            <ul class="dataItem-type-list">
+                <li ng-click='finance()'><a><i class="glyphicon glyphicon-yen"></i><span>金融数据</span></a></li>
+                <li ng-click="traffic()"><a><i class="glyphicon glyphicon-road"></i><span>交通数据</span></a></li>
+                <li ng-click="government()"><a><i class="glyphicon glyphicon-flag"></i><span>政务数据</span></a></li>
+                <li ng-click="medicalCare()"><a><i class="glyphicon glyphicon-plus"></i><span>医疗卫生</span></a></li>
+                <li ng-click="artificial()"><a><i class="glyphicon glyphicon-user"></i><span>人工智能</span></a></li>
+                <li ng-click="marketing()"><a><i class="glyphicon glyphicon-phone"></i><span>电商营销</span></a></li>
+                <li ng-click="applicationD()"><a><i class="glyphicon glyphicon-print"></i><span>应用开发</span></a></li>
+            </ul>
+        </div>
+        <div id="index-banner" class="index-banner pull-left carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target=".index-banner" data-slide-to="0" class="active"></li>
+                <li data-target=".index-banner" data-slide-to="1"></li>
+                <li data-target=".index-banner" data-slide-to="2"></li>
+            </ol>
+            <ul class="banner-img-list carousel-inner" role="listbox">
+                <div class="item active">
+                    <a href="javascript:;"><img src="images/banner-01.jpg" alt="第一张"></a>
+                    <div class="carousel-caption"></div>
+                </div>
+                <div class="item">
+                    <a href="javascript:;"><img src="images/banner-02.png" alt="第二张"></a>
+                    <div class="carousel-caption"></div>
+                </div>
+                <div class="item">
+                    <a href="javascript:;"><img src="images/banner-03.png" alt="第三张"></a>
+                    <div class="carousel-caption"></div>
+                </div>
+            </ul>
+            <a class="left carousel-control" href=".index-banner" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href=".index-banner" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){ 
+      if(location.href.indexOf('#reloaded')==-1){
+            location.href=location.href+"#reloaded";
+            location.reload();
+      }
+　　}); 
+</script>

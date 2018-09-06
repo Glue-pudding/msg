@@ -1,0 +1,121 @@
+<div class="person_container" ng-controller='userMessage'>
+      <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left" href="#main">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#company">{{UserName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+      <p class="person_p">个人中心</p>
+
+      <!-- 左边栏 -->
+      <div class="person_left">
+        <div class="list-group">
+          <a href="#user-center" class="list-group-item "><img src="images/ico01_nor.png"><span>数据资产总览</span></a>
+          <a href="#data-power" class="list-group-item "><img src="images/ico02_nor.png"><span>数据资产管理</span></a>
+          <a href="#data-order" class="list-group-item " ><img src="images/ico03_nor.png"><span>数据订单管理</span></a>
+          <a href="#resolve" class="list-group-item "><img src="images/ico04_nor.png"><span>数据混淆管理</span></a>
+          <a href="#user-message" class="list-group-item active"><img src="images/ico05_over.png"><span>个人信息设置</span></a>
+        </div>
+      </div>
+
+      <!-- 右边栏 -->
+    	<div class="person_right">
+        <div class="person_message">
+             <h4>基本信息</h4>
+             <table class="table">
+               <tr>
+                 <td class="text-right">用户名：</td>
+                 <td>{{data.data.UserName}}</td>
+               </tr>
+               <tr>
+                 <td class="text-right">手机：</td>
+                 <td>{{data.data.TelNumber}}</td>
+               </tr>
+               <tr>
+                 <td class="text-right">邮箱：</td>
+                 <td>{{data.data.Email}}</td>
+               </tr>
+             </table>
+              <h4>收件信息<a href="javascript:;" ng-click="changeMessage()">修改</a></h4>
+              <table class="table" ng-show="MessageChange">
+               <tr>
+                 <td class="text-right sj">公司地址：</td>
+                 <td><input type="text" placeholder="暂无信息!" ng-model="data.data.CompanyAddress" disabled="disabled" style="border: none;background: #fff"></td>
+               </tr>
+               <tr>
+                 <td class="text-right sj">联系人：</td>
+                 <td><input type="text" placeholder="暂无信息!" ng-model="data.data.CompanyContactName" disabled="disabled" style="border: none;background: #fff"></td>
+               </tr>
+               <tr>
+                 <td class="text-right sj">电话：</td>
+                 <td><input type="bumber" placeholder="暂无信息!" ng-model="data.data.CompanyContactTelNumber" disabled="disabled" style="border: none;background: #fff"></td>
+               </tr>
+             </table>
+             <form class="reg-box" name="myform" novalidate> 
+             <table class="table" ng-show="!MessageChange">
+               <tr>
+                 <td class="text-right sj">公司地址：</td>
+                 <td><input type="text" placeholder={{data.data.CompanyAddress}} ng-model="data.data.CompanyAddress" required></td>
+               </tr>
+               <tr>
+                 <td class="text-right sj">联系人：</td>
+                 <td><input type="text" placeholder={{data.data.CompanyContactName}} ng-model="data.data.CompanyContactName" required></td>
+               </tr>
+               <tr>
+                 <td class="text-right sj">电话：</td>
+                 <td><input type="text" placeholder={{data.data.CompanyContactTelNumber}} ng-model="data.data.CompanyContactTelNumber" required></td>
+               </tr>
+               <tr style="text-align: right">
+                 <td colspan="2"><button class="btn btn-info reg-btn" ng-click="handleChange(data.data.CompanyName,data.data.CompanyQualification,data.data.CompanyAddress,data.data.CompanyContactName,data.data.CompanyContactTelNumber,data.data.CompanyContactEmail,data.data.Email)" ng-disabled="myform.$invalid">确定</button></td>
+               </tr>
+             </table>
+            </form>
+             <h4>增值税发票<a href="javascript:;" ng-click="changeBillContent()">修改</a></h4>
+             <div id="changeShow" ng-show="changeBill">
+             <div class="message_bg" id="tt" style="padding-top: 30px">
+              <table class="table">
+               <tr>
+                 <td class="text-right">{{data.data.BillCompanyName}}</td>
+                 <td>{{data.data.BillTaxpayerId}}</td>
+               </tr>
+               <tr>
+                 <td class="text-right">{{data.data.BillBankName}}</td>
+                 <td>{{data.data.BillBankAccount}}</td>
+               </tr>
+               <tr>
+                 <td class="text-right">{{data.data.BillCompanyAddress}}</td>
+                 <td>{{data.data.BillCompanyTelNumber}}</td>
+               </tr>
+             </table>
+           </div>
+        </div>
+           <form class="billTable" name="myForm">
+            <table class="table" ng-show="!changeBill">
+               <tr>
+                 <td style="text-align: right"><input type="text" placeholder=公司名称:{{data.data.BillCompanyName}} ng-model="data.data.BillCompanyName" required></td>
+                 <td><input type="text" placeholder=纳税人识别号:{{data.data.BillTaxpayerId}} ng-model="data.data.BillTaxpayerId" required></td>
+               </tr>
+               <tr>
+                 <td style="text-align: right"><input type="text" placeholder=开户银行:{{data.data.BillBankName}} ng-model="data.data.BillBankName" required></td>
+                 <td><input type="text" placeholder=银行卡号:{{data.data.BillBankAccount}} ng-model="data.data.BillBankAccount" required></td>
+               </tr>
+               <tr>
+                 <td style="text-align: right"><input type="text" placeholder=公司地址:{{data.data.BillCompanyAddress}} ng-model="data.data.BillCompanyAddress" required></td>
+                 <td><input type="text" placeholder=公司电话:{{data.data.BillCompanyTelNumber}} ng-model="data.data.BillCompanyTelNumber" required></td>
+               </tr>
+               <tr style="text-align: right">
+                 <td colspan="2"><button class="btn btn-info reg-btn" ng-click="billChange(data.data.BillCompanyName,data.data.BillTaxpayerId,data.data.BillBankName,data.data.BillCompanyTelNumber,data.data.BillCompanyAddress,data.data.BillBankAccount,data.data.BillTelNumber,data.data.BillContact,data.data.BillAddress)" ng-disabled="myForm.$invalid">确定</button></td>
+               </tr>
+             </table>
+       </form>
+    </div> 
+  </div>

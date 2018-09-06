@@ -1,0 +1,319 @@
+.contBox {
+    margin: 0 auto;
+    min-width: 1200px;
+    padding: 30px 0;
+    background: #fff;
+}
+
+.parkBox {
+    background: url('../../../static/images/bg_Service.png') no-repeat center rgba(24, 26, 28, 0.8);
+    background-size: cover;min-height:575px;
+    h2 {
+        color: #fff;
+    }
+    .boxSubtitle {
+        color: #C3CCD7;
+    }
+    // @media screen and (min-width: 1440px) {
+    //     :global(.ant-card)  {
+    //         min-width: 360px;
+    //     }
+    // }
+    :global(.ant-card) {
+        height: 312px;
+        padding: 30px 0 0;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.20);
+        box-shadow: none;
+        :global(.ant-card-meta-title) {
+            color: #fff;
+            font-size: 20px;
+        }
+        :global(.ant-card-meta-description) {
+            color: #939EAB;
+            font-size: 14px;
+        }
+        &:hover {
+            background: #fff;
+            cursor: pointer;
+            :global(.ant-card-meta-title) {
+                color: #323C47;
+                font-size: 20px;
+            }
+            :global(.ant-card-meta-description) {
+                color: #637280;
+                font-size: 14px;
+            }
+        }
+    }
+}
+.contactWe{
+    text-align: center;
+}
+.businessBox {
+    .cardItem {
+        max-width: 268px;
+        height: 100px;
+        overflow: hidden;
+        z-index: 1;
+        img {
+            height: 100px;
+            background-size: 100%;
+            width: 100%;
+        }
+        &:hover {
+            cursor: pointer;
+            box-shadow: 40px 40px 80px 0 rgba(0,0,0,0.12);
+            z-index:20;
+        }
+        :global(.ant-card-body) {
+            padding: 0;
+        }
+    }
+}
+
+.cardItem {
+    box-shadow: 0 0 5px #DDDFE7;
+    overflow: hidden;
+    a {
+        color: #323C47;
+        &:hover {
+            color: #328DFF;
+        }
+    }
+    :global(.ant-card-body) {
+        min-height: 200px;
+    }
+    :global(.ant-card-head) {
+        border: none;
+        position: relative;
+        :global(.ant-card-head-title) {
+            font-family: PingFangSC-Light;
+            font-size: 20px;
+            color: #323C47;
+        }
+        &::before {
+            content: "";
+            display: inlin-block;
+            height: 20px;
+            border: solid 2px #328DFF;
+            position: absolute;
+            left: 0;
+            top: 22px;
+            z-index: 1;
+        }
+    }
+    &:hover {
+        box-shadow: 40px 40px 80px 0 rgba(0, 0, 0, 0.12);
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        z-index: 2;
+    }
+    :global(.ant-list) {
+        height: 160px;
+        margin-top: -10px;
+    }
+    :global(.ant-list-item) {
+        padding: 0;
+        padding-top: 10px;
+        text-indent: 0.5em;
+        position: relative;
+        height: 62px;
+        &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            border-radius: 5px;
+            border: solid 3px #328DFF;
+            left: -10px;
+            top: 1.6em;
+        }
+        :global(.ant-list-item-extra) {
+            font-size: 14px;
+            color: #939EAB
+        }
+        :global(.ant-list-item-content) {
+            &:hover {
+                color: #328DFF;
+                cursor: pointer;
+            }
+            margin-bottom:10px;
+            margin-top:6px;
+            max-width: 590px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+}
+
+
+
+.newsCont {
+    overflow: hidden;
+    font-family: PingFangSC-Light;
+    :global(.ant-col-12) {
+        height: 150px;
+    }
+    h3 {
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 30px;
+        a {
+            color: #323C47;
+            &:hover {
+                color: #328DFF;
+            }
+        }
+    }
+    .newsImg {
+        text-align: center;
+        width: 200px;
+        height: 150px;
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    article {
+        height: 48px;
+        overflow: hidden;
+        margin-bottom: .8em;
+    }
+    article,
+    label {
+        font-size: 14px;
+        color: #939EAB;
+        line-height: 24px;
+    }
+    .ant-col-12 {
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.viewBtn {
+    text-align: center;
+    margin: 20px 0;
+    :global(.ant-btn) {
+        height: 40px;
+        width: 148px;
+        color: #637280;
+        background: transparent;
+    }
+}
+
+.parkCard {
+    :global(.ant-card-cover) {
+        width: 80px;
+        margin: 0 auto;
+    }
+    :global(ul) {
+        margin: 0;
+        padding: 0;
+    }
+    :global(li) {
+        list-style-type: none;
+    }
+}
+
+.parkBtn {
+    :global(.ant-btn) {
+        color: #DCE0E6;
+        &:hover {
+            background: transparent;
+        }
+    }
+}
+
+.boxTitle {
+    text-align: center;
+    font-size: 34px;
+}
+
+.boxSubtitle {
+    // fontSize:'16px',lineHeight:'16px',color:'#666',textAlign:'center'
+    font-size: 16px;
+    line-height: 16px;
+    color: #939EAB;
+    text-align: center;
+}
+
+.contBg {
+    background: url("../../../static/images/bg_Map.png") no-repeat center #F5FBFD;
+    position: relative;
+    min-height: 420px;
+    background-size: cover;
+}
+
+.bottomCont {
+    width: 768px;
+    margin: 0 auto;
+    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.30);
+    background: #fff;
+    height: 390px;
+    overflow: hidden;
+    padding: 65px;
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    margin-left: -768/2px;
+    border-radius: 5px;
+}
+
+.inforLsit {
+    // text-align: center;
+    font-size: 16px;
+    color: #637280;
+    h2 {
+        font-size: 34px;
+        color: #323C47;
+    }
+    :global(.anticon) {
+        font-size: 18px;
+        margin-right: 8px;
+    }
+    :global(.icon-Contact-Bus) {
+        font-size: 20px;
+        margin-right: 8px;
+    }
+}
+
+.inforCode {
+    padding-top: 30px;
+    p {
+        color: #637280;
+        font-size: 16px;
+        text-align: center;
+    }
+    button {
+        margin: 0 auto;
+        display: block;
+        margin-top: 20px;
+    }
+    img {
+        display: table-cell;
+        margin: 0 auto;
+    }
+}
+
+.qrCode {
+    background: url('../../../static/images/QR_code.png') no-repeat center center;
+    height: 148px;
+    width: 148px;
+}
+
+:global {
+    #newsBox {
+        .ant-tabs-nav-scroll {
+            margin: 0 auto;
+            width: 18%;
+            min-width: 260px;
+        }
+        .ant-tabs-nav-wrap {
+            border-bottom: none;
+        }
+    }
+}

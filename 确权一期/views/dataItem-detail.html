@@ -1,0 +1,166 @@
+<div class="container containerBox-inner" ng-controller="dataItem-detail">
+    <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left" href="#main">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#user-message">{{UserName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+        <div class="form-group index-search">
+            <label class="sr-only" for="index-search">搜索数据商品</label>
+            <div class="input-group">
+                <input id="index-search" placeholder="请输入您要搜索的数据商品名称">
+                <a class="index-search-btn text-center">搜索</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="#main">首页</a></li>
+            <li><a href="#dataItem-classify">{{TopApplicationType}}</a></li>
+            <li><a href="">{{data.ApplicationType}}</a></li>
+            <li class="active">{{data.DataSetName}}</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="dataItem-contentLeft pull-left">
+            <div class="dataItem-img pull-left">
+                <img ng-src="{{imgSrc}}" alt="" id="mange1">
+            </div>
+            <div class="dataItem-info pull-right">
+                <div class="h3">{{data.DataSetName}}</div>
+                <div class="data-supplier">
+                    数据提供商：<span>{{data.DataBankName}}</span>
+                </div>
+                <p class="dataItem-describe">
+                    {{data.AbstractInfo}}
+                </p>
+                <div class="dataItem-specification">
+                    <p>
+                        价格：<i></i><span>{{price}}元/{{unit}}</span>
+                    </p>
+                    <p>
+                        数量：<a ng-click="week()" ng-class="{'zweek':zweek}">周</a><a ng-click="month()" ng-class="{'ymonth':ymonth}">月</a><a ng-click="year()" ng-class="{'nyear':nyear}">年</a>
+                    </p>
+                </div>
+                <div class="dataItem-count">
+                    <p>
+                        数量：
+                        <label class="sr-only" for="dataItemCounts">数据商品数量</label>
+                        <span class="btn btn-default" ng-click="reduce()">-</span><input type="text" class="text-center"  ng-model="number" id="dataItemCounts"><span class="btn btn-default" ng-click="plus()">+</span>
+                        <a class="btn btn-warning" ng-click="purchase($index,data.Price[0].Price,data.Price[0].Unit)">立即购买</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="dataItem-contentRight pull-right">
+            <div class="recommend-data text-center">推荐数据</div>
+            <dl>
+                <dt>
+                    <img src="images/background_image.png" alt="" class="Recommend">
+                </dt>
+                <dd class="dataItem-name text-center">
+                    <span>全国天气记录查询</span>
+                </dd>
+                <dd class="dataItem-price text-center">
+                    价格：<span>￥</span><span>200</span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <img src="images/banner-03.png" alt="" class="Recommend">
+                </dt>
+                <dd class="dataItem-name text-center">
+                    <span>全国天气记录查询</span>
+                </dd>
+                <dd class="dataItem-price text-center">
+                    价格：<span>￥</span><span>200</span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <img src="images/banner-01.jpg" alt="" class="Recommend">
+                </dt>
+                <dd class="dataItem-name text-center">
+                    <span>全国天气记录查询</span>
+                </dd>
+                <dd class="dataItem-price text-center">
+                    价格：<span>￥</span><span>200</span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <img src="images/banner-02.png" alt="" class="Recommend">
+                </dt>
+                <dd class="dataItem-name text-center">
+                    <span>全国天气记录查询</span>
+                </dd>
+                <dd class="dataItem-price text-center">
+                    价格：<span>￥</span><span>200</span>
+                </dd>
+            </dl>
+
+        </div>
+        <div class="dataItem-intro pull-left">
+            <ul>
+                <li><a class="active" ng-click="detailX()">数据详情</a></li>
+                <li ng-click="intro()"><a>详细介绍</a></li>
+                <li ng-click="helpY()"><a>使用帮助</a></li>
+            </ul>
+            <div class="dataItem-content-box">
+                <div class="part-01" id="dataDetail" ng-show="detail">
+                    <h4>{{data.DataSetName}}</h4><a href="" class="btn btn-default semple-download" ng-click="upDown(data.SampleFile,data.SamplePath)">样本下载</a><a class="btn btn-default updata" ng-click="updata()" ng-show="updataS">刷新</a><span style="color: red" ng-show="updataS">请刷新,请重新获取</span>
+                    <div class="part-01-title">元数据说明</div>
+                    <p>
+                        <span>数据规模(B)：</span><span>{{datasize}}</span>
+                    </p>
+                    <p>
+                        <span>属性名称</span><span>属性类型</span><span>属性描述</span>
+                    </p>
+                    <p ng-repeat="value in data.Schema">
+                        <span>{{value.FieldName}}：</span><span>{{value.FieldType}}</span><span>{{value.FieldDescription}}</span>
+                    </p> 
+                </div>
+                <div class="part-02" id="detailIntro" ng-show="introduce">
+                    <div class="part-02-title">商品描述</div>
+                    <div class="part-02-describe">
+                        {{data.Description}}
+                    </div>               
+                </div>
+                <div class="part-03" id="dataHelp" ng-show="help">
+                    <div class="part-03-title">数据使用介绍</div>
+                    <div class="use-step">
+                        <a class="text-center">
+                            <i>step1</i><br>
+                            <span>购买数据</span>
+                        </a>
+                        <a class="step-line"></a>
+                        <a class="text-center">
+                            <i>step2</i><br>
+                            <span>下载证书</span>
+                        </a>
+                        <a class="step-line"></a>
+                        <a class="text-center">
+                            <i>step3</i><br>
+                            <span>调用接口</span>
+                        </a>
+                        <a class="step-line"></a>
+                        <a class="text-center">
+                            <i>step4</i><br>
+                            <span>数据处理</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

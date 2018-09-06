@@ -1,0 +1,723 @@
+body,ul,h2,h3,form{
+	margin: 0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+	overflow: hidden;
+  }
+ .headerlogin{
+ 	width: 100%;
+ 	height: 61px;
+ 	background-color: #000000;
+ 	overflow: hidden;
+ }
+ .headernei{
+ 	width:1200px;
+ 	height: 61px;
+ 	margin: 0px auto;
+ 	overflow: hidden;
+ }
+ .headernei img{
+ 	float: left;
+ }
+ .headernei ul{
+ 	float: right;
+ 	width: 300px;
+ 	overflow: hidden;
+ }
+ .headernei li{
+ 	float: right;
+ }
+.container_cao{
+	width: 1200px;
+	margin: 0 auto;
+	// overflow: hidden;
+}
+.container_cao h2{
+	color: #333333;
+	font-size: 28px;
+	font-family: 微软雅黑;
+	font-weight: normal;
+	margin-top: 80px;
+	margin-bottom: 10px;
+	clear: both;
+}
+.dataM{
+	color: #fff;
+}
+.append{
+	float: right;
+}
+._left{
+	float: left;
+	width: 200px;
+	border: 1px solid #cccccc;
+	padding-bottom: 400px;
+}
+._left ul{
+	margin-top: 20px;
+}
+.commodity a{
+	display: block;
+	background: url(../images/ico02_nor.png) no-repeat 20px 10px;
+	padding-left: 50px;
+
+}
+.info a{
+	display: block;
+	background: url(../images/ico03_nor.png) no-repeat 20px 10px;
+	padding-left: 50px;
+}
+//data-bank样式
+.cccc{}
+.right_B{
+	width: 980px;
+	float: left;
+	margin-left: 20px;
+	border: 1px solid #cccccc;
+}
+.right_B ul{
+	margin:10px;
+	overflow: hidden;
+	border-bottom: 1px solid #cccccc;
+}
+.right_B li{
+	float: left;
+	color:#666666;
+	font-size: 12px;
+}
+.dataManage{
+	width: 440px;
+	margin: 0 auto;
+	position: relative;
+}
+td select.formWidth{
+	float: left;
+	width: 163px;
+}
+td select.ToForm{
+	margin-right: 10px
+}
+td input.formWidth{
+	float: left;
+	width: 163px;
+}
+td input.ToForm{
+	margin-right: 10px;
+}
+.suggest{
+	font-size: 12px;
+	font-family: 微软雅黑;
+	color: #cccccc;
+	position: relative;
+}
+.suggest img{
+	float: left;
+}
+.suggest span{
+	display: inline-block;
+	width: 180;
+	float: left;
+	margin-top: 30px;
+	margin-left: 10px;
+}
+.id1{
+	display: inline-block;
+	color: #333333;
+	font-size: 20px;
+	font-family: 微软雅黑;
+}
+.id2{
+	display: inline-block;
+	color:#2b2b2b;
+	font-size: 14px;
+}
+.upload_B{
+	width: 200px;
+	display: inline-block;
+	margin-left: 0px;
+	padding-bottom: 50px;
+}
+.upload_B button{
+	height: 30px;
+	width: 100px;
+
+}
+.table > tbody > tr > td{
+	border: none;
+}
+
+
+
+//data-manage样式
+.aaaa{
+
+}
+.right_M{
+	width: 980px;
+
+	float: left;
+	margin-left: 20px;
+	border: 1px solid #cccccc;
+}
+.dataState{
+	width: 900px;
+	margin-left: 40px;
+	margin-right: 40px;
+	padding: 5px 0px;
+	overflow: hidden;
+}
+.dataState form{
+	padding-bottom: 10px;
+}
+.search{
+	float: right;
+}
+
+
+
+//company-inif-manage
+.ddddd{}
+.right_C{
+	width: 980px;
+	float: left;
+	margin-left: 20px;
+	border: 1px solid #cccccc;
+}
+.right_C h3{
+	padding: 30px 0px 10px 0px; 
+	font-size: 20px;
+	margin: 0px 40px;
+	border-bottom: 1px solid #cccccc;
+}
+.formData{
+	width: 410px;
+	margin-left: 140px;
+}
+.formData button{
+	width: 120px;
+	line-height: 30px;
+	margin-top: 80px;
+}
+.table > tbody > tr > td{
+	border: none;
+}
+
+
+//first-steps
+.bbbbbb{
+	
+}
+.right_F{
+	width: 980px;
+	float: left;
+	margin-left: 20px;
+	border: 1px solid #cccccc;
+}
+.right_F h2{
+	font-size: 16px;
+	color: #666666;
+	padding: 10px 10px 10px 20px;
+    margin:20px 40px 4px 40px;
+    background: #f7f7f7;
+}
+.schedule{
+	width: 582px;
+	margin: 0px auto;
+	overflow: hidden;
+	margin-top: 20px;
+}
+.schedule div{
+	float: left;
+}
+.schedule ul{
+	overflow: hidden;
+    width: 582px;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 20px;
+}
+.schedule ul li{
+	float: left;
+	font-size: 16px;
+}
+.l1{
+	margin-right: 100px;
+	color: #333333;
+}
+.l2{
+    margin-right: 100px;
+    color: #cccccc;
+}
+.l3{
+	margin-right: 100px;
+	color: #cccccc;
+}
+.l4{
+	color: #cccccc;
+}
+.first,.second,.third,.fourth{
+	width: 70px;
+	height: 70px;
+	border-radius: 35px;
+	text-align: center;
+	padding-top: 27px;
+	font-size: 16px;
+	color: #ffffff;
+	background: #cccccc;
+}
+.strip{
+	border-top: 1px solid #cccccc;
+	width: 100px;
+	margin-top: 35px;
+}
+.first{
+	background: #00bbe3;
+	cursor: pointer;
+}
+.s1{
+	border-top: 1px solid #00bbe3;
+}
+.aaa{}
+.dataManage{
+	width: 440px;
+	margin: 0 auto;
+	position: relative;
+}
+.dataManageB{
+	width: 440px;
+	position: relative;
+}
+.databankM{
+	margin: 0 40px;
+}
+.dataBankF{
+	width: 600px;
+}
+.firstStepsF{
+	margin: 0 40px;
+	border-top: 1px solid #ccc;
+}
+.formWidth{
+	float: left;
+	width: 168px;
+}
+.span1{
+	font-size: 12px;
+	font-family: 微软雅黑;
+	color: #cccccc;
+}
+.span1 .file{
+	float: left;
+	background: url(../images/update.png);
+    width: 100px;
+    height: 100px;
+}
+.span1 span{
+	display: inline-block;
+	width: 180;
+	float: left;
+	margin-top: 50px;
+	margin-left: 10px;
+}
+.id1{
+	display: inline-block;
+	color: #333333;
+	font-size: 20px;
+	font-family: 微软雅黑;
+}
+.id2{
+	display: inline-block;
+	color:#2b2b2b;
+	font-size: 14px;
+}
+.table > tbody > tr > td{
+	border: none;
+}
+.schedule1{
+	width: 582px;
+	margin: 0px auto;
+	overflow: hidden;
+	margin-top: 20px;
+}
+.schedule1 div{
+	float: left;
+}
+.schedule1 ul{
+	overflow: hidden;
+    width: 582px;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 20px;
+}
+.schedule1 ul li{
+	float: left;
+	font-size: 16px;
+}
+.l11{
+	margin-right: 100px;
+	color: #333333;
+}
+.l21{
+    margin-right: 100px;
+    color: #333333;
+}
+.l31{
+	margin-right: 100px;
+	color: #cccccc;
+}
+.l41{
+	color: #cccccc;
+}
+.first1,.second1,.third1,.fourth1{
+	width: 70px;
+	height: 70px;
+	border-radius: 35px;
+	text-align: center;
+	padding-top: 27px;
+	font-size: 16px;
+	color: #ffffff;
+	background: #cccccc;
+}
+.strip1{
+	border-top: 1px solid #cccccc;
+	width: 100px;
+	margin-top: 35px;
+}
+.first1,.second1{
+	background: #00bbe3;
+}
+.s11{
+	border-top: 1px solid #00bbe3;
+}
+.define{
+	width: 600px;
+	margin-left: 40px;
+	margin-top: 20px;	
+}
+.PathP{
+	display: inline-block;
+	line-height: 34px;
+}
+.div2 p{
+	clear: both;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 30px;
+	color: #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+.div2 p a{
+	font-size: 20px;
+	color: #000000;
+}
+.div2 p .databtn{
+	float: right;
+	margin-right: 40px;
+}
+.div2 table{
+	margin-left: 40px;
+	width: 900px;
+	margin-top: 20px;
+}
+.id1{
+	display: inline-block;
+	color: #333333;
+	font-size: 20px;
+	font-family: 微软雅黑;
+}
+.id2{
+	display: inline-block;
+	color:#2b2b2b;
+	font-size: 14px;
+}
+.upload{
+	width: 200px;
+	display: inline-block;
+	margin-left: 0px;
+	padding-bottom: 50px;
+}
+.upload input{
+	float: left;
+	height: 30px;
+	width: 100px;
+
+}
+.upload input.ti{
+	width: 100px;
+	height: 30px;
+}
+.footer{
+	margin-left: 40px;
+}
+.schedule3{
+	width: 582px;
+	margin: 0px auto;
+	overflow: hidden;
+	margin-top: 20px;
+}
+.schedule3 ul{
+	overflow: hidden;
+    width: 582px;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 20px;
+}
+.schedule3 div{
+	float: left;
+}
+.schedule3 ul li{
+	float: left;
+	font-size: 16px;
+}
+.l13{
+	margin-right: 100px;
+	color: #333333;
+}
+.l23{
+    margin-right: 100px;
+    color: #333333;
+}
+.l33{
+	margin-right: 100px;
+	color: #333333;
+}
+.l43{
+	color: #cccccc;
+}
+.first3,.second3,.third3,.fourth3{
+	width: 70px;
+	height: 70px;
+	border-radius: 35px;
+	text-align: center;
+	padding-top: 27px;
+	font-size: 16px;
+	color: #ffffff;
+	background: #cccccc;
+}
+.strip3{
+	border-top: 1px solid #cccccc;
+	width: 100px;
+	margin-top: 35px;
+}
+.first3,.second3,.third3{
+	background: #00bbe3;
+}
+.s3{
+	border-top: 1px solid #00bbe3;
+}
+.text1{
+	width: 870px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+.schedule4{
+	width: 582px;
+	margin: 0px auto;
+	overflow: hidden;
+	margin-top: 20px;
+	padding-bottom: 40px;
+}
+.schedule4 div{
+	float: left;
+}
+.schedule4 a{
+	display: block;
+}
+.schedule4 ul{
+	overflow: hidden;
+    width: 582px;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 20px;
+}
+.schedule4 ul li{
+	float: left;
+	font-size: 16px;
+}
+.l14{
+	margin-right: 100px;
+	color: #333333;
+}
+.l24{
+    margin-right: 100px;
+    color: #333333;
+}
+.l34{
+	margin-right: 100px;
+	color: #333333;
+}
+.l44{
+	color: #333333;
+}
+.first4,.second4,.third4,.fourth4{
+	width: 70px;
+	height: 70px;
+	border-radius: 35px;
+	text-align: center;
+	padding-top: 27px;
+	font-size: 16px;
+	color: #ffffff;
+	background: #cccccc;
+}
+.strip4{
+	border-top: 1px solid #cccccc;
+	width: 100px;
+	margin-top: 35px;
+}
+.first4,.second4,.third4,.fourth4{
+	background: #00bbe3;
+}
+.s4{
+	border-top: 1px solid #00bbe3;
+}
+.price{
+	margin-left: 40px;
+	width: 870px;
+	padding-top: 20px;
+	border-top: 1px solid #cccccc;
+}
+.DMinline{
+	margin-bottom: 10px;
+	padding-top: 10px;
+}
+.inline{
+	padding-top: 20px;
+}
+.display-block{
+	display: block;
+}
+.uploadBata #secondsubBata{
+  width: 60px;
+  position: absolute;
+  top: 0px;
+  left: 400px;
+}
+.uploadBata #secondfsBata{
+  float: left;
+  margin: 6px;
+}
+#formIdBata{
+  float: left;
+  width: 200px;
+  position: relative;
+}
+.uploadBata{
+  width: 600px;
+  display: inline-block;
+  margin-left: 0px;
+  padding-bottom: 50px;
+  overflow: hidden;
+  padding-top: 20px;
+}
+.uploadBata .fileBata{
+  float: left;
+  height: 30px;
+  width: 200px;
+}
+.dataImg{
+	width: 100px;
+	height: 100px;
+}
+.plese{
+	width: 70px;
+	height: 14px;
+	position: absolute;
+	top: 500px;
+	left: 600px;
+}
+.upimages{
+	color:#000000;
+}
+td.GM{
+	overflow: hidden;
+}
+#inputHelpBlock{
+	width: 265px;
+	float: left;
+}
+td input#inputHelpBlock{
+	margin-right: 5px;
+}
+.companyNum{
+	width: 68px;
+	float: left;
+}
+input.fileDataBank{
+    opacity:0;
+    filter:alpha(opacity=0);
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 10;
+    left: 10;
+    z-index: 9;
+}
+.upload2 #secondsub{
+  width: 60px;
+  position: absolute;
+  top: 24px;
+  left: 400px;
+}
+.upload2 #secondfs{
+  float: left;
+  margin: 6px;
+}
+#formId2{
+  float: left;
+  width: 200px;
+  position: relative;
+}
+.upload2{
+  width: 600px;
+  display: inline-block;
+  margin-left: 0px;
+  padding-bottom: 50px;
+  overflow: hidden;
+  padding-top: 20px;
+  position: relative;
+}
+.upload2 .file2{
+  float: left;
+  height: 30px;
+  width: 200px;
+}
+.append a{
+  color: #ccc;
+}
+.page-list .pagination {float:left;}
+.page-list .pagination span {cursor: pointer;}
+.page-list .pagination .separate span{cursor: default; border-top:none;border-bottom:none;}
+.page-list .pagination .separate span:hover {background: none;}
+.page-list .page-total {float:left; margin: 25px 20px;}
+.page-list .page-total input, .page-list .page-total select{height: 26px; border: 1px solid #ddd;}
+.page-list .page-total input {width: 40px; padding-left:3px;}
+.page-list .page-total select {width: 50px;}
+td.flod .dataG{
+	margin-top: 10px;
+	display: inline-block;
+	line-height: 35px;
+}
+.table > tbody > tr > td.flod>.dataG{
+	overflow: hidden;
+}
+.table > tbody > tr > td.flod{
+	width: 86px;
+}
+.right_F ul{
+	margin:10px;
+	overflow: hidden;
+}
+.right_F li{
+	float: left;
+	color:#666666;
+	font-size: 12px;
+}
+.simditor .simditor-wrapper .simditor-placeholder{
+	color: #000;
+}
+.simditor{
+	text-align: left;
+}

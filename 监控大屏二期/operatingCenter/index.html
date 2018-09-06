@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>系统运营中心</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <!--<link rel="stylesheet" href="style/bootstrap.min.css">-->
+    <link rel="stylesheet" href="../css/operating.css">
+</head>
+<body ng-controller="operatingIndex">
+    <div class="container">
+        <div class="topBar">
+            <img src="../images/left.png" alt="">
+            <span>系统运营中心</span>
+            <img src="../images/right.png" alt="">
+            <div class="loginStatus">
+                欢迎您，<b>浙江大数据交易中心</b><a class="loginOut" href="javascript:;"  ng-click="allFun.loginOut()">退出</a>
+            </div>
+        </div>
+        <div class="mainBox" ng-view></div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/d3.v3.js"></script>
+    <script type="text/javascript" src="js/dagre-d3.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/ui-bootstrap-tpls.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/echarts.js"></script>
+    <script src="js/routeConfig.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/directive.js"></script>
+</body>
+</html>

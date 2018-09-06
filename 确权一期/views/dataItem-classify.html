@@ -1,0 +1,70 @@
+<div class="container containerBox-inner" ng-controller="dataItem-classify">
+    <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left" href="#main">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#user-message">{{UserName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+        <div class="form-group index-search">
+            <label class="sr-only" for="index-search">搜索数据商品</label>
+            <div class="input-group">
+                <input id="index-search" placeholder="请输入您要搜索的数据商品名称">
+                <a class="index-search-btn text-center">搜索</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="#main">首页</a></li>
+            <li class="active">{{TopApplicationType}}</li>
+        </ol>
+    </div>
+    <div class="row">
+        <ul class="levelTwoClassify-list">
+            <li><a class="active" href="">全部</a></li>
+            <li><a href="">二级分类</a></li>
+        </ul>
+    </div>
+    
+    <div class="row dataItemBox">
+        <dl class="dataItem-box pull-left" ng-repeat="value in items" ng-click="query($index,value.DataSetName,value.DataBankName)">
+            <dt><a class="tupian"><img id="image" ng-src="{{imgSrc}}?fileName={{value.LogoFigFile}}&filePath={{value.LogoFigPath}}&SessionId={{SessionId}}"></a></dt>
+            <dd class="text-center data-Name">{{value.DataSetName}}</dd>
+            <dd class="text-center data-price"><span ng-if="punit(value.Price[0].Unit)">{{value.Price[0].Price}}元/{{unit}}</span></dd>
+        </dl>
+    </div>
+    <div id="noMessage" style="text-align: center;font-size: 20px;margin-top: 20px">
+    </div>
+    <div class="row">
+       <!--暂用样式-->
+        <div id="page" ng-show="pageShow">
+            <nav>
+                <ul class="pagination">
+                <li>
+                <a ng-click="Previous()">
+                <span>上一页</span>
+                </a>
+                </li>
+                <li ng-repeat="page in pageList" ng-class="{active: isActivePage(page)}" >
+                <a ng-click="selectPage(page)" >{{ page }}</a>
+                </li>
+                <li>
+                <a ng-click="Next()">
+                <span>下一页</span>
+                </a>
+                </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

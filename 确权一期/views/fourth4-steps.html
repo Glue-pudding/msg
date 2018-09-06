@@ -1,0 +1,104 @@
+<div class="container_cao" ng-controller="fourth4Con">
+    <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#company">{{DataBankName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+  <h2>数据银行
+      <button class="btn btn-default append"><a href="#first-steps">+添加数据</a></button>
+  </h2>
+  
+  <div class="_left">
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" class="commodity text-center"><a href="data-manage.html">数据商品管理</a></li>
+              <li role="presentation" class=" text-center info"><a href="#company">企业信息管理</a></li>
+    </ul>
+  </div>
+  <div class="bbbbbb right_F">
+              <ul>
+                <li>数据银行</li>
+                <li>></li>
+                <li>数据商品管理</li>
+                <li>></li>
+                <li>数据信息编辑</li>
+                <li>></li>
+                <li>{{data.data.DataSetName}}</li>
+              </ul>
+              <!--第四步开始-->
+              <div class="div4" id="div4">
+                  <nav aria-label="Page navigation" class="text-center">
+                    <ul class="pagination">
+                      <li><a href="#data-bank">基本信息</a></li>
+                      <li><a href="
+                        #third3-steps">数据描述</a></li>
+                      <li class="active"><a href="#fourth4-steps">价格设置</a></li>
+                    </ul>
+                  </nav>
+                  <form name="myForm" class="form-inline" novalidate>
+                    <div class="price">
+                      <form class="form-inline inline">
+                            <div class="form-group">
+                              <label for="exampleInputName2">价格：</label>
+                              <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入价格" ng-model="Price" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" required min="1" />
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div class="form-group">
+                              <label for="exampleInputEmail2">单位：</label>
+                              <select class="form-control" ng-model="Unit" required>
+                                    <option value="week">周</option>
+                                    <option value="month">月</option>
+                                    <option value="year">年</option>
+                              </select>
+                            </div>
+                        </form><br>
+                        <form class="form-inline inline">
+                            <div class="form-group">
+                              <label for="exampleInputName2">价格：</label>
+                              <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入价格" ng-model="Price2" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" min="1" />
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div class="form-group">
+                              <label for="exampleInputEmail2">单位：</label>
+                              <select class="form-control" ng-model="Unit2">
+                                    <option value="week">周</option>
+                                    <option value="month">月</option>
+                                    <option value="year">年</option>
+                              </select>
+                            </div>
+                            <button type="submit" class="btn btn-default" ng-click="delData()">删除</button>
+                        </form>
+                        <form class="form-inline inline" ng-repeat="item in myDom">
+                            <div class="form-group">
+                              <label for="exampleInputName2">价格：</label>
+                              <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入价格" ng-model="Price3" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" min="1" onBlur="this.value=parseInt(this.value)"/>
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div class="form-group">
+                              <label for="exampleInputEmail2">单位：</label>
+                              <select class="form-control" ng-model="Unit3">
+                                    <option value="week">周</option>
+                                    <option value="month">月</option>
+                                    <option value="year">年</option>
+                              </select>
+                            </div>
+                            <button type="submit" class="btn btn-default" ng-click="delData()">删除</button>
+                        </form><br>
+                        <button class="btn btn-default" ng-click="addData()">+添加价格</button>
+                    </div>
+                    <div class="text-center">
+                      <button class="btn btn-primary" ng-click="nextStep()" ng-disabled="myForm.$invalid">发布</button>
+                      <a href="#third-steps"><button class="btn btn-default">返回</button></a>
+                    </div>
+                  </form>
+              </div>
+              <!--第四步结束-->
+              
+  </div>
+</div>

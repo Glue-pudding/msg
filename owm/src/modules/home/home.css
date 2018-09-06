@@ -1,0 +1,126 @@
+/* slider css */
+.carousel{height: 560px}
+.carousel-inner,.carousel-item{height: 100%;}
+.carousel-item img{width:100%; height:100%;}
+
+/* infor css */
+
+/* advance css */
+
+/* product css */
+.product{background:#343A40; }
+.product .title{
+    font-size:30px;
+    font-family:PingFangSC-Light;
+    color:rgba(255,255,255,1);
+    line-height:38px;
+}
+.wrap-product-box{margin-bottom: 30px;}
+.wrap-product-box h5{font-size:18px;
+    font-family:PingFangSC-Light;
+    color:rgba(141,151,173,1);
+    line-height:26px;}
+.wrap-product-box .imgbox{
+    height:216px; width:100%;background: #ccc;
+}
+.wrap-product-box .imgbox img{height:100%; width: 100%;}
+.product-data-box{height: 190px; background: #FED700;}
+.product-data-box h3{font-size:40px;
+    font-family:PingFangSC-Light;
+    color:rgba(38,50,56,1);
+    line-height:48px;}
+.product-data-box h3+span{font-size:14px;
+    font-family:PingFangSC-Regular;
+    color:rgba(102,102,102,1);
+    line-height:22px;}
+
+/* news css */
+.newsbox .title{
+    font-size:30px;
+    font-family:PingFangSC-Light;
+    color:rgba(38,50,56,1);
+    line-height:38px;
+}
+
+a.newsbtn{width:160px;padding:5px 0; height: 54px; line-height: 44px;font-size:16px;}
+.list-block {
+    margin: 0px;
+    padding: 0px; }
+    .list-block li {
+      list-style: none;
+      padding: 10px 0;color:#263238;
+      height: 90px;line-height: 60px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .list-block li>span{
+          font-size: 18px;display: inline-block;
+          max-width:72%; text-overflow: ellipsis;
+          white-space: nowrap; overflow: hidden;
+      }
+      .list-block li .ml-auto{font-size: 14px;}
+      .list-block li i {
+        margin-right: 10px;color:#7CBCFF;
+        -ms-flex-negative: 0px;
+        flex-shrink: 0px;
+        margin-top: 3px; }
+
+
+
+.btn {
+    color: #ffffff;
+    padding: 10px 25px;
+    cursor: pointer;
+    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    -webkit-transition: 0s;
+    -o-transition: 0s;
+    transition: 0s; }
+    .btn:hover {
+      color: #ffffff; }
+    .btn:focus {
+      -webkit-box-shadow: none;
+      box-shadow: none; }
+.btn-info-gradiant {
+    background: #188ef4;
+    background: -webkit-linear-gradient(legacy-direction(to right), #188ef4 0%, #316ce8 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#188ef4), to(#316ce8));
+    background: -webkit-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+    background: -o-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+    background: linear-gradient(to right, #188ef4 0%, #316ce8 100%);
+    border: 0px;
+    color: #ffffff; }
+    .btn-info-gradiant:hover {
+      background: #316ce8;
+      background: -webkit-linear-gradient(legacy-direction(to right), #316ce8 0%, #188ef4 100%);
+      background: -webkit-gradient(linear, left top, right top, from(#316ce8), to(#188ef4));
+      background: -webkit-linear-gradient(left, #316ce8 0%, #188ef4 100%);
+      background: -o-linear-gradient(left, #316ce8 0%, #188ef4 100%);
+      background: linear-gradient(to right, #316ce8 0%, #188ef4 100%); }
+    .btn-info-gradiant.active, .btn-info-gradiant:active, .btn-info-gradiant:focus {
+      -webkit-box-shadow: 0px;
+      box-shadow: 0px;
+      opacity: 1; }
+.editBannerBox{width:192px; height:56px;}
+.editBannerBox img{height:100%; width:100%;}
+.bannerDetailBox{
+    width:112px; height: 112px;font-size: 32px;border: 1px solid rgba(220,224,230,1);
+    border-radius:4px;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.bannerDetailBox img{width:100%; height:100%;}
+

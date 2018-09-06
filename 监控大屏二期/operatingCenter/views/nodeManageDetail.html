@@ -1,0 +1,195 @@
+<div class="mainBoxInner" ng-controller="nodeManageDetail">
+    <div class="nodeDetail-title">
+        <ul>
+            <li>监控中心</li>
+            <li>>></li>
+            <li>任务管理</li>
+            <li>>></li>
+            <li>任务详情</li>
+        </ul>
+        <!-- <button>恢复链路</button> -->
+    </div>
+        <div class="content-right">
+            <div class="baseDetail">
+                <div class="baseDetail-title">基本信息</div>
+                <div class="baseDetail-validity"><span class="validety-first">订单有效期：</span><span class="validety-second">{{datas.BeginDate}}至{{datas.EndDate}}</span></div>
+                <div class="baseDetail-content">
+                    <div class="rowB">
+                        <div class="firstT">
+                            <label>买家名称：</label><span ng-bind="datas.SubscriberName"></span>
+                        </div>
+                        <div class="secondT">
+                            <label>任务类型：</label><span ng-bind="datas.DataBankName"></span>
+                        </div>
+                    </div>
+                    <div class="rowB">
+                        <div class="firstB">
+                            <label>任务状态：</label><span ng-if="Dstatu(datas.OrderStatus)" ng-bind="statu"></span>
+                        </div>
+                        <div class="secondB">
+                            <label>异常原因：</label><span ng-bind="datas.AbnormalType"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dataStream">
+                <div class="dataStream-title">数据流图</div>
+                <div class="dataStream-see1">
+                    <span class="color span1Color"></span>
+                    <span class="spanStatu">已完成</span>
+                    <span class="color span2Color"></span>
+                    <span class="spanStatu">运行中</span>
+                    <span class="color span3Color"></span>
+                    <span class="spanStatu">等待开始</span>
+                </div>
+                <div class="dataStream-see"><a href="#nodeManageList">查看历史流图</a></div>
+
+                <div class="dataStream-content">
+                    <div id="dag">
+                        <svg height="100">
+                            <g transform="translate(20, 20)"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="relationData">
+                <div class="relationData-title">关联数据</div>
+                <div ng-show='defaultData'>
+                    <div class="relationData-content" ng-repeat='value in dafault'>
+                        <div class="rowB">
+                            <div class="firstT">
+                                <label>数据名称：</label><span ng-bind="value.DataSetName"></span>
+                            </div>
+                            <div class="secondT">
+                                <label>买家名称：</label><span ng-bind="value.SubscriberName"></span>
+                            </div>
+                        </div>
+                        <div class="rowB">
+                            <div class="firstB">
+                                <label>数据银行：</label><span ng-bind="value.DataBankName"></span>
+                            </div>
+                            <div class="secondB">
+                                <label>订单编号：</label><span ng-bind="value.OrderID"></span>
+                            </div>
+                        </div>
+                        <div class="rowB">
+                            <div class="firstM">
+                                <label>数据维度：</label><span ng-bind="datas.SchemaSize"></span>
+                            </div>
+                            <div class="secondM">
+                                <label>订单期限：</label><span>
+                                    {{value.BeginDate}}至{{value.EndDate}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="relationData-content">
+                        <div class="rowB fenGe">
+                            <div class="firstT">
+                                <label>数据名称：</label><span ng-bind="datas.DataBankName"></span>
+                            </div>
+                            <div class="secondT">
+                                <label>买家名称：</label><span ng-bind="datas.DataBankName"></span>
+                            </div>
+                        </div>
+                        <div class="rowB">
+                            <div class="firstB">
+                                <label>数据银行：</label><span ng-bind="datas.DataBankName"></span>
+                            </div>
+                            <div class="secondB">
+                                <label>订单编号：</label><span ng-bind="datas.DataBankName"></span>
+                            </div>
+                        </div>
+                        <div class="rowB">
+                            <div class="firstM">
+                                <label>数据维度：</label><span ng-bind="datas.DataBankName"></span>
+                            </div>
+                            <div class="secondM">
+                                <label>订单期限：</label><span ng-bind="datas.DataBankName"></span>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="Division" ng-show='down'>
+                        <div class="Division-fen">
+                            <img src="image/分隔线.png">
+                        </div>
+                        <div class="Division-up">
+                            <img src="image/down_over.png" ng-click="open()">
+                        </div>
+                    </div>
+                </div>
+                <div ng-show='bigData'>
+                    <div class="relationData-content" ng-repeat='value in dafault'>
+                        <div class="rowB">
+                            <div class="firstT">
+                                <label>数据名称：</label><span ng-bind="value.DataSetName"></span>
+                            </div>
+                            <div class="secondT">
+                                <label>买家名称：</label><span ng-bind="value.SubscriberName"></span>
+                            </div>
+                        </div>
+                        <div class="rowB">
+                            <div class="firstB">
+                                <label>数据银行：</label><span ng-bind="value.DataBankName"></span>
+                            </div>
+                            <div class="secondB">
+                                <label>订单编号：</label><span ng-bind="value.OrderID"></span>
+                            </div>
+                        </div>
+                        <div class="rowB">
+                            <div class="firstM">
+                                <label>数据维度：</label><span ng-bind="datas.SchemaSize"></span>
+                            </div>
+                            <div class="secondM">
+                                <label>订单期限：</label><span>
+                                    {{value.BeginDate}}至{{value.EndDate}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="relationData-content">
+                        <div class="rowB fenGe">
+                            <div class="firstT">
+                                <label>数据名称：</label><span ng-bind="datas.DataBankName"></span>
+                            </div>
+                            <div class="secondT">
+                                <label>买家名称：</label><span ng-bind="datas.DataBankName"></span>
+                            </div>
+                        </div>
+                        <div class="rowB">
+                            <div class="firstB">
+                                <label>数据银行：</label><span ng-bind="datas.DataBankName"></span>
+                            </div>
+                            <div class="secondB">
+                                <label>订单编号：</label><span ng-bind="datas.DataBankName"></span>
+                            </div>
+                        </div>
+                        <div class="rowB">
+                            <div class="firstM">
+                                <label>数据维度：</label><span ng-bind="datas.DataBankName"></span>
+                            </div>
+                            <div class="secondM">
+                                <label>订单期限：</label><span ng-bind="datas.DataBankName"></span>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="Division">
+                        <div class="Division-fen">
+                            <img src="image/分隔线.png">
+                        </div>
+                        <div class="Division-up">
+                            <img src="image/up_over.png" ng-click="retract()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dataOperation">
+                <div class="dataOperation-title">数据操作行为统计</div>
+                <div class="dataOperation-content" id="dataOperation-content">
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

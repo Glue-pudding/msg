@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- 设置初始缩放比例为1.0，使用设备宽度  -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <script type="text/javascript" src="js/public.js"></script>
+    <link href="css/index.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+</head>
+<body>
+  <header>
+     <ul class="headerUl">
+       <li>
+         <img src="images/back.png" class="signOut">
+       </li>
+       <li>身份认证</li>
+       <li>
+         
+       </li>
+     </ul>
+   </header>
+   <article>
+    <aside>
+      <img src="images/image.png">
+    </aside>
+    <p>
+      为了便于满足世纪联华储蓄卡实名制的要求，需要你使用认证服务；并在认证过程中，授权其查询如下信息
+    </p>
+    <ul>
+      <li>查询你的姓名、身份证、手机号信息</li>
+      <li>查询你的人脸照片</li>
+    </ul>
+     
+   </article>
+   <footer>
+     <!-- <div class="bank">
+       <div>
+         <img src="images/logo_nanjing.png">
+       </div>
+       <div>
+         <h4 class="bankH">南京银行用户身份认证</h4>
+         <p class="main">
+           验证成功后，将自动开通南京银行电子钱包，支付、储值更方便
+         </p>
+       </div>
+       <div class="bankBax">
+         <img src="images/next.png">
+       </div>
+     </div> -->
+     <div class="face">
+       <div>
+         <img src="images/face.png">
+       </div>
+       <div>
+         <h4 class="faceH">
+           多因子人脸识别认证
+         </h4>
+       </div>
+       <div class="faceBax">
+         <img src="images/next.png">
+       </div>
+     </div>
+   </footer>
+</body>
+<script type="text/javascript">
+  $('.face').click(function(){
+    localStorage['dataType']='Common';
+    location.href="firstStep.html";
+  });
+  function Verification(text,type){
+    if (text=='YES') {
+      location.href="success.html";
+    }else if(text=='NO'){
+      localStorage['type']=type;
+      location.href="error.html";
+    };
+  };
+  $(".signOut").click(function(){
+    location.href="signOut.html?signOut&Next";
+  });
+</script>
+
+</html>

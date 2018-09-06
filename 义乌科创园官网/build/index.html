@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>义乌科创园</title>
+    
+      <link rel="icon" type="image/x-icon" href="E:\gitlab仓库\Project\ywTech-front/static/images/favicon.ico">
+    
+  <link rel="shortcut icon" href="favicon.ico"></head>
+  <body>
+    <div id='root'></div>
+    <script>
+      window.onload = function(){
+        if(document.getElementById("numBox")){
+          document.getElementById("numBox").addEventListener("mouseover", function(e){
+            document.getElementById('numCont').style.display= 'block';
+            document.getElementById('numCont').style.left= '-180px';
+            document.getElementById('numCont').style.top= '-40px';
+          });
+          document.getElementById("numBox").addEventListener("mouseout", function(){
+            document.getElementById('numCont').style.display='none';
+          });
+        }
+        window.onscroll = function(){
+          let scrollt = document.documentElement.scrollTop + document.body.scrollTop; //滚动条滚动高度
+          let topMenu = document.getElementById('topMenu'),
+              backBox = document.getElementById('botoomBox'),links = topMenu.querySelectorAll('a');
+          if(scrollt>400){
+            backBox.style.display = 'block';
+          }else{
+            backBox.style.display = 'none';
+          }
+        }
+        window.scroll();
+      }
+    </script>
+  <script type="text/javascript" src="bundle-4665c5452cca72262192.js"></script></body>
+</html>

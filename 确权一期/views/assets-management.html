@@ -1,0 +1,73 @@
+<div class="Person_container" ng-controller="assetsManagement">
+  <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left" href="#main">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#user-message">{{UserName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+      <p class="person_p">个人中心</p>
+
+      <!-- 左边栏 -->
+<!--       <div class="person_left">
+        <div class="list-group">
+          <a href="#user-center" class="list-group-item "><img src="images/ico01_nor.png"><span>数据资产总览</span></a>
+          <a href="#data-power" class="list-group-item active"><img src="images/ico02_over.png"><span>数据资产管理</span></a>
+          <a href="#data-order" class="list-group-item "><img src="images/ico03_nor.png"><span>数据订单管理</span></a>
+          <a href="#resolve" class="list-group-item "><img src="images/ico04_nor.png"><span>数据混淆管理</span></a>
+          <a href="#user-message" class="list-group-item "><img src="images/ico05_nor.png"><span>个人信息设置</span></a>
+        </div>
+      </div> -->
+      <!-- 右边栏 -->
+    	<div class="Person_right">
+        <div class="person_assets">
+        <p class="bg">请阅读授权协议，并同意对以下数据进行授权。</p>
+        <h4>拟授权数据</h4>
+        <table>
+          <tr style="background: #cccccc">
+            <td>数据名称</td>
+            <td>授权对象</td>
+            <td>数据维度</td>
+          </tr>
+          <tr ng-repeat="value in data">
+            <td>{{value.DataSetName}}</td>
+            <td>{{value.DataBankName}}</td>
+            <td>{{value.SchemaSize}}</td>
+          </tr>
+        </table>
+
+        <h4>授权数据应用方式</h4>
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+            统计数据授权（匿名）
+          </label><br>
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            订单数据授权（匿名）
+          </label>
+        </div>
+         <div class="checkbox">
+          <label>
+          <input type="checkbox" ng-model="checkedText">
+            已经阅读同意<a href="javascript:;">《用户个人数据授权协议书》</a>
+            <span ng-show="checkInput" role="alert">
+               <span class="error_text" style="color: #ff0000;">请勾选协议！</span>
+           </span>
+          </label> 
+        </div>
+       <p class="btn">
+            <a href="javascript:;" class="btn btn-primary bt1" role="button" ng-click="checkShow(value.DataSetName,value.DataBankName)">同意并授权</a> 
+            <a href="#data-power" class="btn btn-default" role="button" ng-click="cancelAssets(value.DataSetName,value.DataBankName)">暂不授权</a>
+        </p>
+      </div>
+    </div>
+  </div>

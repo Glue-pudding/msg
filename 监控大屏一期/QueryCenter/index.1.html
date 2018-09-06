@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>查询监控中心</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/queryCenter.css">
+    <script data-main="../js/main" src="../js/require.min.js"></script>
+</head>
+
+<body>
+    <div class="loading" style="display: none;">
+        <canvas id="canvas" width="300" height="300">0%</canvas>
+        <p style="font-size:30px;color:#ffffff">页面加载中，请稍后...</p>
+    </div>
+    <div class="container">
+        <div class="topBar">
+            <img src="../images/left.png" alt="">
+            <span>查询监控中心</span>
+            <img src="../images/right.png" alt="">
+        </div>
+        <div class="contentLeft">
+            <!-- 左侧第一块内容 异常请求动态趋势 -->
+            <div class="monitoringDynamic">
+                <div class="title">异常请求动态趋势</div>
+                <div class="leftTop"></div>
+                <div class="rightTop"></div>
+                <div class="line"></div>
+                <div class="brokenLine" id="brokenLine"></div>
+            </div>
+            <!-- 左侧第二块内容 每日查询量统计 -->
+            <div class="monitoringDynamic">
+                <div class="title">每日查询量统计</div>
+                <div class="leftTop"></div>
+                <div class="rightTop"></div>
+                <div class="line"></div>
+                <div class="columnar" id="columnar"></div>
+            </div>
+            <!-- 左侧第三块内容 异常请求监控 -->
+            <div class="monitoringNodes">
+                <div class="title"> 异常请求监控</div>
+                <div class="leftTop"></div>
+                <div class="rightTop"></div>
+                <div class="line"></div>
+                <div class="raBar"></div>
+                <div class="tabList">
+                    <ul id="con0" class="node-monitoring">
+                        <li>
+                            <span>序号</span>
+                            <span>查询人</span>
+                            <span>查询请求</span>
+                            <span>告警信息</span>
+                        </li>
+                    </ul>
+                    <div id="tab0" class="tab0">
+                        <ul id="tab1" class="node-monitoring"></ul>
+                        <ul id="tab2" class="node-monitoring"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contentMain">
+            <div class="actualTimeDeal">
+                <div class="title">实时交易</div>
+                <div class="line"></div>
+                <div class="dealDataBox">
+                    <div class="dealData marginR CenterWidth">
+                        <p class="dealP">今日查询次数</p>
+                        <!-- <b class="totalTrade-count"></b><span>次</span> -->
+                        <p class="dealDataP">
+                            <span>银行查询</span>
+                            <span class="totalTrade-count Ncolor TotalTodayBankVerifyCount"></span>
+                            <span class="">次</span>
+                        </p>
+                        <p class="dealDataP">
+                            <span>一般查询</span>
+                            <span class="totalTrade-count Ncolor TotalTodayCommonVerifyCount"></span>
+                            <span>次</span>
+                        </p>
+                    </div>
+                    <div class="dealData CenterWidth">
+                        <p class="dealP">今日异常次数</p>
+                        <p class="dealDataP">
+                            <span>银行查询</span>
+                            <span class="totalTrade-count Ncolor TotalTodayBankAbnormalCount"></span>
+                            <span class="">次</span>
+                        </p>
+                        <p class="dealDataP">
+                            <span>一般查询</span>
+                            <span class="totalTrade-count Ncolor TotalTodayCommonAbnormalCount"></span>
+                            <span>次</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mapBox" id="mapBox">
+                <div class="tooltips hide">
+                    银行规模：
+                    <span class="bankSize"></span>
+                    <br> 数据规模：
+                    <span class="dataSize"></span>
+                </div>
+                <div class="mapView" id="mapView"></div>
+
+            </div>
+        </div>
+        <div class="contentRight">
+            <!-- 右侧第一块内容 基本数据 -->
+            <div class="baseData">
+                <div class="title">基本数据</div>
+                <div class="leftTop"></div>
+                <div class="rightTop"></div>
+                <div class="line"></div>
+                <div class="pi" id="pi">
+
+                </div>
+            </div>
+            <!-- 右侧第二块内容 异常请求动态趋势 -->
+            <div class="monitoringDynamic">
+                <div class="title">异常请求动态趋势</div>
+                <div class="leftTop"></div>
+                <div class="rightTop"></div>
+                <div class="line"></div>
+                <div class="brokenLine" id="brokenLine"></div>
+            </div>
+            <!-- 右侧第三块内容 查询记录 -->
+            <div class="abnormalCategoryCount">
+                <div class="title">查询记录</div>
+                <div class="leftTop"></div>
+                <div class="rightTop"></div>
+                <div class="line"></div>
+                <div class="scrollbox" id="scrollbox">
+                    <ul id="con1"></ul>
+                    <ul id="con2"></ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            require(['../QueryCenter/index','../js/QueryCenter','../js/common'])
+        </script>
+</body>
+
+</html>

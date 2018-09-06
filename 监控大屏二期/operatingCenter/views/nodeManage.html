@@ -1,0 +1,66 @@
+<div class="mainBoxInner" ng-controller="nodeManage">
+    <div class="nodeDetail-title1">
+        <span>节点详情</span>
+        <div class="line"></div>
+    </div>
+    <div class="nodeDetail-content">
+        <div class="content-left">
+            <div class="stop" ng-if="datas.OrderStatus=='Normal'" ng-click="stopLink(datas.DataBankName,datas.SubscriberName,datas.DataSetName)">中断链路</div>
+            <div class="run"  ng-if="datas.OrderStatus=='Normal'">恢复链路</div>
+            <div class="stop" ng-if="datas.OrderStatus=='Stopped'">中断链路</div>
+            <div class="run"  ng-if="datas.OrderStatus=='Stopped'"  ng-click="runLink(datas.DataBankName,datas.SubscriberName,datas.DataSetName)">恢复链路</div>
+            <div class="stop" ng-if="datas.OrderStatus=='Abnormal'" ng-click="stopLink(datas.DataBankName,datas.SubscriberName,datas.DataSetName)">中断链路</div>
+            <div class="run"  ng-if="datas.OrderStatus=='Abnormal'">恢复链路</div>
+        </div>
+        <div class="content-right1">
+            <div class="baseDetail1">
+                <div class="baseDetail1-title">基本详情</div>
+                <div class="baseDetail1-content">
+                    <div class="row1">
+                        <label>数据银行：</label><span ng-bind="datas.DataBankName"></span>
+                    </div>
+                    <div class="row1">
+                        <label>商品名称：</label><span ng-bind="datas.DataSetName"></span>
+                    </div>
+                    <div class="row1">
+                        <label>买家名称：</label><span ng-bind="datas.SubscriberName">爽歪歪有限责任公司</span>
+                    </div>
+                    <div class="row1">
+                        <label>订单编号：</label><span ng-bind="datas.OrderID"></span>
+                    </div>
+                    <div class="row1">
+                        <label>订单时间：</label><span ng-bind="datas.OrderTime"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="runMessage1">
+                <div class="runMessage1-title">运行信息</div>
+                <div class="runMessage1-content">
+                    <div class="row1">
+                        <label>运行状态：</label>
+                        <span ng-if="datas.OrderStatus=='Normal'">链路正常</span>
+                        <span ng-if="datas.OrderStatus=='Stopped'">链路中断</span>
+                        <span ng-if="datas.OrderStatus=='Abnormal'">告警</span>
+                    </div>
+                    <div class="row1">
+                        <label>告警信息：</label><span ng-bind="datas.AbnormalType"></span>
+                        <!--<span  ng-if="datas.AbnormalType=='null'">/</span>-->
+                    </div>
+                    <div class="row1">
+                        <label>今日传输量：</label><span ng-bind="datas.TodayVolume"></span>
+                    </div>
+                    <div class="row1">
+                        <label>今日传输记录：</label><span ng-bind="datas.TodayCount"></span>
+                    </div>
+                    <div class="row1">
+                        <label>历史传输量：</label><span ng-bind="datas.HistoryVolume"></span>
+                    </div>
+                    <div class="row1">
+                        <label>历史传输记录：</label><span ng-bind="datas.HistoryCount"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

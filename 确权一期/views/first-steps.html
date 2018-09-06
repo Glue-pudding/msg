@@ -1,0 +1,136 @@
+<div class="container_cao" ng-app="first" ng-controller="firstCon">
+    <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#company">{{DataBankName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+  <h2>数据银行
+      <button class="btn btn-default append"><a href="#first-steps" class="dataM">+添加数据</a></button>
+  </h2>
+  
+  <div class="_left">
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" class="commodity text-center"><a href="#data-manage">数据商品管理</a></li>
+              <li role="presentation" class=" text-center info active"><a href="#company">企业信息管理</a></li>
+    </ul>
+  </div>
+  <div class="bbbbbb right_F">
+      <h2>请按以下步骤完成数据添加</h2>
+      <!--第一步开始-->
+      <div class="div1 display-block" id="div1">
+    <div class="schedule">
+        <div class="first">第一步</div>
+        <div class="strip s1"></div>
+        <div class="second">第二步</div>
+        <div class=strip></div>
+        <div class="third">第三步</div>
+        <div class="strip"></div>
+        <div class="fourth">第四步</div>
+        <ul>
+              <li class="l1">基本信息</li>
+              <li class="l2">元数据定义</li>
+              <li class="l3">数据描述</li>
+              <li class="l4">价格设置</li>
+        </ul>          
+    </div>
+    <div class="firstStepsF text-left">
+      <form name="myForm" novalidate>
+      <table class="table dataManageB">
+        
+            <tr>
+              <td class="text-right">名称：</td>
+              <td class="text-rigth"><input type="text" name="" class="form-control" ng-model="DataSetName" required ng-blur="selectDataName(DataSetName)" ng-focus="hideSpan()" ></td><td><span style="color: #ccc;font-size: 8px" id="selectUserName"></span></td>
+            </tr>
+            <tr>
+              <td class="flod"><span class="dataG">数据分类：</span></td>
+              <td colspan="2">
+                <select class="form-control formWidth ToForm" ng-model="ihg" ng-options="ihg.text for ihg in g" required>
+                  <option value="">请选择类型</option>
+                </select>
+                <select class="form-control formWidth" ng-model="nat" ng-options="nat.text for nat in ihg.nat" required>
+                  <option value="">请选择类型</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+                  <td class="flod"><span class="dataG">数据规模：</span></td>
+                  <td colspan="2">
+                        <input type="number" id="inputHelpBlock" class="form-control" aria-describedby="helpBlock" placeholder="请输入整数" ng-model="Size" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" required min="1" onBlur="this.value=parseInt(this.value)"/>
+                        <select class="form-control companyNum" ng-model="dataSize" required>
+                           <option value="B">B</option>
+                           <option value="KB">KB</option>
+                           <option value="MB" selected="selected">MB</option>
+                           <option value="GB">GB</option>
+                           <option value="TB">TB</option>
+                        </select>
+                  </td>
+            </tr>
+            <tr>
+              <td style="vertical-align: top">商品题图：</td>
+              <td class="text-left suggest" colspan="2">
+                <input id="file_upload" type="file" name="file" class="fileDataBank" nv-file-select uploader="uploader"/>
+                    <div class="image_container">
+                    <img id="preview" width="100" height="100" class="dataImg" src="images/image.png">
+                    </div>
+                <span>
+                点击上传图片<br />
+                建议图片大小：500kb,<br />
+                仅支持png,jpg格式,<br />
+                请使用企业相关icon,而非公司logo
+                  </span>
+              </td>
+            </tr>
+            <tr>
+                  <td class="text-right">简述：</td>
+                  <td colspan="2">
+                        <textarea class="form-control" rows="3" ng-model="AbstractInfo" required></textarea>
+                  </td>
+            </tr>
+            <tr>
+                  <td></td>
+                  <td colspan="2">
+                        <a><button type="submit" class="btn btn-primary firstA" ng-click="nextStep();" ng-disabled="myForm.$invalid">下一步</button></a>
+                        <button type="submit" class="btn btn-default">回复上次添加的商品</button>
+                  </td>
+            </tr> 
+            
+      </table>
+      </form>
+        <div ng-show='imgUp' style="color:red" class="plese">请选择图片</div>
+      </div>
+      </div>
+    </div>
+   </div>
+              <!--第一步结束-->
+<script type="text/javascript">
+  $(function() {
+      $("#file_upload").change(function() {
+      var $file = $(this);
+      var fileObj = $file[0];
+      var windowURL = window.URL || window.webkitURL;
+      var dataURL;
+      var $img = $("#preview");
+       
+      if(fileObj && fileObj.files && fileObj.files[0]){
+      dataURL = windowURL.createObjectURL(fileObj.files[0]);
+      $img.attr('src',dataURL);
+      }else{
+      dataURL = $file.val();
+      var imgObj = document.getElementById("preview");
+      imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+      imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+        
+         }
+        });
+      });
+</script>

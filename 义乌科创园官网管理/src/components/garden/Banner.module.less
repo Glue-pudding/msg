@@ -1,0 +1,240 @@
+.topPanel {
+  background: #fff;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 25px;
+  h3 {
+    text-indent: 1em;
+    font-family: Lato-Light;
+    font-size: 24px;
+    color: #323c47;
+    line-height: 34px;
+  }
+}
+.topLabel {
+  font-family: PingFangSC-Light;
+  font-size: 12px;
+  height: 22px;
+  width: 24px;
+  padding: 2px 4px;
+  margin-right: 8px;
+  color: #ffffff;
+  background: #18b9d5;
+  border-radius: 3px;
+  line-height: 22px;
+}
+.personBtn {
+  border-radius: 100px;
+  font-size: 14px;
+}
+.gardenBtn {
+  border-radius: 100px;
+  font-size: 14px;
+  float: right;
+}
+.personCard {
+  :global(.ant-card-head) {
+    border: none;
+  }
+  margin: 0px;
+}
+.gardenCard {
+  margin-bottom: 20px;
+  :global(.ant-card-head) {
+    border: none;
+  }
+  :global(.ant-card-body) {
+    margin: 0 32px 20px 32px;
+    background: #f7f8fb;
+    border-radius: 5px;
+  }
+}
+.tabItem {
+  p {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+}
+.red {
+  color: rgb(247, 30, 30);
+}
+.actText {
+  a {
+    margin-right: 8px;
+  }
+}
+.dropbox {
+  :global(.ant-upload) {
+    background: #fff;
+    border-radius: 5px;
+    margin: 0 auto;
+    :global(img) {
+      width: 160px;
+    }
+  }
+  :global(.ant-upload-drag) {
+    border: 1px solid #dce0e6;
+  }
+  :global(.ant-upload-list-item) {
+    :global(.ant-upload-list-item-info){&::before{left:0;}}
+    padding: 0 !important;
+    margin:0 auto; float:none;
+  }
+  :global(.ant-upload-list-picture-card) {
+    display: block;
+    width: 100%;
+  }
+  :global(.ant-upload) {
+    :global(.anticon) {
+      color: #d8dfe5 !important;
+      font-size: 20px;
+    }
+  }
+}
+.editPanel {
+  background: #fff;
+  padding: 20px 0;
+  :global(input[type="text"]) {
+    text-indent: 0.8em;
+  }
+}
+.Ycard {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.Ycard_Input {
+  height: 32px;
+  text-align: center;
+  margin: 7px 32px 32px 32px;
+  background: #ffffff;
+  border: 1px solid #dce0e6;
+  border-radius: 5px;
+}
+.Yedit {
+  height: 44px;
+  background: #f7f8fb;
+  text-align: center;
+  font-family: PingFangSC-Light;
+  font-size: 14px;
+  color: #637280;
+  letter-spacing: 0;
+  line-height: 44px;
+  margin: 0px 1px;
+}
+.Yeditq {
+  overflow: hidden;
+  height: 44px;
+  margin: 0px 1px;
+  .Ycancel {
+    width: 50%;
+    height: 44px;
+    text-align: center;
+    color: #637280;
+    line-height: 44px;
+  }
+  .Ypreservation {
+    width: 50%;
+    height: 44px;
+    text-align: center;
+    color: #637280;
+    line-height: 44px;
+  }
+}
+.confirmBox {
+  height: 44px;
+  background: #f7f8fb;
+  overflow: hidden;
+  .cancel {
+    float: left;
+    width: 50%;
+    text-align: center;
+    padding: 10px 0 0 0;
+    height: 100%;
+    border-right: 1px solid #ebedf8;
+  }
+  .save {
+    float: right;
+    width: 50%;
+    text-align: center;
+    padding: 10px 0 0 0;
+    height: 100%;
+  }
+}
+.YNewz {
+  font-family: PingFangSC-Light;
+  font-size: 14px;
+  color: #328dff;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-align: center;
+  padding: 37px 0px 69px 0px;
+  cursor: pointer;
+}
+
+.Ytab {
+  background: #ffffff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+}
+.addpolicy {
+  font-family: PingFangSC-Light;
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: 24px;
+  background: #328dff;
+  border-radius: 100px;
+}
+.grdenIntro {
+  margin: 15px;
+  font-family: PingFangSC-Light;
+  font-size: 14px;
+  color: #323c47;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.editPanel {
+  background: #fff;
+  padding: 20px 0;
+  :global(input[type="text"]) {
+    text-indent: 0.8em;
+  }
+  :global(.ant-form-item-label) {
+    label {
+      font-size: 14px;
+    }
+  }
+}
+.editorWrap {
+  border: solid 1px #dce0e6;
+}
+.editorCont {
+  text-indent: 1em;
+}
+:global(.rdw-image-modal-btn) {
+  border-color: #1890ff !important;
+  border-radius: 100px !important;
+  font-size: 14px;
+  height: 35px !important;
+  line-height: 32px;
+}
+:global(.rdw-image-modal-btn:disabled) {
+  color: #fff;
+  background-color: #1890ff !important;
+  border-color: #1890ff !important;
+  border-radius: 100px !important;
+  font-size: 14px;
+  height: 35px !important;
+  line-height: 32px;
+}
+.industCard{
+    position: relative;text-align:center;
+    &:hover{
+        :global(.anticon-close-circle-o){display:block;color:#328dff;cursor: pointer;}
+    }
+    :global(.anticon-close-circle-o){position: absolute;right: 8px;top: 8px;font-size: 20px;display: none;}
+}

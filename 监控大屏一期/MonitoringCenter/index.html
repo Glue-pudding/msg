@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>系统监控中心</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/monitoring.css">
+</head>
+<body>
+    <div class="loading" style="display: none;">
+        <canvas id="canvas" width="300" height="300">0%</canvas>
+        <p style="font-size:30px;color:#ffffff">页面加载中，请稍后...</p>
+    </div>
+    <div class="container">
+        <div class="topBar">
+            <img src="../images/left.png" alt="">
+            <span>系统监控中心</span>
+            <img src="../images/right.png" alt="">
+        </div>
+        <div class="contentLeft">
+            <div class="monitoringNodes">
+                <div class="title"> 异常节点监控</div>
+                <div class="leftTop"></div>
+                <div class="rightTop"></div>
+                <div class="line"></div>
+                <div class="raBar"></div>
+                <div class="tabList">
+                    <ul id="con0" class="node-monitoring">
+                        <li><span>序号</span><span>需方名称</span><span>商品名称</span><span>告警信息</span></li>
+                    </ul>
+                    <div id="tab0" class="tab0">
+                        <ul id="tab1" class="node-monitoring"></ul>
+                        <ul id="tab2" class="node-monitoring"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="monitoringDynamic">
+                <div class="title">异常动态监控</div>
+                <div class="leftTop"></div>
+                <div class="rightTop"></div>
+                <div class="line"></div>
+                <div class="brokenLine" id="brokenLine" ></div>
+            </div>
+            <div class="abnormalCategoryCount">
+                <div class="title">交易动态</div>
+                <div class="leftTop"></div>
+                <div class="rightTop"></div>
+                <div class="line"></div>
+                <div class="scrollBox" id="scrollBox">
+                    <ul id="con1">
+                        <!--<li>用户<span>XXX</span>购买了<span>XXX商品1</span></li>-->
+                        <!--<li>用户<span>XXX</span>购买了<span>XXX商品2</span></li>-->
+                        <!--<li>用户<span>XXX</span>购买了<span>XXX商品3</span></li>-->
+                        <!--<li>用户<span>XXX</span>购买了<span>XXX商品4</span></li>-->
+                        <!--<li>用户<span>XXX</span>购买了<span>XXX商品5</span></li>-->
+                        <!--<li>用户<span>XXX</span>购买了<span>XXX商品6</span></li>-->
+                        <!--<li>用户<span>XXX</span>购买了<span>XXX商品7</span></li>-->
+                        <!--<li>用户<span>XXX</span>购买了<span>XXX商品8</span></li>-->
+                        <!--<li>用户<span>XXX</span>购买了<span>XXX商品9</span></li>-->
+                        <!--<li>用户<span>XXX</span>购买了<span>XXX商品10</span></li>-->
+                    </ul>
+                    <ul id="con2"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="contentMain">
+            <div class="actualTimeDeal">
+                <div class="title">实时交易</div>
+                <div class="line"></div>
+                <div class="dealDataBox">
+                    <div class="dealData marginR">
+                        <p>已上架数据商品</p>
+                        <b class="totalAuthDataSets-count"></b><span>个</span>
+                    </div>
+                    <div class="dealData marginR">
+                        <p>已成交订单</p>
+                        <b class="totalTrade-count"></b><span>个</span>
+                    </div>
+                    <div class="dealData marginR">
+                        <p>当前活跃通道</p>
+                        <b class="activeChannel-count"></b><span>个</span>
+                    </div>
+                    <div class="dealData">
+                        <p>异常节点</p>
+                        <b class="singularNode-count"></b><span>个</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mapBox" id="mapBox">
+ <!--                 <div class="toggleMap">
+                    <span  id="t2">数据银行</span>
+                    <span id="t1" class="sel">授权用户</span>
+                </div> --> 
+                <div class="tooltips hide">
+                    银行规模：<span class="bankSize"></span><br>
+                    数据规模：<span class="dataSize"></span>
+                </div>
+                <div class="mapView" id="mapView"></div>
+
+            </div>
+        </div>
+        <div class="contentRight">
+            <div class="baseData">
+                <div class="title">商品分类</div>
+                <div class="leftTop"></div>
+                <div class="rightTop"></div>
+                <div class="line"></div>
+                <div class="pie" id="pie"></div>
+            </div>
+            <div class="goodsCategory">
+                <div class="title">数据操作行为统计</div>
+                <div class="leftTop"></div>
+                <div class="rightTop"></div>
+                <div class="line"></div>
+                <div class="statis" id="statis"></div>
+            </div>
+            <div class="dealState" id="dealState">
+                <div class="title">异常类别统计</div>
+                <div class="leftTop"></div>
+                <div class="rightTop"></div>
+                <div class="line"></div>
+                <div class="columnar" id="columnar"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var canvas = document.getElementById('canvas'),  //获取canvas元素
+                    context = canvas.getContext('2d'),  //获取画图环境，指明为2d
+                    centerX = canvas.width/2,   //Canvas中心点x轴坐标
+                    centerY = canvas.height/2,  //Canvas中心点y轴坐标
+                    rad = Math.PI*2/100, //将360度分成100份，那么每一份就是rad度
+                    speed = 0.5; //加载的快慢就靠它了
+            //绘制蓝色外圈
+            function blueCircle(n){
+                context.save();
+                context.strokeStyle = "#fff"; //设置描边样式
+                context.lineWidth = 5; //设置线宽
+                context.beginPath(); //路径开始
+                context.arc(centerX, centerY, 100 , -Math.PI/2, -Math.PI/2 +n*rad, false); //用于绘制圆弧context.arc(x坐标，y坐标，半径，起始角度，终止角度，顺时针/逆时针)
+                context.stroke(); //绘制
+                context.closePath(); //路径结束
+                context.restore();
+            }
+            //绘制白色外圈
+            function whiteCircle(){
+                context.save();
+                context.beginPath();
+                context.strokeStyle = "#dddddd";
+                context.arc(centerX, centerY, 100 , 0, Math.PI*2, false);
+                context.stroke();
+                context.closePath();
+                context.restore();
+            }
+            //百分比文字绘制
+            function text(n){
+                context.save(); //save和restore可以保证样式属性只运用于该段canvas元素
+                context.strokeStyle = "#ffffff"; //设置描边样式
+                context.font = "40px Arial"; //设置字体大小和字体
+                //绘制字体，并且指定位置
+                context.strokeText(n.toFixed(0)+"%", centerX-25, centerY+10);
+                context.stroke(); //执行绘制
+                context.restore();
+            }
+            //动画循环
+            (function drawFrame(){
+                window.requestAnimationFrame(drawFrame, canvas);
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                whiteCircle();
+                text(speed);
+                blueCircle(speed);
+                if(speed > 100){
+                    speed = 0;
+                    $('.loading').css("display","none");
+                }
+                speed +=0.5;
+            }());
+        });
+    </script>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/china.js"></script>
+    <script src="../js/area.js"></script>
+    <script src="../js/map/aomen.js"></script>
+    <script src="../js/map/anhui.js"></script>
+    <script src="../js/map/beijing.js"></script>
+    <script src="../js/map/chongqing.js"></script>
+    <script src="../js/map/fujian.js"></script>
+    <script src="../js/map/gansu.js"></script>
+    <script src="../js/map/guangdong.js"></script>
+    <script src="../js/map/guangxi.js"></script>
+    <script src="../js/map/guizhou.js"></script>
+    <script src="../js/map/hainan.js"></script>
+    <script src="../js/map/hebei.js"></script>
+    <script src="../js/map/heilongjiang.js"></script>
+    <script src="../js/map/henan.js"></script>
+    <script src="../js/map/hubei.js"></script>
+    <script src="../js/map/hunan.js"></script>
+    <script src="../js/map/jiangsu.js"></script>
+    <script src="../js/map/jiangxi.js"></script>
+    <script src="../js/map/jilin.js"></script>
+    <script src="../js/map/liaoning.js"></script>
+    <script src="../js/map/neimenggu.js"></script>
+    <script src="../js/map/ningxia.js"></script>
+    <script src="../js/map/qinghai.js"></script>
+    <script src="../js/map/shanxi.js"></script>
+    <script src="../js/map/shanxi1.js"></script>
+    <script src="../js/map/sichuan.js"></script>
+    <script src="../js/map/taiwan.js"></script>
+    <script src="../js/map/shandong.js"></script>
+    <script src="../js/map/tianjin.js"></script>
+    <script src="../js/map/xianggang.js"></script>
+    <script src="../js/map/xinjiang.js"></script>
+    <script src="../js/map/xizang.js"></script>
+    <script src="../js/map/yunnan.js"></script>
+    <script src="../js/map/zhejiang.js"></script>
+    <script src="../js/map/shanghai.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/monitoring.js"></script>
+</body>
+</html>
+
+

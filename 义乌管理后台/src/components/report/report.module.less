@@ -1,0 +1,54 @@
+.reportPanel{
+    :global(.ant-card-body){min-height: 275px;}
+    :global(.ant-card-head){
+        border-bottom: none;
+        &::before{
+            content:""; height:18px;
+            width:1px; display:block;
+            position: absolute;left:0;top:22px;
+            border-left:#328DFF 2.5px solid ;
+        }
+    }
+    :global(.ant-upload-list-item){
+        min-height: 32px; line-height: 32px;
+        font-family: Lato-Light;
+        font-size: 14px;
+        color: #323C47;
+        letter-spacing: 0;
+        &:hover{
+            :global(.ant-upload-list-item-info){
+                background:rgba(221, 214, 214, 0.8);
+            }
+        }
+        :global(.anticon-paper-clip){
+            margin-top:6px;
+        }
+        :global(i.anticon-cross){
+            font-size: 16px !important; margin-top:6px;
+            &::before{
+                content:"\E62F";
+            }
+        }
+    }
+    
+    :global(.ant-upload-drag-icon) {
+        :global(.anticon-plus-square){
+            color:#D8DFE5 !important;
+        }
+    }
+}
+.reportTop{
+    button{margin-right: 10px;border-radius: 100px;}
+}
+.modalBox{
+    :global(.ant-form-item-label){
+        label{font-size: 14px; color:#637280;}
+    }
+    input{text-indent: 0.5em;}
+    :global(.ant-form-text){margin-left:8px;}
+    :global(.ant-input-group-addon){background:transparent;color:#637280;}
+    :global(.ant-modal-footer){
+        button{border-radius: 100px;}
+    }
+}
+

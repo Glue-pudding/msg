@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>系统登录</title>
+    <meta charset="UTF-8">
+    <link rel="Shortcut Icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="wrapper">
+        <canvas id="space"></canvas>
+        <a href="#" id="warp"></a>
+        <div class="contentLeft">
+            <div class="title" data-text="系统监控中心">系统监控中心</div>
+            <div class="image"><img src="images/image.png" alt=""></div>
+        </div>
+        <div class="contentRight">
+            <div class="login-bg">
+                <img src="images/login.png" alt="">
+                <form class="login">
+                    <label for="uName">用户名：</label><input class="txtInput" type="text" id="uName"  onautocomplete><br>
+                    <div class="login-tips user-tips"></div>
+                    <label for="pwd">密码：</label><input class="txtInput" type="password" id="pwd"><br>
+                    <div class="login-tips pwd-tips"></div>
+                    <label for="checkCode">验证码：</label><input type="text" id="checkCode" class="txtInput valid">
+                    <span  class="validImg"><img src="php/code_gg.php" id="getcode_gg" title="点击切换" /></span><br>
+                    <div class="login-tips valid-tips"></div>
+                    <div class="btnGroup">
+                        <button class="loginBtn" id="">登录</button>
+                        <button class="cancelBtn">取消</button>
+                    </div>
+                </form>
+                <p>
+                    <a class="tabCut">切换到运营中心</a>&nbsp;&gt;&gt;
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<div ng-controller="registerCon">
+    <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <a class="navbar-brand  pl" href="index.html">
+                    <img class="img-responsive" src="images/hand_logo.png" alt="">
+                </a>
+                <a class="navbar-toggle"  data-toggle="collapse" href="#menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+            </div>
+            <div id="menu" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#login">已有账号，前往登录</a></li>
+                    <li><a href="#register">欢迎注册</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="containerBox">
+        <div class="container">
+            <div class="row">
+                <div class="register-caption">欢迎注册确权平台</div>
+            </div>
+            <div class="row">
+                <div class="regBox">
+                    <form class="reg-box" name="myForm" novalidate>
+                        <!--用户名阶段-->
+                        <div class="input-group">
+                            <label for="username"><span class="xing-hao">*</span>用户名：</label>
+                            <input id="username" name="UserName" ng-model="UserName" ng-blur="UserNameR()" ng-focus="UserNameH()" required placeholder="请输入用户名"><i class="glyphicon glyphicon-user form-control-feedback"></i>
+                        </div>
+                        <div class="reg-tips" style="color:red" ng-show="Standard">
+                            <div class="active"><i class="glyphicon glyphicon-info-sign text-info"></i><span class="text-muted" style="color: red">3~16字符，支持英文、数字、下划线组合</span></div>
+                        </div>
+                        <div class="reg-tips1" style="color:red" ng-show="showT">
+                            <div class="active1" ><i class="glyphicon glyphicon-info-sign text-info"></i><span class="text-muted" style="color:red">用户名被占用,请重新输入</span></div>
+                        </div>
+                        <!--密码阶段-->
+
+                        <div class="input-group">
+                            <label for="password"><span class="xing-hao">*</span>设置密码：</label>
+                            <input type="password" id="password" placeholder="请输入密码" ng-model="PassWord" required name="PassWord"><i class="glyphicon glyphicon-lock form-control-feedback"></i>
+                        </div>
+                        <div class="reg-tips" style="color:red" ng-show="myForm.PassWord.$dirty && myForm.PassWord.$invalid">
+                            <div class="active" ng-show="myForm.PassWord.$error.required"><i class="glyphicon glyphicon-info-sign text-info"></i><span class="text-muted">6~18个字符，支持英文、数字、符号组合</span></div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="password-repeat"><span class="xing-hao">*</span>重复密码：</label>
+                            <input type="password" id="password-repeat" placeholder="请再次输入密码" name="PWD" ng-model="repeatPassWord" required ng-blur="repeatPWD()"><i class="glyphicon glyphicon-lock form-control-feedback"></i>
+                        </div>
+                        <div class="reg-tips" style="color:red" ng-show="myForm.PassWord.$dirty && myForm.PassWord.$invalid">
+                            <div class="active" ng-show="myForm.PWD != myForm.PassWord"><i class="glyphicon glyphicon-info-sign text-info"></i><span class="text-muted" style="color:red">两次密码不相同,请重新输入</span></div>
+                        </div>
+ <!--                        <div class="input-group">
+                            <label for="password"><span class="xing-hao">*</span>邮箱：</label>
+                           <input type="email" name="email" ng-model="email" required placeholder="请输入邮箱" /><i class="glyphicon glyphicon-lock form-control-feedback"></i>
+                        </div>
+                        <div class="reg-tips" style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                            <div class="active" ng-show="myForm.email.$error.required"><i class="glyphicon glyphicon-info-sign text-info"></i><span class="text-muted">请输入邮箱</span></div>
+                        </div> -->
+                     <div class="input-group">
+                        <label for="password"><span class="xing-hao">*</span>邮箱：</label>
+                        <input type="email" name="email" ng-model="email" placeholder="请输入邮箱" required ng-pattern="/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/"><i class="glyphicon glyphicon-lock form-control-feedback"></i>
+                    </div>
+                        <div class="reg-tips" ng-show="myForm.email.$error.pattern">
+                            请填写正确的邮箱格式
+                        </div>
+                        <div class="reg-tips" style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                            <div class="active" ng-show="myForm.email.$error.required"><i class="glyphicon glyphicon-info-sign text-info"></i><span class="text-muted">请输入邮箱</span></div>
+                        </div>
+                        <!--手机号码阶段-->
+
+                        <div class="input-group">
+                            <label for="mobilePhone"><span class="xing-hao">*</span>手机号码：</label>
+                            <input id="mobilePhone" type="number" placeholder="请输入手机号" ng-model="TelNumber" required ng-pattern="mobileRegx" ng-blur="TelPhoneb()" ng-focus="TelPhonef()" name="TelNumber"><i class="glyphicon glyphicon-phone form-control-feedback"></i>
+                        </div>
+                        <div class="reg-tips" style="color:red" ng-show="TelNum2">
+                            <div class="active"></i><span class="text-muted">手机号被占用,请重新输入</span></div>
+
+                        </div>
+                        <div class="reg-tips" style="color:red" ng-show="TelNum1">
+                            <div class="active"><i class="glyphicon glyphicon-info-sign text-info"></i><span class="text-muted" style="color:red">手机号格式不正确,请重新输入</span></div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="code_gg"><span class="xing-hao">*</span>验证码：</label>
+                            <input id="code_gg" class="validCode" placeholder="请输入验证码" ng-model="IdentifyCode" required>
+                            <img ng-src = data/code_gg.php id="getcode_gg" class="validCode-img" onclick="src='data/code_gg.php'+'?'+Math.random()">
+                        </div>
+                        <div class="reg-tips">
+                        </div>
+                        <div class="validCode-tips">看不清？点击图片更换验证码</div>
+                        <button class="btn btn-info reg-btn" ng-click="register();"  ng-disabled="myForm.$invalid">
+                        同意条款并注册
+                        </button>
+                        <div class="checkbox">
+                            <label class="sr-only" for="checkbox">username</label>
+                            <input type="checkbox" id="checkbox" ng-model="checkedText" required>
+                            <span><a href="">《确权平台服务条款》</a>|<a href="">《法律声明和隐私权政策》</a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="display: none;">
+            <div class="row">
+                <div class="regSuccessBox">
+                    <div class="reg-success-box text-center">
+                        <div class="reg-success-tips">
+                            <i class="glyphicon glyphicon-ok  ok-lg"></i><span>欢迎注册确权平台</span>
+                        </div>
+                        <p>
+                            <span>您已注册成功，<i>3</i>秒后跳转首页，</span><a href="#main" class="text-info">立即跳转</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">手机号验证</h4>
+                </div>
+                <div class="modal-body">
+                    <p>已向手机用户<span>{{TelNumber}}</span>，发送了验证码</p>
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label class="sr-only" for="phone-validCode">手机验证码</label>
+                            <div class="input-group">
+                                <input class="form-control" id="phone-validCode" placeholder="请输入手机验证码" ng-model="IdentifyCode">
+                                <div class="input-group-addon">稍等，40s</div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="confirm();">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

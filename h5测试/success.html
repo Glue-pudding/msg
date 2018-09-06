@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- 设置初始缩放比例为1.0，使用设备宽度  -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <script type="text/javascript" src="js/public.js"></script>
+    
+    <!-- <script type="text/javascript"> 　　   
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+    </script> -->
+    <link href="css/succOrfail.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+</head>
+<body>
+  <header>
+     <ul class="headerUl">
+       <li>
+         
+       </li>
+       <li>一般级别认证</li>
+       <li>
+        
+       </li>
+     </ul>
+   </header>
+   <article>
+    <aside>
+      <img src="images/OK.png">
+      <div class="succfont">认证成功</div>
+      <div class="Advertisement">
+         <h2>在线申请信用卡</h2>
+         <p>一卡在手，购物轻松</p>
+         <div class="bankAdvert">
+           <div class="bankLeft">
+             <img src="images/Bank1(1).png">
+             <p>民生银行信用卡</p>
+             <p class="Discount"><span>每周五最高减 99 元</span></p>
+             <div>
+               <button class="Apply" id="people">点我申请</button>
+             </div>
+           </div>
+           <div class="bankRight">
+             <img src="images/Bank1(2).png">
+             <p>交通银行信用卡</p>
+             <p class="Discount"><span>&nbsp;</span></p>
+             <div>
+               <button class="Apply" id="traffic">点我申请</button>
+             </div>
+           </div>
+         </div>
+         <p class="Prompt">
+           [温馨提醒] 尊敬的信用卡持卡人，请您注意信用卡近期交易模式的规范与安全。再次温馨提示，信用卡仅可用于个人日常消费。感谢您对信用卡的支持。
+         </p>
+      </div>
+      <button class="btn" id="btn">开通储值支付功能<span id="time">(10)</span></button>
+    </aside>
+     
+   </article>
+</body>
+<script type="text/javascript">
+  var dataType=localStorage['dataType'];
+
+      //设定倒数秒数  
+var t = 11;  
+//显示倒数秒数 
+var int=0 
+function showTime(){  
+    t -= 1;
+    // $('button span').html("("+t+")");  
+    document.getElementById('time').innerHTML= "("+t+")";  
+    if(t==0){ 
+        clearTimeout(int);
+        location.href='signOut.html?signOut&Next';  
+    } else{
+      int=setTimeout("showTime()",1000);
+    } 
+    //每秒执行一次,showTime()  
+    // var int=setTimeout("showTime()",1000);  
+}  
+  
+  
+//执行showTime()  
+showTime();
+  $('#people').click(function(){
+    clearTimeout(int);
+    location.href='people.html?people@{@'+'"bank":'+'@"BankCMBC",'+'@"type":'+'"'+dataType+'",'+'@"path":'+'@"https://creditcard.cmbc.com.cn/wsv2/?enstr=RIvh1x4lbsXEyoX4CrFsdsCXFZQI0VYySwObCLxnLBBbQ%2b%2bgIUBXanrMuN8Q9KNpMWLlC%2bb%2ffrmOiQminqqbk6batsDReRd5YEvJZ1IA3ctfCK8JF0aJvqFCo%2fC16WCn0yHPqgcoP3Ik9DwgUHtO%2fcCulah03Vn59ICfOAIG%2bVM5E1BvpWGiXQR0QMzl%2bOp4ClC4rtDHtRh3mZYe%2buQ6Jhfy8%2fsslcZ%2fvxt1NK91oDC03Yf2C1cQNjrtMhjZH87H%2blp8sr7q0wkMJZ5BEfwIn13Odxcl8gF8rWQl0N1NdZ8aijo5aZEnN1wPRV1fRPzhIRP3lXouyTYCohwksrVyaA%3d%3d"}';
+  });
+  $('#traffic').click(function(){
+    clearTimeout(int);
+    location.href='people.html?people@{@'+'"bank":'+'@"BankCOMM",'+'@"type":'+'"'+dataType+'",'+'@"path":'+'@"https://creditcardapp.bankcomm.com/applynew/front/apply/track/record.html?trackCode=A051116433655"}';
+  });
+$('#btn').click(function(){
+  clearTimeout(int);
+  location.href="signOut.html?signOut&Next";
+
+}); 
+</script>
+ </html>

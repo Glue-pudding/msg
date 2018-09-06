@@ -1,0 +1,104 @@
+<div class="person_container" ng-controller="dataUnpower">
+  <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left" href="#main">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#company">{{UserName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+  <p class="person_p">个人中心</p>
+
+  <!-- 左边栏 -->
+  <div class="person_left">
+    <div class="list-group">
+      <a href="#user-center" class="list-group-item "><img src="images/ico01_nor.png"><span>数据资产总览</span></a>
+      <a href="#data-power" class="list-group-item active"><img src="images/ico02_over.png"><span>数据资产管理</span></a>
+      <a href="#data-order" class="list-group-item "><img src="images/ico03_nor.png"><span>数据订单管理</span></a>
+      <a href="#resolve" class="list-group-item "><img src="images/ico04_nor.png"><span>数据混淆管理</span></a>
+      <a href="#user-message" class="list-group-item "><img src="images/ico05_nor.png"><span>个人信息设置</span></a>
+    </div>
+  </div>
+
+  <!-- 右边栏 -->
+  <div class="person_right">
+    <div>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs mar" role="tablist">
+        <li role="presentation"><a href="#data-power" role="tab">已授权数据</a></li>
+        <li role="presentation" class="active"><a href="javascript:;" role="tab">待授权数据</a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!--待授权数据开始-->
+        <div role="tabpanel" class="tab-pane active">
+            <div role="tabpanel" class="tab-pane active">
+
+            <div id="data1-show" ng-repeat="i in items">
+                <div class="inp">
+                  <input type="checkbox" ng-model="i.checked" ng-change="selectOne($index,i.DataSetName,i.DataBankName)">
+                </div>
+                <div id="div0">
+                <div id="div1"><img ng-src="{{imgSrc}}{{i.LogoFigFile}}&filePath={{i.LogoFigPath}}&SessionId={{SessionId}}"></div>
+                <div id="div2">
+                    <p><span>数据名称：</span><span>{{i.DataSetName}}</span></p>
+                    <p><span>数据来源：</span><span>{{i.DataBankName}}</span></p>
+                    <div><div class="info">　　简述：</div><div class="info info-text">{{i.AbstractInfo}}</div></div>
+                    
+                </div>
+                <div id="div4" ng-click="getMore($index,i)" ng-hide="orderShow"><img src="images/down.png">&nbsp;展开更多</div>
+                <div id="tip-show" ng-show="orderShow">
+                  <table class="table" style="width: 400px">
+                    <tr>
+                      <td class="text-right">属性名称：</td>
+                      <td class="text-center">属性类型</td>
+                      <td>属性描述</td>
+                    </tr>
+                    <tr ng-repeat="nature in i.Schema">
+                      <td class="text-right">{{nature.FieldName}}：</td>
+                      <td class="text-center">{{nature.FieldType}}</td>
+                      <td>{{nature.FieldDescription}}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div id="div5" ng-show="orderShow" ng-click="pickUp($index,i)"><img src="images/up.png">收起</div>
+                </div>
+            </div>
+
+            <div id="auth">
+                <span><input id="flag" type="checkbox" ng-model="select_all" ng-change="selectAll()">全选</span>
+                <button ng-click="handleSubmit()"><a href="javascript:;" style="color: #fff">数据授权</a></button>
+            </div>
+            <div id="page" ng-show='pageShow'>
+                <nav>
+                  <ul class="pagination">
+                  <li>
+                  <a ng-click="Previous()">
+                  <span>上一页</span>
+                  </a>
+                  </li>
+                  <li ng-repeat="page in pageList" ng-class="{active: isActivePage(page)}" >
+                  <a ng-click="selectPage(page)" >{{ page }}</a>
+                  </li>
+                  <li>
+                  <a ng-click="Next()">
+                  <span>下一页</span>
+                  </a>
+                  </li>
+                  </ul>
+                </nav>
+            </div>
+        </div>
+        </div>
+        <!--待授权数据结束-->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+.cardBox{
+    background:#fff;margin-left: 30px;
+}
+.checkBox{
+    :global(.ant-card-head){
+        border-bottom: none;
+        &::before{
+            content:""; height:18px;
+            width:1px; display:block;
+            position: absolute;left:0;top:20px;
+            border-left:#328DFF 2.5px solid ;
+        }
+    }
+}
+.boxTop{
+    margin-bottom: 20px;
+    :global(.ant-card-body){height: 78px; line-height: 48px;}
+    span{color:#939EAB;font-size: 14px;}
+}
+.styleComp(){
+    text-align: right;
+    label{color: #939EAB;font-size: 14px;}
+    span{color: #FE5B51; }
+}
+.boxTab{
+    padding-bottom: 20px;
+    :global(.ant-table-footer){
+        background:#fff; 
+        span{font-size: 24px;}
+        .styleComp
+    }
+}
+.allText{.styleComp;}
+
+.errorBorder{
+    :global(.ant-card-body){border:1px solid #FE5B51; background: rgba(254,91,81,0.04);margin:0;}
+}
+.boxTitle{
+    margin-left:35px;
+    h2{display: inline-block; margin-right:8px;}
+}

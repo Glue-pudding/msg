@@ -1,0 +1,39 @@
+body{
+    font-family: "Microsoft YaHei", serif;
+    background:url("../image/bgImg.png");
+    font-size:14px;
+    margin: 0;
+    padding: 0;
+    color:#ffffff;
+}
+
+.header{
+    position: relative;
+    /*border:1px solid red;*/
+
+}
+
+.header span{
+    font-size: 36px;
+    vertical-align:middle;
+}
+
+.welcome{
+    position:absolute;
+    right:2%;
+    top:30px;
+    font-size: 18px;
+    /*border:1px solid red;*/
+}
+
+.welcome span,.welcome a{
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: middle;
+    color:#ffffff;
+}
+
+.welcome span{
+    margin-right: 10px;
+}
+

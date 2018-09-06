@@ -1,0 +1,107 @@
+<ul class="tabOption" id="tabOption">
+    <li class="sel">节点管理<i class="sel"></i></li>
+    <!--<li>订单管理<i></i></li>-->
+</ul>
+<ul class="tabContent" id="tabContent">
+    <li class="tab_con sel">
+        <div class="nodeRunList-title">
+            <span>各节点运行情况一览</span>
+            <div class="line"></div>
+        </div>
+        <div class="nodeRunList-condition">
+            <div class="condition-left">
+                <label for="subscriberName">买方名称：</label><input id="subscriberName" ng-model="subscriberName.kw" placeholder="请输入买家名称" type="text">
+                <label>数据分类：</label>
+                <drop-down selecttitle="currentMetric[0]" lidata="currentEnttiy.dataType" click-change="changeSelect()"></drop-down>
+                <label>运行分类：</label>
+                <drop-down selecttitle="currentMetric[1]" lidata="currentEnttiy.runStatus" click-change="changeSelect()"></drop-down>
+            </div>
+            <div class="condition-right">
+                <a class="search" ng-click="searchRlt()">搜索</a>
+            </div>
+        </div>
+        <div class="nodeRunList-content">
+            <table>
+                <thead>
+                <tr>
+                    <td>序号</td>
+                    <td>买方名称</td>
+                    <td>任务名称</td>
+                    <td>商品名称</td>
+                    <td>数据银行</td>
+                    <td>数据分类</td>
+                    <td>运行状态</td>
+                    <td>运行时间</td>
+                    <td>告警原因</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody id="mainData">
+                <tr  ng-repeat="data in datas">
+                    <td ng-bind="$index+1"></td>
+                    <td ng-bind="data.SubscriberName"></td>
+                    <td ng-if="TaskName(data.TaskName)">{{taskName}}</td>
+                    <td ng-bind="data.DataSetName"></td>
+                    <td ng-bind="data.DataBankName"></td>
+                    <td ng-bind="data.DataType"></td>
+                    <td ng-bind="data.OrderStatus"></td>
+                    <td ng-bind="data.RunTime"></td>
+                    <td ng-bind="data.AbnormalCause"></td>
+                    <td>
+                        <a ng-if='seDetails(data.AppID,data.TaskName,data.DataSetName,data.SubscriberName,data.DataBankName)' href="{{nodeMan}}" class="">查看详情</a>
+                        <!-- 启用的 -->
+                        <!-- <a href="javascript:" ng-if="data.OrderStatus=='Stopped'"  ng-click="runLink(data.DataBankName,data.SubscriberName,data.DataSetName)">恢复链路</a> -->
+                        <!-- 不启用的 -->
+                        <!--<a href="javascript:" ng-if="data.OrderStatus=='Stopped'"  ng-click="stopOrRunLink(data.SubscriberName,data.DataBankName,data.DataSetName)">恢复链路</a>-->
+
+                        <!-- 启用的 -->
+                        <!-- <a href="javascript:" ng-if="data.OrderStatus=='Normal'"   ng-click="stopLink(data.DataBankName,data.SubscriberName,data.DataSetName)">中断链路</a> -->
+
+                        <!-- 不启用的 -->
+                        <!--<a href="javascript:" ng-if="data.OrderStatus=='Expired'" ng-click="stopOrRunLink(data.SubscriberName,data.DataBankName,data.DataSetName)">中断链路</a>-->
+                        <!--<a href="javascript:" ng-if="data.OrderStatus=='Unpaid'" ng-click="stopOrRunLink(data.SubscriberName,data.DataBankName,data.DataSetName)">中断链路</a>-->
+
+                        <!-- 启用的 -->
+                        <!-- <a href="javascript:" ng-if="data.OrderStatus=='Abnormal'" ng-click="stopLink(data.DataBankName,data.SubscriberName,data.DataSetName)">中断链路</a> -->
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="nodeRunList-footer">
+            <div class="footer-left">
+                共<span ng-bind="total"></span>条&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>筛选条目数：
+                    <select class="dataCount"  ng-model="selectedLimit"  ng-change="change(selectedLimit)"  ng-options="value.limit for value in values"></select>
+                </label>
+            </div>
+            <div class="footer-right">
+                <uib-pagination
+                        total-items="page.totalCount"
+                        ng-model="page.pageNo"
+                        max-size="5"
+                        class="samplePage pagination"
+                        boundary-links="true"
+                        force-ellipses="false"
+                        first-text="<<"
+                        last-text=">>"
+                        previous-text="<"
+                        next-text=">"
+                        items-per-page="page.limit"
+                        ng-change="pageChanged(selectedLimit)"
+                        boundary-link-numbers="true">
+                </uib-pagination>
+                <div class="skipPage">
+                    跳转：<input type="text" ng-model="go">
+                    <a ng-click="setPage(go,selectedLimit)">GO</a>
+                </div>
+            </div>
+        </div>
+    </li>
+    <!--<li class="tab_con">-->
+    <!--2-->
+    <!--</li>-->
+</ul>
+
+
+

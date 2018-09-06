@@ -1,0 +1,93 @@
+article{
+	font-size: .22186648rem/* 13px */;
+	color: #999999;
+	/*margin: 15px .51199956rem 0px .51199956rem;*/
+}
+aside{
+	text-align: center;
+}
+aside img{
+	width: 6.39999454rem/* 375px */;
+	height: 3.75466346rem/* 220px */;
+}
+article p{
+	margin: 15px .25599978rem/* 15px */ 0px .25599978rem/* 15px */;
+}
+article ul{
+	padding-left: .08533326rem/* 5px */;
+	margin: 10px .51199956rem 0px .51199956rem;
+}
+footer{
+	margin-top: .34133304rem/* 20px */;
+}
+.bank,.face{
+	overflow: hidden;
+	margin: 0px .25599978rem/* 15px */;
+	border-top: 1px solid #f1f1f1;
+	padding-top: .13653322rem/* 8px */;
+}
+.face{
+	border-bottom: 1px solid #f1f1f1; 
+	padding-bottom: .06826661rem/* 4px */;
+}
+.bank img,.face img{
+	width: 1.02399913rem/* 60px */;
+	height: 1.02399913rem/* 60px */;
+}
+.bank div,.face div{
+	float: left;
+	font-size: .20479983rem/* 12px */;
+}
+.bank div:nth-child(1){
+	width:1.19466565rem/* 70px */;
+	 
+	height: 1.19466565rem/* 70px */;
+	padding-top: .13653322rem/* 8px */;
+}
+.bank div:nth-child(2){
+	width:4.18132977rem/* 245px */;
+	height: .93866587rem/* 55px */; 
+	padding-top: .4266663rem/* 25px */;
+}
+.bank div:nth-child(3){
+	width:.00512rem/* .30px */; 
+	vertical-align: center;
+	font-size: .25599978rem/* 15px */;
+	height: .59733282rem/* 35px */;
+	margin-top: .51199956rem/* 30px */;
+}
+footer img{
+	vertical-align: top;
+}
+.bankH,.faceH{
+	font-size: .27306643rem/* 16px */;
+	padding-left: .17066652rem/* 10px */;
+}
+.main{
+	margin: 0px;
+	padding:0px;
+	color: #ccc;
+	margin-top: .08533326rem/* 5px */;
+}
+.face div:nth-child(1){
+	width:1.19466565rem/* 70px */;
+	 
+	height: 1.19466565rem/* 70px */;
+	padding-top: .13653322rem/* 8px */;
+}
+.face div:nth-child(2){
+	width:4.18132977rem/* 245px */;
+	height: .93866587rem/* 55px */; 
+	padding-top: .4266663rem/* 25px */;
+}
+.face div:nth-child(3){
+	width:.00512rem/* .30px */; 
+	vertical-align: center;
+	font-size: .25599978rem/* 15px */;
+	height: .59733282rem/* 35px */;
+	margin-top: .51199956rem/* 30px */;
+}
+.bankBax img,.faceBax img{
+	width: .30719974rem/* 18px */;
+	height: .30719974rem/* 18px */;
+}

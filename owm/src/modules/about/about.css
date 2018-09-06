@@ -1,0 +1,55 @@
+@media (min-width: 62em){
+    .aboutInfor {
+        padding-top: 5rem;
+    }
+}
+.serviceBox .wrap-feature3-box .card-body{height: 238px;}
+.serviceBox h6.subtitle{font-size:14px;
+    font-family:PingFangSC-Regular;
+    color:rgba(141,151,173,1);
+    line-height:22px;}
+.service-title{
+    font-size:18px;
+    font-family:PingFangSC-Light;
+    color:rgba(38,50,56,1);
+    line-height:26px;
+}
+.service-title+div{
+    font-size:14px;
+    font-family:PingFangSC-Regular;
+    color:rgba(141,151,173,1);
+    line-height:22px;
+}
+
+.wrap-team-box img{
+    height:120px; width:120px;
+    display: inline-block;
+    border-radius: 60px;
+}
+.teamBox .title{
+    font-size:30px;
+    font-family:PingFangSC-Light;
+    color:rgba(38,50,56,1);
+    line-height:38px;
+}
+.teamBox .subtitle{
+    font-size:14px;
+    font-family:PingFangSC-Regular;
+    color:rgba(141,151,173,1);
+    line-height:22px;
+}
+.wrap-team-box .team-info h5{
+    font-size:18px;
+    font-family:PingFangSC-Light;
+    color:rgba(38,50,56,1);
+    line-height:26px;
+}
+.wrap-team-box .team-info div{
+    font-size:14px;
+    font-family:PingFangSC-Regular;
+    color:rgba(141,151,173,1);
+    line-height:22px;
+}
+.title{
+    display: inline-block;
+}

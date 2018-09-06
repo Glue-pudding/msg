@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- 设置初始缩放比例为1.0，使用设备宽度  -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <script type="text/javascript" src="js/public.js"></script>
+    
+    <!-- <script type="text/javascript"> 　　   
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+    </script> -->
+    <link href="css/succOrfail.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+</head>
+<body>
+  <header>
+     <ul class="headerUl">
+       <li>
+         <img src="images/back.png" class="back">
+       </li>
+       <li>身份认证</li>
+       <li>
+         
+       </li>
+     </ul>
+   </header>
+   <article>
+    <aside>
+      <img src="images/wrong.png">
+      <div class="error">抱歉，身份验证失败</div>
+      <p>未完成实名认证，请重试</p>
+      <button class="repeat">重试</button>
+      <!-- <button class="btn" id="btn" ></button> -->
+    </aside>
+     
+   </article>
+</body>
+<script type="text/javascript">
+  var face="改用多因子人脸认证";
+  var bank="改用银行用户身份认证";
+  var WhatType=localStorage['type'];
+  if (WhatType=="BANK") {
+    $('#btn').html(face);
+    $('#btn').click(function(){
+      location.href="index.html";
+    });
+    $('.repeat').click(function(){
+      location.href="dataBank.html?StartNJBAnk";
+    });
+  }else if(WhatType=="FACE"){
+    // $('#btn').html(bank);
+    // $('#btn').click(function(){
+    //   location.href="index.html"; 
+    // });
+    $('.repeat').click(function(){
+      location.href="firstStep.html";
+    });
+  };
+  $('.back').click(function(){
+      location.href="index.html";
+    });
+</script>
+ </html>

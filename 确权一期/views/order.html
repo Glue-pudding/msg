@@ -1,0 +1,117 @@
+<div class="person_container" ng-controller='order'>
+  <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left" href="#main">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#company">{{UserName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+      <p class="person_p">个人中心</p>
+
+      <!-- 左边栏 -->
+      <div class="person_left">
+        <div class="list-group">
+          <a href="#user-center" class="list-group-item "><img src="images/ico01_nor.png"><span>数据资产总览</span></a>
+          <a href="#data-power" class="list-group-item "><img src="images/ico02_nor.png"><span>数据资产管理</span></a>
+          <a href="#data-order" class="list-group-item active"><img src="images/ico03_over.png"><span>数据订单管理</span></a>
+          <a href="#resolve" class="list-group-item "><img src="images/ico04_nor.png"><span>数据混淆管理</span></a>
+          <a href="#user-message" class="list-group-item " ><img src="images/ico05_nor.png"><span>个人信息设置</span></a>
+        </div>
+      </div>
+      <!-- 右边栏 -->
+
+    	<div class="person_right">
+        <div class="person_order">
+          <ul class="breadcrumb">  
+            <li><a href="#data-order"> 个人中心</a></li>  
+            <li><a href="javascript:;">我的订单</a></li>  
+            <li class="active"><a href="javascript:;" style="color:#337ab7">{{data.DataSetName}}</a></li>  
+        </ul>  
+        <div class="order">
+            <p>订单状态：<span class="order_special" ng-if="ifOrder(data.Status)">{{OStatus}}</span><span>可用日期：{{data.BeginDate}} 至 {{data.EndDate}}</span></p>
+            <p style="font-weight: bold">授权数据获取方式</p>
+            <p class="order_th" ng-show="orderShow">证书获取失败，请刷新重试<a class="btn btn-default" href="javascript:;" role="button" ng-click="toggle()">刷新</a></p>
+            <div ng-show="orderHide" class="orderdown">
+<!--               <span>授权证书：<a href="javascript:;" ng-click="orderLoad(data.CertificationFile,data.CertificationPath)">证书下载</a> | 使用说明</span><br>
+              <span>调用地址：{{data.CertificationPath}}</span><br>
+              <span>使用说明：<a href="javascript:;" ng-click="apiLoad()">API下载</a> | <a href="javascript:;" ng-click="wordIntroduce()">使用说明文档</a></span> -->
+              <table class="table">
+               <tr>
+                 <td class="text-left">授权证书：<a href="javascript:;" ng-click="orderLoad(data.CertificationFile,data.CertificationPath)">证书下载</a> | 使用说明</td>
+               </tr>
+               <tr>
+                 <td class="text-left">调用地址：{{data.DataPath}}</td>
+               </tr>
+               <tr>
+                 <td class="text-left">使用说明：<a href="javascript:;" ng-click="apiLoad()">API下载</a> | <a href="javascript:;" ng-click="wordIntroduce()">使用说明文档</a></td>
+               </tr>
+             </table>
+            </div>
+        </div>
+        <div class="order_content">
+          <p>订单信息</p>
+          <table class="table">
+               <tr>
+                 <td class="text-left">订单编号：{{data.SubscriptionID}}</td>
+               </tr>
+               <tr>
+                 <td class="text-left">下单时间：{{data.BeginDate}}</td>
+               </tr>
+               <tr>
+                 <td class="text-left">发票抬头：<span ng-hide="gg">{{data.BillTitle}}</span><span ng-show="gg">暂无信息!</span></td>
+               </tr>
+               <tr>
+                 <td class="text-left">寄送地址：<span ng-hide="gg">{{data.BillAddress}}</span><span ng-show="gg">暂无信息!</span></td>
+               </tr>
+             </table>
+          <p>商品信息</p>
+          <table class="table">
+               <tr id="order_d"> 
+                 <td class="text-left" rowspan="2" style="width: 100px"><img src="{{imgSrc}}"></td>
+                 <td class="order_des">{{data.DataSetName}}</td>
+               </tr>
+               <tr>
+                 <td class="order_der">{{data.DataSetDescription}}</td>
+               </tr>
+            </table>
+          <p>选用数据</p>
+          <div class="order_bottom">
+            <table class="table">
+               <tr class="active">
+                 <th class="text-left" >属性名称</th>
+                 <th class="text-left" >属性类型</th>
+                 <th>属性描述</th>
+               </tr>
+               <tr ng-repeat="val in data.SubscriptionSchema">
+                 <td>{{val.FieldName}}</td>
+                 <td>{{val.FieldType}}</td>
+                 <td>{{val.FieldDescription}}</td>
+               </tr>
+             </table>
+             <table class="table">
+               <tr class="active">
+                 <th class="text-left" >价格</th>
+                 <th>有效期</th>
+                 <th>购买量</th>
+                 <th>支付金额</th>
+               </tr>
+               <tr>
+                 <td class="text-left"><span ng-if="dunit(data.Unit)">{{data.TotalPrice/data.Number}}元/{{unit}}</span></td>
+                 <td>{{data.BeginDate}} 至 {{data.EndDate}}</td>
+                 <td>{{data.Number}}</td>
+                 <td style="color: #ff8a00">{{data.TotalPrice |currency:'￥'}}</td>
+               </tr>
+             </table>
+          </div>
+        </div>
+       </div>
+      </div>
+    </div>

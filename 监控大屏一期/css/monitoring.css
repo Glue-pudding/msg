@@ -1,0 +1,5795 @@
+@charset "utf-8";
+/*author:sunYangYang;dataTime:2017-7-21*/
+
+body{
+    font-family: "Microsoft YaHei", serif;
+    background:url("../images/bgImg.png");
+    /*background-color: #1b1b1b;*/
+    font-size:14px;
+}
+
+
+.loading{
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    background:rgba(0,0,0,1);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.loading p{
+    position: absolute;
+    left:50%;
+    top:65%;
+    margin-left: -140px;
+    /*border:1px solid red;*/
+}
+
+#canvas{
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-150px;
+    margin-top:-150px;
+    z-index: 1000;
+}
+/*!*1280~1360*!*/
+/*@media screen and (min-width: 1280px) and (max-width: 1360px){}*/
+
+/*!*1361~1366*!*/
+/*@media screen and (min-width: 1280px) and (max-width: 1366px){*/
+/*}*/
+
+/*1366~1440*/
+@media screen and (min-width: 1366px) and (max-width: 1440px){
+    @media screen and (max-height:768px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            background:rgba(0,0,0,0.5);
+            height: 820px;
+            /*overflow: hidden;*/
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            /*padding: 2px 0;*/
+            /*border:1px solid red;*/
+        }
+        .topBar img{
+            vertical-align: middle;
+            height: 60px;
+            /*border:1px solid red;*/
+        }
+        .topBar span{
+            font-size: 28px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:60px;
+            left:1%;
+            bottom:10px;
+            margin-right:10px;
+            width: 23%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,.baseData,
+        .goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 16px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 160px;
+            height: 160px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -20px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            font-size: 12px;
+            height: 94px;
+            overflow: hidden;
+        }
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            /*border:1px solid red;*/
+            background: rgba(29,34,46,0.5);
+        }
+        #con0{
+            background: #34373c;
+        }
+
+        .tab0{
+            height: 56px;
+            overflow: hidden;            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+            vertical-align: top;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 20%;
+            vertical-align: top;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 30%;
+            vertical-align: top;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 36%;
+            padding-left: 2%;
+        }
+
+        .brokenLine,.columnar{
+            min-height: 170px;
+            /*border:1px solid red;*/
+        }
+
+        .pie,.statis{
+            min-height: 200px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:60px;
+            left:24.5%;
+            right: 23.5%;
+            bottom:10px;
+            border:1px solid  #034B79;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:18px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 160px;
+            height: 90px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 36px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 10px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:60px;
+            bottom:10px;
+            width: 22%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 30px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 24px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 174px;
+            /*border:1px solid red;*/
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 484px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState{
+            height: 220px;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox, .mapView{
+            position: relative;
+            width: 100%;
+            min-height: 570px;
+        }
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 270px;
+            height: 40px;
+            font-size: 18px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+        /*QueryCenter页面样式*/
+        .paragraph{
+            width: 95%;
+            padding-top: 15px;
+        }
+        .paragraph span.Intotal,span.IntotalRight{
+            display: inline-block;
+            width: 50%;
+            text-align: right;
+        }
+        .paragraph .IntotalRight{
+            font-size: 18px;
+            text-align: left;
+            width: 30%
+        }
+        p.dealP{
+            font-size: 16px;
+        }
+        .HowMuch{
+            font-size: 12px;
+            color: #ccc;
+            text-align: left;
+        }
+        /*p.dealP{
+            font-size: 15px;
+        }*/
+        p.dealDataP span{
+            font-size: 16px;
+            display: inline-block;
+        }
+        p.dealDataP span.Ncolor{
+            color: #f5b300;
+            font-size: 30px;
+            margin: 0 8px;
+        }
+        .CenterWidth p{
+            margin-top: 5px;
+        }
+        .CenterWidth{
+            width: 200px;
+            height: 120px;
+        }
+    }
+    @media screen and (min-height:769px) and (max-height:898px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            background:rgba(0,0,0,0.5);
+            /*overflow: hidden;*/
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            /*padding: 2px 0;*/
+            /*border:1px solid red;*/
+        }
+        .topBar img{
+            vertical-align: middle;
+            height: 60px;
+            /*border:1px solid red;*/
+        }
+        .topBar span{
+            font-size: 28px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:60px;
+            left:1%;
+            bottom:10px;
+            margin-right:10px;
+            width: 23%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,.baseData,
+        .goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 16px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 160px;
+            height: 160px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -20px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            font-size: 12px;
+            height: 84px;
+            overflow: hidden;
+        }
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            /*border:1px solid red;*/
+            background: rgba(29,34,46,0.5);
+        }
+        #con0{
+            background: #34373c;
+        }
+
+        #tab0{
+            height: 64px;
+            overflow: hidden;
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            vertical-align: text-top;
+            /*border:1px solid red;*/
+        }
+
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 24%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 32%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 32%;
+        }
+
+
+        .brokenLine,.columnar{
+            min-height: 170px;
+            /*border:1px solid red;*/
+        }
+
+        .pie,.statis{
+            min-height: 200px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:60px;
+            left:24.5%;
+            right: 23.5%;
+            bottom:10px;
+            border:1px solid  #034B79;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:18px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 220px;
+            height: 90px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 36px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:60px;
+            bottom:10px;
+            width: 22%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 30px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 24px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 174px;
+            /*border:1px solid red;*/
+        }
+       .scrollbox{
+            overflow: hidden;
+            height: 484px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox, .mapView{
+            position: relative;
+            width: 100%;
+            min-height: 570px;
+        }
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 270px;
+            height: 40px;
+            font-size: 18px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+    }
+    @media screen and (min-height:899px) and (max-height:900px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            background: rgba(0,0,0,0.5);
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            padding-top: 4px;
+        }
+        .topBar img{
+            vertical-align: middle;
+            height: 60px;
+            /*border:1px solid red;*/
+
+        }
+        .topBar span{
+            font-size: 34px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:63px;
+            left:1%;
+            bottom:10px;
+            margin-right:10px;
+            width: 23%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,.baseData,
+        .goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 18px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 175px;
+            height: 175px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -14px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            font-size: 12px;
+            height: 84px;
+            overflow: hidden;
+        }
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            background: rgba(29,34,46,0.5);
+        }
+
+        #con0{
+            background: #34373c;
+        }
+
+        #tab0{
+            /*border:1px solid red;*/
+            height: 64px;
+            overflow: hidden;
+        }
+
+        .node-monitoring{
+            overflow: hidden;
+        }
+
+        .node-monitoring li{
+            /*line-height: 28px;*/
+        }
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            vertical-align: text-top;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 20%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 36%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 32%;
+        }
+
+        .brokenLine,.columnar{
+            min-height: 195px;
+        }
+
+        .pie,.statis{
+            min-height: 200px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:63px;
+            left:24.5%;
+            right: 23.5%;
+            bottom:22px;
+            border:1px solid  #034B79;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:16px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 200px;
+            height: 94px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 36px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:63px;
+            bottom:10px;
+            width: 22%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 40px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 18px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 28px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 220px;
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 530px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox{
+            position: relative;
+        }
+        .mapBox,.mapView{
+            width: 100%;
+            min-height: 630px;
+            position: relative;
+            /*border:1px solid red;*/
+        }
+
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 300px;
+            height: 44px;
+            font-size: 20px;
+            line-height: 44px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 44px;
+            cursor: pointer;
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+    }
+    @media screen and (min-height:901px) and (max-height:1050px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            background: rgba(0,0,0,0.5);
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            padding-top: 4px;
+        }
+        .topBar img{
+            vertical-align: middle;
+            height: 60px;
+            /*border:1px solid red;*/
+
+        }
+        .topBar span{
+            font-size: 34px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:63px;
+            left:1%;
+            bottom:10px;
+            margin-right:10px;
+            width: 23%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,.baseData,
+        .goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 18px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 175px;
+            height: 175px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -14px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            font-size: 12px;
+            height: 84px;
+            overflow: hidden;
+
+        }
+        .monitoringNodes,.baseData{
+            height: 350px;
+        }
+       .abnormalCategoryCount,.dealState{
+            height: 280px;
+       }
+       .monitoringDynamic,.goodsCategory{
+          height: 330px;
+       }
+
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            background: rgba(29,34,46,0.5);
+        }
+
+        #con0{
+            background: #34373c;
+        }
+
+        #tab0{
+            /*border:1px solid red;*/
+            height: 64px;
+            overflow: hidden;
+        }
+
+        .node-monitoring{
+            overflow: hidden;
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            vertical-align: text-top;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 20%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 36%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 32%;
+        }
+
+        .brokenLine,.columnar{
+            min-height: 195px;
+        }
+
+        .pie,.statis{
+            min-height: 200px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:63px;
+            left:24.5%;
+            right: 23.5%;
+            bottom:22px;
+            border:1px solid  #034B79;
+            height: 1015px;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:16px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 200px;
+            height: 94px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 36px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:63px;
+            bottom:10px;
+            width: 22%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 40px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 18px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 28px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 220px;
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 530px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox{
+            position: relative;
+        }
+        .mapBox,.mapView{
+            width: 100%;
+            min-height: 630px;
+            position: relative;
+        }
+
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 300px;
+            height: 44px;
+            font-size: 20px;
+            line-height: 44px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 44px;
+            cursor: pointer;
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+    }
+}
+
+/*1441~1680*/
+@media screen and (min-width: 1441px) and (max-width: 1680px){
+    @media screen and (max-height:768px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            background:rgba(0,0,0,0.5);
+            /*overflow: hidden;*/
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            /*padding: 2px 0;*/
+            /*border:1px solid red;*/
+        }
+        .topBar img{
+            vertical-align: middle;
+            height: 60px;
+            /*border:1px solid red;*/
+        }
+        .topBar span{
+            font-size: 28px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:60px;
+            left:1%;
+            bottom:10px;
+            margin-right:10px;
+            width: 23%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,.baseData,
+        .goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 16px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 160px;
+            height: 160px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -20px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            font-size: 12px;
+            height: 94px;
+            overflow: hidden;
+        }
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            /*border:1px solid red;*/
+            background: rgba(29,34,46,0.5);
+        }
+        #con0{
+            background: #34373c;
+        }
+
+        .tab0{
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 24%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 32%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 32%;
+        }
+
+        .brokenLine,.columnar{
+            min-height: 170px;
+            /*border:1px solid red;*/
+        }
+
+        .pie,.statis{
+            min-height: 200px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:60px;
+            left:24.5%;
+            right: 23.5%;
+            bottom:10px;
+            border:1px solid  #034B79;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:18px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 220px;
+            height: 90px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 36px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:60px;
+            bottom:10px;
+            width: 22%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 30px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 24px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 174px;
+            /*border:1px solid red;*/
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 484px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox, .mapView{
+            position: relative;
+            width: 100%;
+            min-height: 570px;
+        }
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 270px;
+            height: 40px;
+            font-size: 18px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+    }
+    @media screen and (min-height:768px) and (max-height:898px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            background:rgba(0,0,0,0.5);
+            /*overflow: hidden;*/
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            /*padding: 2px 0;*/
+            /*border:1px solid red;*/
+        }
+        .topBar img{
+            vertical-align: middle;
+            height: 60px;
+            /*border:1px solid red;*/
+        }
+        .topBar span{
+            font-size: 28px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:60px;
+            left:1%;
+            bottom:10px;
+            margin-right:10px;
+            width: 23%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,.baseData,
+        .goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 16px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 160px;
+            height: 160px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -20px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            font-size: 12px;
+            height: 94px;
+            overflow: hidden;
+        }
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            /*border:1px solid red;*/
+            background: rgba(29,34,46,0.5);
+        }
+        #con0{
+            background: #34373c;
+        }
+
+        .tab0{
+            height: 56px;
+            overflow: hidden;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 24%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 32%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 32%;
+        }
+
+        .brokenLine,.columnar{
+            min-height: 170px;
+            /*border:1px solid red;*/
+        }
+
+        .pie,.statis{
+            min-height: 200px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:60px;
+            left:24.5%;
+            right: 23.5%;
+            bottom:10px;
+            border:1px solid  #034B79;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:18px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 220px;
+            height: 90px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 36px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:60px;
+            bottom:10px;
+            width: 22%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 30px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 24px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 174px;
+            /*border:1px solid red;*/
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 484px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox, .mapView{
+            position: relative;
+            width: 100%;
+            min-height: 570px;
+        }
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 270px;
+            height: 40px;
+            font-size: 18px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+    }
+    @media screen and (min-height:899px) and (max-height:900px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            /*overflow: hidden;*/
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            padding-top: 4px;
+        }
+        .topBar img{
+            vertical-align: middle;
+            height: 60px;
+            /*border:1px solid red;*/
+
+        }
+        .topBar span{
+            font-size: 34px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:63px;
+            left:1%;
+            bottom:10px;
+            margin-right:10px;
+            width: 23%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,.baseData,
+        .goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 18px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 175px;
+            height: 175px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -14px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            /*font-size: 14px;*/
+            height: 94px;
+            overflow: hidden;
+
+        }
+        .monitoringNodes,.baseData{
+            height: 350px;
+        }
+       .abnormalCategoryCount,.dealState{
+            height: 280px;
+       }
+       .monitoringDynamic,.goodsCategory{
+          height: 330px;
+       }
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            /*border:1px solid red;*/
+            background: rgba(29,34,46,0.5);
+        }
+        #con0{
+            background: #34373c;
+        }
+
+        .tab0{
+            height: 56px;
+            overflow: hidden;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 24%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 32%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 32%;
+        }
+
+        .brokenLine,.columnar{
+            min-height: 190px;
+        }
+
+        .pie,.statis{
+            min-height: 200px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:63px;
+            left:24.5%;
+            right: 23.5%;
+            bottom:22px;
+            border:1px solid  #034B79;
+            height: 1015px;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:18px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 190px;
+            height: 100px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 20px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 40px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:63px;
+            bottom:10px;
+            width: 22%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 40px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 18px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 28px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 220px;
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 530px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox{
+            position: relative;
+        }
+        .mapBox,.mapView{
+            width: 100%;
+            min-height: 630px;
+            position: relative;
+            /*border:1px solid red;*/
+        }
+
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 300px;
+            height: 44px;
+            font-size: 20px;
+            line-height: 44px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 44px;
+            cursor: pointer;
+
+
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+    }
+    @media screen  and (min-height:901px) and (max-height:1080px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            background:rgba(0,0,0,0.5);
+            /*overflow: hidden;*/
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            /*padding: 2px 0;*/
+            /*border:1px solid red;*/
+        }
+        .topBar img{
+            vertical-align: middle;
+            height: 60px;
+            /*border:1px solid red;*/
+        }
+        .topBar span{
+            font-size: 28px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:60px;
+            left:1%;
+            bottom:10px;
+            margin-right:10px;
+            width: 23%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,.baseData,
+        .goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 16px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 160px;
+            height: 160px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -20px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            font-size: 12px;
+            height: 84px;
+            overflow: hidden;
+        }
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            /*border:1px solid red;*/
+            background: rgba(29,34,46,0.5);
+        }
+        #con0{
+            background: #34373c;
+        }
+
+        #tab0{
+            height: 64px;
+            overflow: hidden;
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            vertical-align: text-top;
+            /*border:1px solid red;*/
+        }
+
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 24%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 32%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 32%;
+        }
+
+
+        .brokenLine,.columnar{
+            min-height: 170px;
+            /*border:1px solid red;*/
+        }
+
+        .pie,.statis{
+            min-height: 200px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:60px;
+            left:24.5%;
+            right: 23.5%;
+            bottom:10px;
+            border:1px solid  #034B79;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:18px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 220px;
+            height: 90px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 36px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:60px;
+            bottom:10px;
+            width: 22%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 30px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 24px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 174px;
+            /*border:1px solid red;*/
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 484px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox, .mapView{
+            position: relative;
+            width: 100%;
+            min-height: 570px;
+        }
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 270px;
+            height: 40px;
+            font-size: 18px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+    }
+    @media screen  and (min-height:1050px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            padding: 5px 0;
+        }
+        .topBar img{
+            vertical-align: middle;
+        }
+        .topBar span{
+            font-size: 40px;
+            margin: 0 30px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:87px;
+            left:1%;
+            bottom:20px;
+            margin-right:10px;
+            width: 22%;
+            /*border:1px solid red;*/
+        }
+
+        .monitoringNodes,.monitoringDynamic,.abnormalCategoryCount,.baseData,.goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 24px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+        /*.monitoringNodes{*/
+            /*min-height: 375px;*/
+        /*}*/
+        .monitoringDynamic,.abnormalCategoryCount{
+            min-height:255px;
+        }
+        .baseData{
+            min-height: 210px;
+        }
+        .dealState{
+            min-height:300px ;
+        }
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 240px;
+            height: 240px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -10px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            /*font-size: 14px;*/
+            height: 94px;
+            overflow: hidden;
+
+        }
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            /*border:1px solid red;*/
+            background: rgba(29,34,46,0.5);
+        }
+        #con0{
+            background: #34373c;
+        }
+
+        .tab0{
+            height: 56px;
+            overflow: hidden;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 24%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 32%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 32%;
+        }
+
+
+        .brokenLine,.columnar{
+            min-height: 200px;
+        }
+
+        .pie,.statis{
+            min-height: 328px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:87px;
+            left:23.5%;
+            right: 23.5%;
+            bottom:22px;
+            border:1px solid  #034B79;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:18px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 190px;
+            height: 100px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 20px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 40px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:87px;
+            bottom:20px;
+            width: 22%;
+            /*border:1px solid red;*/
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 40px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 18px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 28px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 228px;
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 538px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox{
+            position: relative;
+        }
+        .mapBox,.mapView{
+            width: 100%;
+            min-height: 770px;
+            position: relative;
+            /*border:1px solid red;*/
+        }
+
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 300px;
+            height: 44px;
+            font-size: 20px;
+            line-height: 44px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 44px;
+            cursor: pointer;
+
+
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+    }
+}
+
+/*1680~1920*/
+@media screen and (min-width: 1681px) and (max-width: 1920px){
+    @media screen and (max-height:768px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            background:rgba(0,0,0,0.5);
+            /*overflow: hidden;*/
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            /*padding: 2px 0;*/
+            /*border:1px solid red;*/
+        }
+        .topBar img{
+            vertical-align: middle;
+            height: 60px;
+            /*border:1px solid red;*/
+        }
+        .topBar span{
+            font-size: 28px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:60px;
+            left:1%;
+            bottom:10px;
+            margin-right:10px;
+            width: 23%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,.baseData,
+        .goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 16px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 160px;
+            height: 160px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -20px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            font-size: 12px;
+            height: 94px;
+            overflow: hidden;
+        }
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            /*border:1px solid red;*/
+            background: rgba(29,34,46,0.5);
+        }
+        #con0{
+            background: #34373c;
+        }
+
+        .tab0{
+            height: 56px;
+            overflow: hidden;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 24%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 32%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 32%;
+        }
+
+        .brokenLine,.columnar{
+            min-height: 170px;
+            /*border:1px solid red;*/
+        }
+
+        .pie,.statis{
+            min-height: 200px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:60px;
+            left:24.5%;
+            right: 23.5%;
+            bottom:10px;
+            border:1px solid  #034B79;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:18px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 220px;
+            height: 90px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 36px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:60px;
+            bottom:10px;
+            width: 22%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 30px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 24px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 174px;
+            /*border:1px solid red;*/
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 484px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox, .mapView{
+            position: relative;
+            width: 100%;
+            min-height: 570px;
+        }
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 270px;
+            height: 40px;
+            font-size: 18px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+    }
+    @media screen and (min-height:769px) and (max-height:898px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            background:rgba(0,0,0,0.5);
+            /*overflow: hidden;*/
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            /*padding: 2px 0;*/
+            /*border:1px solid red;*/
+        }
+        .topBar img{
+            vertical-align: middle;
+            height: 60px;
+            /*border:1px solid red;*/
+        }
+        .topBar span{
+            font-size: 28px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:60px;
+            left:1%;
+            bottom:10px;
+            margin-right:10px;
+            width: 23%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,.baseData,
+        .goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 16px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 160px;
+            height: 160px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -20px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            font-size: 12px;
+            height: 94px;
+            overflow: hidden;
+        }
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            /*border:1px solid red;*/
+            background: rgba(29,34,46,0.5);
+        }
+        #con0{
+            background: #34373c;
+        }
+
+        .tab0{
+            height: 56px;
+            overflow: hidden;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 24%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 32%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 32%;
+        }
+
+        .brokenLine,.columnar{
+            min-height: 170px;
+            /*border:1px solid red;*/
+        }
+
+        .pie,.statis{
+            min-height: 200px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:60px;
+            left:24.5%;
+            right: 23.5%;
+            bottom:10px;
+            border:1px solid  #034B79;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:18px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 220px;
+            height: 90px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 36px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:60px;
+            bottom:10px;
+            width: 22%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 30px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 24px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 174px;
+            /*border:1px solid red;*/
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 484px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox, .mapView{
+            position: relative;
+            width: 100%;
+            min-height: 570px;
+        }
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 270px;
+            height: 40px;
+            font-size: 18px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+    }
+    @media screen and (min-height:899px) and (max-height:900px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            /*overflow: hidden;*/
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            padding-top: 4px;
+        }
+        .topBar img{
+            vertical-align: middle;
+            height: 60px;
+            /*border:1px solid red;*/
+
+        }
+        .topBar span{
+            font-size: 34px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:63px;
+            left:1%;
+            bottom:10px;
+            margin-right:10px;
+            width: 23%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,.baseData,
+        .goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 18px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 175px;
+            height: 175px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -14px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            /*font-size: 14px;*/
+            height: 94px;
+            overflow: hidden;
+
+        }
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            /*border:1px solid red;*/
+            background: rgba(29,34,46,0.5);
+        }
+        #con0{
+            background: #34373c;
+        }
+
+        .tab0{
+            height: 56px;
+            overflow: hidden;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 24%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 32%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 32%;
+        }
+
+        .brokenLine,.columnar{
+            min-height: 190px;
+        }
+
+        .pie,.statis{
+            min-height: 200px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:63px;
+            left:24.5%;
+            right: 23.5%;
+            bottom:22px;
+            border:1px solid  #034B79;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:18px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 190px;
+            height: 100px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 20px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 40px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:63px;
+            bottom:10px;
+            width: 22%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 40px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 18px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 28px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 220px;
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 530px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox{
+            position: relative;
+        }
+        .mapBox,.mapView{
+            width: 100%;
+            min-height: 630px;
+            position: relative;
+            /*border:1px solid red;*/
+        }
+
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 300px;
+            height: 44px;
+            font-size: 20px;
+            line-height: 44px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 44px;
+            cursor: pointer;
+
+
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+    }
+    @media screen  and (min-height:900px) and (max-height:1050px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            padding: 5px 0;
+        }
+        .topBar img{
+            vertical-align: middle;
+        }
+        .topBar span{
+            font-size: 40px;
+            margin: 0 30px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:87px;
+            left:1%;
+            bottom:20px;
+            margin-right:10px;
+            width: 21%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,.abnormalCategoryCount,.baseData,.goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 24px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 150px;
+            height: 150px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 40%;
+            height: 40%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -10px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            height: 94px;
+            overflow: hidden;
+        }
+
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            background: rgba(29,34,46,0.5);
+        }
+
+        #con0{
+            background: #34373c;
+        }
+
+        #tab0{
+
+            height: 64px;
+            overflow: hidden;
+        }
+        .monitoringNodes{
+            height: 300px;
+        }
+        .baseData{
+            height: 250px;
+        }
+       .abnormalCategoryCount,.dealState{
+            /*height: 250px;*/
+       }
+       .monitoringDynamic,.goodsCategory{
+          height: 260px;
+       }
+
+        .node-monitoring{
+            overflow: hidden;
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            /*padding: 6px 0;*/
+            line-height: 32px;
+            vertical-align: text-top;
+            /*border:1px solid red;*/
+        }
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 20%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 32%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 36%;
+        }
+
+        .brokenLine,.columnar{
+            min-height: 200px;
+        }
+
+        .statis{
+            min-height: 200px;
+        }
+        .pie{
+            min-height: 250px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:87px;
+            left:22.5%;
+            right: 22.5%;
+            bottom:12px;
+            border:1px solid  #034B79;
+            height: 873px;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:18px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 190px;
+            height: 100px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 20px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 40px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:87px;
+            bottom:10px;
+            width: 21%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 40px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 18px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 28px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 180px;
+            /*border:1px solid red;*/
+            margin-top: 10px;
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 540px;
+            margin-top: 10px;
+            /*border:1px solid red;*/
+        }
+        /*#con1 li,#con2 li{
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin: 0px 20px;
+            border-top:1px dashed #ccc;
+        }*/
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox{
+            position: relative;
+        }
+        .mapBox,.mapView{
+            width: 100%;
+            min-height: 675px;
+            position: relative;
+        }
+
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 300px;
+            height: 44px;
+            font-size: 20px;
+            line-height: 44px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 44px;
+            cursor: pointer;
+
+
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+        .paragraph{
+            width: 95%;
+            padding-top: 18px;
+        }
+        .paragraph span.Intotal,span.IntotalRight{
+            display: inline-block;
+            width: 50%;
+            text-align: right;
+        }
+        .paragraph .IntotalRight{
+            font-size: 22px;
+            text-align: left;
+            width: 30%
+        }
+        p.dealP{
+            font-size: 16px;
+            padding-top: 10px;
+        }
+        .HowMuch{
+            font-size: 12px;
+            color: #ccc;
+            text-align: left;
+        }
+        /*p.dealP{
+            font-size: 15px;
+        }*/
+        p.dealDataP span{
+            font-size: 16px;
+            display: inline-block;
+        }
+        p.dealDataP span.Ncolor{
+            color: #f5b300;
+            font-size: 30px;
+            margin: 0 8px;
+        }
+        .CenterWidth p{
+            margin-top: 0px;
+        }
+        .CenterWidth{
+            width: 200px;
+            height: 120px;
+        }
+    }
+    @media screen  and (min-height:1051px) and (max-height:1080px){
+        .container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            background:rgba(0,0,0,0.5);
+            /*overflow: hidden;*/
+        }
+        .topBar,.contentLeft,.contentMain,.contentRight{
+            color:#ffffff;
+        }
+        .topBar{
+            text-align: center;
+            /*padding: 2px 0;*/
+            /*border:1px solid red;*/
+        }
+        .topBar img{
+            vertical-align: middle;
+            height: 60px;
+            /*border:1px solid red;*/
+        }
+        .topBar span{
+            font-size: 28px;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+        .contentLeft{
+            position: absolute;
+            top:60px;
+            left:1%;
+            bottom:10px;
+            margin-right:10px;
+            width: 23%;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,.baseData,
+        .goodsCategory,.dealState{
+            border:1px solid #034B79;
+            text-align: center;
+            position: relative;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .leftTop,.rightTop{
+            width: 20px;
+            height:20px;
+            position: absolute;
+            border:3px solid #007AC4;
+            top:-2px;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        .leftTop{
+            left:-2px;
+            border-right: 0;
+        }
+
+        .rightTop{
+            right:-2px;
+            border-left: 0;
+        }
+
+        .monitoringNodes .title,
+        .monitoringDynamic .title,
+        .abnormalCategoryCount .title,
+        .actualTimeDeal .title,
+        .baseData .title,
+        .goodsCategory .title,
+        .dealState .title{
+            font-size: 16px;
+            text-align: center;
+            margin-top: 2px;
+            padding: 2px 0;
+            font-weight: bold;
+        }
+
+        .monitoringNodes,.monitoringDynamic,
+        .abnormalCategoryCount,
+        .baseData,.goodsCategory,.dealState{
+            background: rgba(0,122,196,0.1);
+        }
+
+
+        .line{
+            width: 80%;
+            height: 2px;
+            filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            -ms-filter:alpha(opacity=100,finishopacity=50,style=1,startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#0270B3,endcolorstr=#10161F,gradientType=0);
+            background:-moz-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-webkit-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:-o-linear-gradient(to left,#10161F,#0270B3,#10161F);
+            background:linear-gradient(to left,#10161F,#0270B3,#10161F);
+            margin: 4px auto;
+        }
+
+        .raBar{
+            background: -webkit-radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            -webkit-repeating-radial-gradient(rgba(17,184,210, 0.0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            -webkit-linear-gradient(90deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            -webkit-linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            background:radial-gradient(center, rgba(17,184,210,0.6) 0%, rgba(17,184,210,0) 70%),
+            repeating-radial-gradient(rgba(17,184,210, 0) 5.8%, rgba(17,184,210, 0) 18%, #0f4a68 18.6%, rgba(17,184,210, 0) 18.9%),
+            linear-gradient(90deg, rgba(17,184,210, 0) 49.5%, #0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%),
+            linear-gradient(0deg, rgba(17,184,210, 0) 49.5%,#0f4a68 50%, #0f4a68 50%, rgba(17,184,210, 0) 50.2%);
+            width: 160px;
+            height: 160px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid #124453;
+            margin:0 auto;
+            overflow: hidden;
+        }
+
+        .raBar:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: blips 5s infinite;
+            animation-timing-function: linear;
+            animation-delay: 1.4s;
+        }
+
+        .raBar:after {
+            content: ' ';
+            display: block;
+            background-image: linear-gradient(50deg, rgba(0, 255, 51, 0) 50%, #44ade8 100%);
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: radar-beam 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: bottom right;
+            border-radius: 100% 0 0 0;
+        }
+
+        @keyframes radar-beam {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blips {
+            14% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            14.0002% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            25% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            }
+            26% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            40% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            45% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 1;
+            }
+
+            100% {
+                background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 56% 76%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(2vmin circle at 26% 86%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+            radial-gradient(2vmin circle at 16% 56%, #ffffff 10%, #0f4a68 30%, rgba(255, 255, 255, 0) 100%);
+                opacity: 0;
+            }
+        }
+
+        .tabList{
+            margin: -20px 14px 0 14px;
+            z-index: 12;
+            position: relative;
+            font-size: 12px;
+            height: 84px;
+            overflow: hidden;
+        }
+        .node-monitoring,.node-monitoring li{
+            width: 100%;
+            text-align: left;
+            /*border:1px solid red;*/
+            background: rgba(29,34,46,0.5);
+        }
+        #con0{
+            background: #34373c;
+        }
+
+        #tab0{
+            height: 64px;
+            overflow: hidden;
+        }
+
+        .node-monitoring li span{
+            display: inline-block;
+            padding: 6px 0;
+            vertical-align: text-top;
+            /*border:1px solid red;*/
+        }
+
+
+        .node-monitoring li span:nth-child(1){
+            width: 10%;
+            padding-left: 2%;
+        }
+        .node-monitoring li span:nth-child(2){
+            width: 24%;
+        }
+        .node-monitoring li span:nth-child(3){
+            width: 32%;
+        }
+        .node-monitoring li span:nth-child(4){
+            width: 32%;
+        }
+
+
+        .brokenLine,.columnar{
+            min-height: 170px;
+            /*border:1px solid red;*/
+        }
+
+        .pie,.statis{
+            min-height: 200px;
+        }
+        .contentMain{
+            position: absolute;
+            vertical-align: top;
+            top:60px;
+            left:24.5%;
+            right: 23.5%;
+            bottom:10px;
+            border:1px solid  #034B79;
+        }
+
+        .actualTimeDeal{
+            text-align: center;
+        }
+
+        .dealDataBox{
+            overflow: hidden;
+            margin-top:18px;
+            display: inline-block;
+        }
+
+        .dealData{
+            width: 220px;
+            height: 90px;
+            float: left;
+            background: rgba(3,60,99,0.5);
+        }
+
+        .dealData p{
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .dealData b{
+            font-size: 36px;
+            color:#f5b300;
+            display: inline-block;
+            margin: 6px 10px 0 0;
+        }
+
+        .dealData span{
+            font-size: 20px;
+        }
+
+        .marginR{
+            margin-right: 20px;
+        }
+
+        .contentRight{
+            position: absolute;
+            right:1%;
+            top:60px;
+            bottom:10px;
+            width: 22%;
+        }
+
+        .baseData table{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .baseData table td{
+            line-height: 30px;
+        }
+
+        .baseData table td:nth-child(1){
+            width: 42%;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        .baseData table td:nth-child(2){
+            text-align: left;
+        }
+
+        .baseData table td:nth-child(2) span{
+            font-size: 24px;
+            margin:0 6px;
+        }
+
+        .scrollBox{
+            overflow: hidden;
+            height: 174px;
+            /*border:1px solid red;*/
+        }
+        .scrollbox{
+            overflow: hidden;
+            height: 484px;
+            /*border:1px solid red;*/
+        }
+        .dealState ul{
+            overflow: hidden;
+        }
+        .dealState ul li{
+            text-align: left;
+            margin:0 40px;
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom:1px solid rgba(0,122,196,0.2);
+            text-indent: 6px;
+        }
+
+        .mapBox, .mapView{
+            position: relative;
+            width: 100%;
+            min-height: 570px;
+        }
+
+        .toggleMap{
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:4%;
+            border:1px solid #0079c4;
+            width: 270px;
+            height: 40px;
+            font-size: 18px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 90;
+        }
+
+        .toggleMap span{
+            color:#0079c4;
+            display: inline-block;
+            width: 49%;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .toggleMap span.sel{
+            background:#0079c4;
+            color:#ffffff;
+        }
+
+        .tooltips{
+            display: inline-block;
+            padding: 4px 6px;
+            z-index: 1;
+            position: absolute;
+            background: rgba(50,50,50,0.8);
+            border-radius: 2px;
+        }
+    }
+}
+
+        

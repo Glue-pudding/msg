@@ -1,0 +1,159 @@
+<div class="container" ng-controller="submit-order">
+  <div class="navbar navbar-inverse navbar-fixed-top xs-type">
+        <div class="container">
+                <div class="row">
+                    <a class="pull-left" href="#main">
+                        <img src="images/hand_logo.png" alt="">
+                    </a>
+                    <div class="logoBar-right pull-right">
+                        <p>
+                            <i class="glyphicon glyphicon-user user-icon"></i><a class="" href="#user-message">{{UserName}}</a>
+                            <a href="" ng-click="loginOut()">退出</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+<div class="orderBox" >
+    <div class="line-1">
+        <div class="line1-left pull-left">
+            <img ng-src="{{imgSrc}}" alt="" class="subOrderImg">
+        </div>
+        <div class="line1-right pull-left">
+            <h3>{{data.DataSetName}}</h3>
+            <p class="order-desc">
+               {{data.AbstractInfo}}
+            </p>
+        </div>
+    </div>
+    <div class="line-2" >
+    <div class="table-box">
+    <table class="table">
+        <thead>
+            <tr class="active">
+                <td>数据属性</td>
+                <td>属性描述</td>
+                <td>数据选用</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="i in data.Schema">
+                <td>{{i.FieldName}}</td>
+                <td>{{i.FieldDescription}}</td>
+                <td>
+                   <input type="checkbox" ng-model="i.checked" ng-change="selectOne($index,i.FieldName,i.FieldDescription,i.FieldType,i.IsIdentifyFieldID)">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <input id="flag" type="checkbox" ng-model="select_all" ng-change="selectAll()">全选
+                </td>
+            </tr>
+
+        </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="line-3">
+        <p>确认订单信息</p>
+        <div class="table-box">
+            <table class="table">
+                <thead>
+                <tr class="active">
+                    <td>价格</td>
+                    <td>购买量</td>
+                    <td>使用期</td>
+                    <td>小计</td>
+                </tr>
+                </thead>
+                <tbody class="order-info">
+                <tr>
+                    <td><span ng-if="punit(data.PriceUnit)">{{data.PriceValue}}元/{{priceUnit}}</span></td>
+                    <td>{{data.Amount}}</td>
+                    <td>
+                        {{data.SubscriptionBeginTime}} 至 {{data.SubscriptionEndTime}}
+                    </td>
+                    <td>
+                        ￥<span>{{data.PriceTotal}}</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="line-4">
+        <input type="checkbox" id="bill" ng-click="fapiao($event)" ng-model="myLet" name="a"><label for="bill">增值税发票</label>
+    </div>
+    <div ng-show="myLet" class="invoice">
+        <form class="form-horizontal" name="myForm" novalidate>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-4 control-label">公司名称</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputEmail3" placeholder="输入公司名" ng-model="CompanyName" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">纳税人识别号</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="输入识别号" ng-model="TaxpayerId" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">银行卡号</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="输入银行卡卡号" ng-model="Account" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">开户银行</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="输入开户行" ng-model="AccountBankName" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">公司地址</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="输入公司地址" ng-model="CompanyAddress" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">电话</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="输入电话" ng-model="CompanyTelNumber" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">发票寄送</label>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">收件地址</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="输入收件地址" ng-model="BillAddress" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">收件人</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="输入收件人" ng-model="BillContact" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">联系电话</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="输入电话" ng-model="BillTelNumber" required>
+            </div>
+          </div>
+          <div class="submit-btn" style="width:1100px">
+            <button class="btn btn-info btn-lg pull-right" ng-click="handleSubmit()" ng-disabled="myForm.$invalid" style="margin-top: 30px">提交订单</button>
+          </div>
+        </form>
+    </div>
+</div>
+<div class="submit-btn" ng-hide="myLet">
+    <a class="btn btn-info btn-lg pull-right" ng-click="handleSubmit()">提交订单</a>
+</div>
+</div>
+</div>

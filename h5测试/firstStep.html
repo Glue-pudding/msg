@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- 设置初始缩放比例为1.0，使用设备宽度  -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+     <link rel="stylesheet" type="text/css" href="css/firstStep.css">
+     <link rel="stylesheet" type="text/css" href="css/common.css">
+
+    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+</head>
+<body>
+<header>
+     <ul class="headerUl">
+       <li>
+         <img src="images/back.png" class="backOff">
+       </li>
+       <li>身份认证</li>
+       <li>
+         
+       </li>
+     </ul>
+   </header>
+  <div class="links">
+    <p>第一步</p>
+    <p>输入你的身份信息</p>
+  </div>
+  <div>
+    <input type="text" placeholder="输入你的姓名(仅支持中文)" id="Name" ><br>
+    <input type="text" placeholder="输入你的身份证号" id="Number" class="input"><br><div id="span"></div>
+  </div>
+  <button type="submit" class="btn" id="btn">进入人脸认证</button>
+</body>
+<script type="text/javascript">
+
+ Zepto(function($){
+//判断名字是中文
+   var name = $("#Name");
+   name.on('blur',function(){
+      var reg =/^([\u4e00-\u9fa5]){2,4}$/;
+      var Flag = reg.test(name.val());
+      if(Flag){
+       
+          }else{
+             name.val('');
+         };
+    });
+//判断身份证号是否正确
+  var IDcard = $("#Number");
+  IDcard.on('blur',function(){
+     var ID =/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
+     var IDFlag = ID.test(IDcard.val());
+     if(IDFlag){
+      
+     }else{
+              $("#span").html("请输入正确的身份证号！").css({"color":"red","font-size":"15px","margin-left":"10px"});
+             IDcard.val('');
+        };
+  });
+  IDcard.on('touchstart',function(){
+     $("#span").html("");
+  });
+  (function($){
+    $('#Number').addEventListener('click', function(){
+      $('#Number').focus();
+    });
+  })(document.querySelector.bind(document));
+
+  //页面加载之后先进行一次验证
+  show(velidate());
+  name.on({input:function(){show(velidate())}});
+  IDcard.on({input:function(){show(velidate())}});
+  console.log(IDcard.val().length);
+  //获取验证的结果
+  function velidate(){
+    var flag = true;
+    if(name.val()==""){flag= false;}
+    if(IDcard.val().length<18 || IDcard.val()==""){flag= false;}
+    return flag;
+  };
+
+  document.querySelector('body').addEventListener('touchend', function(e) {  
+      if(e.target.className != 'input') {  
+          document.querySelector('.input').blur();  
+      }  
+  });
+  //将验证结果反映到页面
+  function show(flag){
+    if(flag){$(".btn").css("background-color","#0096ff");}
+    else{$(".btn").css("background-color","#ccc");}
+  };
+  
+  $('#btn').on('click',function(){
+    
+     if(name.val()=="" || IDcard.val()==""){
+        
+      }else{
+         location.href='dataFace.html?StartSTfacename@{@'+'"name":@'+'"'+name.val()+'"'+','+'@'+'"card":@'+'"'+IDcard.val()+'"'+'}';
+      }
+  });
+  // function faceVerification(text,type){
+  //   if (text=='YES') {
+  //     location.href="success.html";
+  //   }else if(text=='NO'){
+  //     localStorage['type']=type;
+  //     location.href="error.html";
+  //   };
+  // };
+  $(".backOff").click(function(){
+    location.href='index.html';
+  });
+
+});
+ function faceVerification(text,type){
+    if (text=='YES') {
+      location.href="success.html";
+    }else if(text=='NO'){
+      localStorage['type']=type;
+      location.href="error.html";
+    };
+  };
+</script>
+</html>
+
+
